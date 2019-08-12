@@ -389,7 +389,7 @@ W(P_r,P_g)=\inf\limits_{\gamma\sim\prod(P_r,P_g)}E_{(x,y)\sim\gamma}[||x-y||]~~~
 <p>直观上，理解Wasserstein距离为把$P_g$分布挪到$P_r$分布的位置上的最小消耗。</p>
 <p><strong>Wasserstein距离相比KL散度、JS散度的优越性在于，即便两个分布没有重叠，Wasserstein距离仍然能够反映它们的远近</strong></p>
 <p>举例：考虑如下二维空间中的两个分布$P_1$和$P_2$，$P_1$在线段AB上均匀分布，$P_2$在线段CD上均匀分布，通过控制参数$\theta$可以控制着两个分布的距离远近。</p>
-<p><img src="https://pic3.zhimg.com/80/v2-c9cc9f8c879e7fe93d6e3bfafd41bd8a_hd.jpg" alt="img"></p>
+<p><img src="/.io//Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\1.jpg" alt="img"></p>
 <p>容易得到</p>
 <p>$KL(P_1||P_2)=KL(P_2||P_1)=\begin{cases}+\infty &amp; {if ~\theta\ne 0}\\0 &amp; {if~ \theta= 0}\end{cases}$</p>
 <p>$JS(P_1||P_2)=\begin{cases}log2 &amp; {if ~\theta\ne 0}\\0 &amp; {if~ \theta= 0}\end{cases}$</p>
@@ -413,7 +413,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <p>$E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]$                 (22)——WGAN判别器损失函数</p>
 <p><strong>公式(20)是公式(22)的反，可以指示训练进程，其数值越小，表示真实分布与生成分布的Wasserstein距离越小，GAN训练得越好。</strong></p>
 <p>这样，完整的GAN的算法流程为：</p>
-<p><img src="/.io//Users\dufub\AppData\Roaming\Typora\typora-user-images\1565596501452.png" alt="1565596501452"></p>
+<p><img src="/.io//Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\2.png" alt="1565596501452"></p>
 <p>上文说过，WGAN与原始GAN第一种形式相比，只改了四点：</p>
 <ul>
 <li>判别器最后一层去掉sigmoid</li>
@@ -423,13 +423,13 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </ul>
 <p>前三点都是从理论分析中得到的，已经介绍完毕；第四点却是作者从实验中发现的，属于trick，相对比较“玄”。作者发现如果使用Adam，判别器的loss有时候会崩掉，当它崩掉时，Adam给出的更新方向与梯度方向夹角的cos值就变成负数，更新方向与梯度方向南辕北辙，这意味着判别器的loss梯度是不稳定的，所以不适合用Adam这类基于动量的优化算法。作者改用RMSProp之后，问题就解决了，因为RMSProp适合梯度不稳定的情况。</p>
 <h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>1、判别器所近似的Wasserstein距离与生成器的生成图片质量高度相关</p>
-<p><img src="/.io//Users\dufub\AppData\Roaming\Typora\typora-user-images\1565596849041.png" alt="1565596849041"></p>
+<p><img src="/.io//Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\3.png" alt="1565596849041"></p>
 <p>2、WGAN如果用类似DCGAN架构，生成图片的效果与DCGAN差不多：</p>
-<p><img src="/.io//Users\dufub\AppData\Roaming\Typora\typora-user-images\1565596921785.png" alt="1565596921785"></p>
+<p><img src="/.io//Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\4.png" alt="1565596921785"></p>
 <p>但是厉害的地方在于WGAN不用DCGAN各种特殊的架构设计也能做到不错的效果，比如如果大家一起拿掉Batch Normalization的话，DCGAN就崩了：</p>
-<p><img src="/.io//Users\dufub\AppData\Roaming\Typora\typora-user-images\1565596970602.png" alt="1565596970602"></p>
+<p><img src="/.io//Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\5.png" alt="1565596970602"></p>
 <p>如果WGAN和原始GAN都使用多层全连接网络（MLP），不用CNN，WGAN质量会变差些，但是原始GAN不仅质量变得更差，而且还出现了collapse mode，即多样性不足：</p>
-<p><img src="/.io//Users\dufub\AppData\Roaming\Typora\typora-user-images\1565597001833.png" alt="1565597001833"></p>
+<p><img src="/.io//Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\6.png" alt="1565597001833"></p>
 <h4 id="五、结论与思考"><a href="#五、结论与思考" class="headerlink" title="五、结论与思考"></a>五、结论与思考</h4><p>WGAN前作分析了Ian Goodfellow提出的原始GAN两种形式各自的问题，第一种形式等价在最优判别器下等价于最小化生成分布与真实分布之间的JS散度，由于随机生成分布很难与真实分布有不可忽略的重叠以及JS散度的突变特性，使得生成器面临梯度消失的问题；第二种形式在最优判别器下等价于既要最小化生成分布与真实分布直接的KL散度，又要最大化其JS散度，相互矛盾，导致梯度不稳定，而且KL散度的不对称性使得生成器宁可丧失多样性也不愿丧失准确性，导致collapse mode现象。</p>
 <p>WGAN前作针对分布重叠问题提出了一个过渡解决方案，通过对生成样本和真实样本加噪声使得两个分布产生重叠，理论上可以解决训练不稳定的问题，可以放心训练判别器到接近最优，但是未能提供一个指示训练进程的可靠指标，也未做实验验证。</p>
 <p>WGAN本作引入了Wasserstein距离，由于它相对KL散度与JS散度具有优越的平滑特性，理论上可以解决梯度消失问题。接着通过数学变换将Wasserstein距离写成可求解的形式，利用一个参数数值范围受限的判别器神经网络来最大化这个形式，就可以近似Wasserstein距离。在此近似最优判别器下优化生成器使得Wasserstein距离缩小，就能有效拉近生成分布与真实分布。WGAN既解决了训练不稳定的问题，也提供了一个可靠的训练进程指标，而且该指标确实与生成样本的质量高度相关。作者对WGAN进行了实验验证。</p>
