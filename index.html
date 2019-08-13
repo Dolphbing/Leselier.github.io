@@ -313,7 +313,7 @@
 <p>4、以上一切好处不需要精心设计的网络架构，最简单的多层全连接网络就可以做到</p>
 <h4 id="四、详解"><a href="#四、详解" class="headerlink" title="四、详解"></a>四、详解</h4><h5 id="1、原始GAN存在的问题"><a href="#1、原始GAN存在的问题" class="headerlink" title="1、原始GAN存在的问题"></a>1、原始GAN存在的问题</h5><p>原始GAN中判别器要最小化如下损失函数，尽可能把真实样本分为正例，生成样本分为负例：</p>
 <script type="math/tex; mode=display">
-E_{x\thicksim P_{r}}[log(D(x))]+E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~~~~(1)</script><p>其中，$P_r$ 是真实样本分布，$P_g$ 是由生成器产生的样本分布。</p>
+-E_{x\thicksim P_{r}}[log(D(x))]-E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~(1)</script><p>其中，$P_r$ 是真实样本分布，$P_g$ 是由生成器产生的样本分布。</p>
 <p>那么，生成器的损失函数为</p>
 <script type="math/tex; mode=display">
 E_{x\thicksim P_{g}}[log(1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(2)</script><p>那么，原始GAN存在的第一个问题是：判别器越好，生成器梯度消失越严重。</p>

@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/4.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/5.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/6.png">
-<meta property="og:updated_time" content="2019-08-12T11:42:28.233Z">
+<meta property="og:updated_time" content="2019-08-13T02:34:06.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文解读——WGAN相关">
 <meta name="twitter:description" content="Wasserstein GAN一、基本信息会议：ICML 2017  二、研究背景自从GAN在2014年提出以来，GAN就存在着训练困难、生成器和判别器的loss无法指示训练进程、生成样本缺乏多样性等问题。从那时起，很多论文都在尝试解决，但是效果不尽人意，比如最有名的一个改进DCGAN依靠的是对判别器和生成器的架构进行实验枚举，最终找到一组比较好的网络架构设置，但是实际上是治标不治本，没有彻底解决">
@@ -316,7 +316,7 @@
 <p>4、以上一切好处不需要精心设计的网络架构，最简单的多层全连接网络就可以做到</p>
 <h4 id="四、详解"><a href="#四、详解" class="headerlink" title="四、详解"></a>四、详解</h4><h5 id="1、原始GAN存在的问题"><a href="#1、原始GAN存在的问题" class="headerlink" title="1、原始GAN存在的问题"></a>1、原始GAN存在的问题</h5><p>原始GAN中判别器要最小化如下损失函数，尽可能把真实样本分为正例，生成样本分为负例：</p>
 <script type="math/tex; mode=display">
-E_{x\thicksim P_{r}}[log(D(x))]+E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~~~~(1)</script><p>其中，$P_r$ 是真实样本分布，$P_g$ 是由生成器产生的样本分布。</p>
+-E_{x\thicksim P_{r}}[log(D(x))]-E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~(1)</script><p>其中，$P_r$ 是真实样本分布，$P_g$ 是由生成器产生的样本分布。</p>
 <p>那么，生成器的损失函数为</p>
 <script type="math/tex; mode=display">
 E_{x\thicksim P_{g}}[log(1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(2)</script><p>那么，原始GAN存在的第一个问题是：判别器越好，生成器梯度消失越严重。</p>
