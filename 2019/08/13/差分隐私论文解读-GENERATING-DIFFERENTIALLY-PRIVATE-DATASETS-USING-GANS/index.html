@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="一、基本信息 会议：ICLR 2018 Conference Blind Submission 二、研究背景 随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。 三、创新点 1、提出了一个新的机制 2、在训练过程中加上">
+<meta name="description" content="一、基本信息 会议：ICLR 2018 Conference Blind Submission 二、研究背景 随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。 三、创新点 1、我们提出了一种新的非交互式差异隐私数据发">
 <meta name="keywords" content="论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="差分隐私论文解读|GENERATING DIFFERENTIALLY PRIVATE DATASETS USING GANS">
 <meta property="og:url" content="https://Leselier.github.io/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/index.html">
 <meta property="og:site_name" content="Leselier&#39;s Blog">
-<meta property="og:description" content="一、基本信息 会议：ICLR 2018 Conference Blind Submission 二、研究背景 随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。 三、创新点 1、提出了一个新的机制 2、在训练过程中加上">
+<meta property="og:description" content="一、基本信息 会议：ICLR 2018 Conference Blind Submission 二、研究背景 随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。 三、创新点 1、我们提出了一种新的非交互式差异隐私数据发">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-13T13:20:19.189Z">
+<meta property="og:image" content="https://leselier.github.io/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users/dufub/Desktop/Leselier/source/_posts/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/1.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users/dufub/Desktop/Leselier/source/_posts/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/2.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users/dufub/Desktop/Leselier/source/_posts/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/3.png">
+<meta property="og:updated_time" content="2019-08-14T07:23:48.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="差分隐私论文解读|GENERATING DIFFERENTIALLY PRIVATE DATASETS USING GANS">
-<meta name="twitter:description" content="一、基本信息 会议：ICLR 2018 Conference Blind Submission 二、研究背景 随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。 三、创新点 1、提出了一个新的机制 2、在训练过程中加上">
+<meta name="twitter:description" content="一、基本信息 会议：ICLR 2018 Conference Blind Submission 二、研究背景 随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。 三、创新点 1、我们提出了一种新的非交互式差异隐私数据发">
+<meta name="twitter:image" content="https://leselier.github.io/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users/dufub/Desktop/Leselier/source/_posts/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/1.png">
 
 
 
@@ -305,12 +309,82 @@
 <p>二、研究背景</p>
 <p>随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。</p>
 <p>三、创新点</p>
-<p>1、提出了一个新的机制</p>
-<p>2、在训练过程中加上高斯噪声</p>
-<p>3、高准确率 </p>
+<p>1、我们提出了一种新的非交互式差异隐私数据发布机制，以及据我们所知，这是复杂现实世界数据的第一个实用的解决方案；</p>
+<p>2、我们引入了一种新技术，通过在前馈网络训练过程中增加噪声来进行隐私保护；</p>
+<p>3、我们证明这种技术可以保证所有的输出和神经网络中的学习到的权重可以保证差分隐私；</p>
+<p>4、我们证明我们能够在保持合理隐私预算的同时实现学习任务的高准确性。</p>
 <p>四、详解</p>
-<p>五、实验结果</p>
+<p>1、GAN的介绍</p>
+<p>一个生成网络与一个判别网络组成。生成网络从潜在空间（latent space）中随机取样作为输入，其输出结果需要尽量模仿训练集中的真实样本。判别网络的输入则为真实样本或生成网络的输出，其目的是将生成网络的输出从真实样本中尽可能分辨出来。而生成网络则要尽可能地欺骗判别网络。两个网络相互对抗、不断调整参数，最终目的是使判别网络无法判断生成网络的输出结果是否真实。</p>
+<p>2、差分隐私</p>
+<p>给定一个具有差分隐私的算法 $A_p(\cdot)$ 。该算法是一种随机化算法，目的是为了让观察者难以重构输入数据，其中观察者是任何使用数据获取算法输出的人。差异隐私的定义：</p>
+<p>Definition 3.1：设有随机化算法 $A_p$ 提供 ($\epsilon$,$\delta$) 差分隐私保护，对于任何两个兄弟数据集 $D$ 和 $D^{\prime}$ （它们之间相差一条数据）和任何一个输出子集 $S$ ，满足：</p>
+<script type="math/tex; mode=display">
+P(A_P(D)\in S)\leqslant e^{\epsilon}\cdot P(A_P(D^\prime)\in S) + \delta</script><p>可以得到这个定义等价于：</p>
+<script type="math/tex; mode=display">
+|log(\frac{P(A_P(D)=s)}{P(A_P(D^\prime)= s)})|\leqslant \epsilon</script><p>并且有 $1-\delta$ 的可能性 $s$ 在输出范围，$\epsilon$ 反应了隐私水平，$\epsilon$ 越小，表示在两个数据集上的输出差别小，说明具有较高的数据扰动，但隐私保护程度高。没有隐私保护的话，$\epsilon=\infty$  。</p>
+<p>实现差分隐私最广泛使用的两种机制是拉普拉斯算子和高斯噪声，我们在这里使用高斯噪声机制，高斯噪声机制定义：</p>
+<script type="math/tex; mode=display">
+M(d)\triangleq f(d)+N(0,s^2_f\sigma^2)</script><p>这里 $s_f$是差分隐私的敏感度，$s_f=|f(d)-f(d^\prime)|$ 。</p>
+<p>3、具体方法</p>
+<p>需要实现的目标：</p>
+<p>给定一个数据集 $X\sim p_{data}(x)$，利用差分隐私机制 $M$ 生成一个人工数据集 $\widetilde{X} = M(X)$。</p>
+<p>-数据分布相似或相同 $\widetilde{X}\sim p_{data}(x)$</p>
+<p>-对任意相邻数据集 $X,X^\prime$ 提供差分隐私保护 $P(M(X)\in S)\leqslant e^{\epsilon}\cdot P(M(X^\prime)\in S) + \delta$</p>
+<p>为了实现差分隐私，我们采用如下的办法：</p>
+<p><img src="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users\dufub\Desktop\Leselier\source\_posts\差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS\1.png" alt></p>
+<p>在GAN的判别器神经网络中引入噪声层，以致于使它的输出和生成器神经网络的权重满足差分隐私，这样，我们可以利用生成器生成可以用于发布的满足差分隐私的数据集。</p>
+<p>4、理论分析，只要我们高斯噪声层 $Y\sim N(0,\sigma^2)$ 满足 $\sigma \ge C\sqrt{2log(1.25/\delta)}/\epsilon$ ，就能满足 $(\epsilon,\delta)-$差分隐私。</p>
+<p>这里 $C$ 是查询函数的敏感度。</p>
+<p>证明：满足 $(\epsilon,\delta)-$差分隐私即</p>
+<script type="math/tex; mode=display">
+|ln\frac{e^{-\frac{1}{2\sigma^2}x^2}}{e^{-\frac{1}{2\sigma^2}(x+\triangle f)^2}}|=|\frac{1}{2\sigma^2}(2x\triangle f+(\triangle f)^2)|\le \epsilon\\
+\therefore|x| \le \frac{\sigma^2\epsilon}{\triangle f}-\frac{\triangle f}{2}</script><p>令 $t=\frac{\sigma^2\epsilon}{\triangle f}-\frac{\triangle f}{2}$ ，当且仅当 $||x||\le t$ 时，该分布是满足 $(\epsilon,\delta)-$差分隐私的，而当 $||x||&gt;t$ 时为隐私泄露，我们希望隐私泄露的概率小于 $\delta$ ，即</p>
+<script type="math/tex; mode=display">
+P(|x|>t)<\delta \\
+P(x>t)<\frac{\delta}{2}</script><p>又有</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{split}
+P(x>t)&=\frac{1}{\sqrt{2\pi\sigma}}\int_t ^{\infty} e^{-\frac{x^2}{2\sigma^2}}dx \\
+&<\frac{1}{\sqrt{2\pi\sigma}}\int_t ^{\infty} \frac{x}{t}e^{-\frac{x^2}{2\sigma^2}}dx  ~~【因为x>t】\\
+&=\frac{\sigma}{\sqrt{2\pi}t}e^{-\frac{t^2}{2\sigma^2}}
+\end{split}
+\end{equation}</script><p>那么问题转化为</p>
+<script type="math/tex; mode=display">
+\frac{\sigma}{\sqrt{2\pi}t}e^{-\frac{t^2}{2\sigma^2}}<\frac{\delta}{2} \\
+\frac{t}{\sigma}e^{-\frac{t^2}{2\sigma^2}}>\frac{2}{\sqrt{2\pi}\delta} \\
+ln\frac{t}{\sigma}+\frac{t^2}{2\sigma^2}>ln\frac{2}{\sqrt{2\pi}t}</script><p>将上式按下面的方法拆开：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\left\{
+\begin{array}{**lr**}
+ln\frac{t}{\sigma}\ge0 \\
+\frac{t^2}{2\sigma^2}>ln\frac{2}{\sqrt{2\pi}t}
+\end{array}
+\right.
+\end{equation}</script><p>由于 $t=\frac{\sigma^2\epsilon}{\triangle f}-\frac{\triangle f}{2}$ ，若令 $\sigma=C\frac{\triangle f}{\epsilon}$ ，那么 $t=C\sigma-\frac{\triangle f}{2}$ 。得：</p>
+<script type="math/tex; mode=display">
+\frac{t}{\sigma} = c-\frac{\epsilon}{2C}\\
+\epsilon <1，C\ge1  \\
+ln(C-\frac\epsilon {2c})>ln(c-\frac{1}{2})\ge0 \\
+\therefore C\ge\frac{3}{2}</script><p>又：</p>
+<script type="math/tex; mode=display">
+\frac{t^2}{2\sigma^2}=\frac{1}{2}(C-\frac{\epsilon}{2C})^2=\frac{1}{2}(C^2-\epsilon+\frac{\epsilon^2}{4C^2})</script><p>因为$\epsilon&lt;1，C\ge\frac{3}{2}$</p>
+<script type="math/tex; mode=display">
+C^2-\epsilon+\frac{\epsilon^2}{4C^2}>C^2-\frac{8}{9}>2ln\frac{2}{\sqrt{2\pi}\delta} \\
+C^2>ln\frac 2 \pi e^{\frac8 9}+2ln\frac{1}{\delta} \\
+\because ln\frac 2 \pi e^{\frac8 9}>1.25^2 \\
+\therefore C^2>2ln\frac{1.25}{\delta}</script><p>又 <script type="math/tex">\sigma=C\frac{\triangle f}{\epsilon}</script> ，所以可以得到 $\sigma \ge C\sqrt{2log(1.25/\delta)}/\epsilon$ 。</p>
+<p>五、实验</p>
+<p>基于MNIST数据集和SVHN数据集</p>
+<p><img src="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users\dufub\Desktop\Leselier\source\_posts\差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS\2.png" alt></p>
+<p>在分类器中的表现为：</p>
+<p><img src="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users\dufub\Desktop\Leselier\source\_posts\差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS\3.png" alt></p>
 <p>六、结论与思考</p>
+<p>通过差分隐私保证非交互式私有数据发布的问题。我们使用生成对抗网络来生成人工隐私保护数据集。对于深度学习中现有的隐私保护工作，该方法允许发布已清理的数据并在其上训练任何非私有模型。选择GAN作为生成模型可确保可扩展性，并使该技术适用于结构复杂的真实数据。此外，此方法不需要在释放之前对生成的数据运行隐私测试。</p>
+<p>此外，我们引入了一种新方法，用于保护深度神经网络特有的训练数据的隐私，这是在数据空间中添加噪声。它提供差分隐私保证，允许以简单直接的方式构建隐私保护模型，而无需修改优化算法。</p>
+<p>在我们的实验中，我们表明，训练人工数据的学生模型可以在MNIST数据集上实现高效用，同时保持可接受的隐私性和灵活性的性能成本更复杂的SVHN数据的水平。直接向受过训练的模型添加隐私仍然提供更好的准确性。</p>
 
       
     </div>
@@ -351,8 +425,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/13/Leetcode-C-1-5/" rel="prev" title="Leetcode|C++(1-5)">
-                Leetcode|C++(1-5) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/13/Leetcode-C-1-3/" rel="prev" title="Leetcode|C++(1-3)">
+                Leetcode|C++(1-3) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -697,15 +771,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -722,5 +788,13 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
