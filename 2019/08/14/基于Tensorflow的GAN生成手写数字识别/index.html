@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="系统结构  代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Tensorflow的GAN生成手写数字识别">
+<meta property="og:url" content="https://Leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/index.html">
+<meta property="og:site_name" content="Leselier&#39;s Blog">
+<meta property="og:description" content="系统结构  代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users/dufub/Desktop/Leselier/source/_posts/基于Tensorflow的GAN生成手写数字识别/0.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users/dufub/Desktop/Leselier/source/_posts/基于Tensorflow的GAN生成手写数字识别/1.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users/dufub/Desktop/Leselier/source/_posts/基于Tensorflow的GAN生成手写数字识别/2.png">
+<meta property="og:updated_time" content="2019-08-14T11:19:14.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Tensorflow的GAN生成手写数字识别">
+<meta name="twitter:description" content="系统结构  代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910">
+<meta name="twitter:image" content="https://leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users/dufub/Desktop/Leselier/source/_posts/基于Tensorflow的GAN生成手写数字识别/0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://Leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/">
+
+
+
+
+
+  <title>基于Tensorflow的GAN生成手写数字识别 | Leselier's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leselier's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/14/基于Tensorflow的GAN生成手写数字识别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于Tensorflow的GAN生成手写数字识别</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T18:57:23+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>系统结构</p>
+<p><img src="/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users\dufub\Desktop\Leselier\source\_posts\基于Tensorflow的GAN生成手写数字识别\0.png" alt></p>
+<p>代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save</span><span class="params">(saver,sess,logdir,step)</span>:</span></span><br><span class="line">    <span class="comment">#保存模型</span></span><br><span class="line">    model_name = <span class="string">'model'</span></span><br><span class="line">    checkpoint_path = os.path.join(logdir, model_name) <span class="comment">#保存路径</span></span><br><span class="line">    saver.save(sess, checkpoint_path, global_step=step) <span class="comment">#保存模型</span></span><br><span class="line">    print(<span class="string">'The checkpoint has been created.'</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xavier_init</span><span class="params">(size)</span>:</span> <span class="comment">#初始化参数时使用的xavier_init函数</span></span><br><span class="line">    in_dim = size[<span class="number">0</span>] </span><br><span class="line">    xavier_stddev = <span class="number">1.</span> / tf.sqrt(in_dim / <span class="number">2.</span>) <span class="comment">#初始化标准差</span></span><br><span class="line">    <span class="keyword">return</span> tf.random_normal(shape=size, stddev=xavier_stddev) <span class="comment">#初始化结果</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X = tf.placeholder(tf.float32, shape=[<span class="literal">None</span>, <span class="number">784</span>]) <span class="comment">#X表示真的样本(即真实的手写数字)</span></span><br><span class="line"> </span><br><span class="line">D_W1 = tf.Variable(xavier_init([<span class="number">784</span>, <span class="number">128</span>])) <span class="comment">#表示使用xavier方式初始化的判别器的D_W1参数，是一个784行128列的矩阵</span></span><br><span class="line">D_b1 = tf.Variable(tf.zeros(shape=[<span class="number">128</span>])) <span class="comment">#表示全零方式初始化的判别器的D_1参数，是一个长度为128的向量</span></span><br><span class="line"> </span><br><span class="line">D_W2 = tf.Variable(xavier_init([<span class="number">128</span>, <span class="number">1</span>])) <span class="comment">#表示使用xavier方式初始化的判别器的D_W2参数，是一个128行1列的矩阵</span></span><br><span class="line">D_b2 = tf.Variable(tf.zeros(shape=[<span class="number">1</span>])) <span class="comment">##表示全零方式初始化的判别器的D_1参数，是一个长度为1的向量</span></span><br><span class="line"> </span><br><span class="line">theta_D = [D_W1, D_W2, D_b1, D_b2] <span class="comment">#theta_D表示判别器的可训练参数集合</span></span><br><span class="line"> </span><br><span class="line">Z = tf.placeholder(tf.float32, shape=[<span class="literal">None</span>, <span class="number">100</span>]) <span class="comment">#Z表示生成器的输入(在这里是噪声)，是一个N列100行的矩阵</span></span><br><span class="line"> </span><br><span class="line">G_W1 = tf.Variable(xavier_init([<span class="number">100</span>, <span class="number">128</span>])) <span class="comment">#表示使用xavier方式初始化的生成器的G_W1参数，是一个100行128列的矩阵</span></span><br><span class="line">G_b1 = tf.Variable(tf.zeros(shape=[<span class="number">128</span>])) <span class="comment">#表示全零方式初始化的生成器的G_b1参数，是一个长度为128的向量</span></span><br><span class="line"> </span><br><span class="line">G_W2 = tf.Variable(xavier_init([<span class="number">128</span>, <span class="number">784</span>])) <span class="comment">#表示使用xavier方式初始化的生成器的G_W2参数，是一个128行784列的矩阵</span></span><br><span class="line">G_b2 = tf.Variable(tf.zeros(shape=[<span class="number">784</span>])) <span class="comment">#表示全零方式初始化的生成器的G_b2参数，是一个长度为784的向量</span></span><br><span class="line"> </span><br><span class="line">theta_G = [G_W1, G_W2, G_b1, G_b2] <span class="comment">#theta_G表示生成器的可训练参数集合</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sample_Z</span><span class="params">(m, n)</span>:</span> <span class="comment">#生成维度为[m, n]的随机噪声作为生成器G的输入</span></span><br><span class="line">    <span class="keyword">return</span> np.random.uniform(<span class="number">-1.</span>, <span class="number">1.</span>, size=[m, n])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator</span><span class="params">(z)</span>:</span> <span class="comment">#生成器，z的维度为[N, 100]</span></span><br><span class="line">    G_h1 = tf.nn.relu(tf.matmul(z, G_W1) + G_b1) <span class="comment">#输入的随机噪声乘以G_W1矩阵加上偏置G_b1，G_h1维度为[N, 128]</span></span><br><span class="line">    G_log_prob = tf.matmul(G_h1, G_W2) + G_b2 <span class="comment">#G_h1乘以G_W2矩阵加上偏置G_b2，G_log_prob维度为[N, 784]</span></span><br><span class="line">    G_prob = tf.nn.sigmoid(G_log_prob) <span class="comment">#G_log_prob经过一个sigmoid函数，G_prob维度为[N, 784]</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> G_prob <span class="comment">#返回G_prob</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">discriminator</span><span class="params">(x)</span>:</span> <span class="comment">#判别器，x的维度为[N, 784]</span></span><br><span class="line">    D_h1 = tf.nn.relu(tf.matmul(x, D_W1) + D_b1) <span class="comment">#输入乘以D_W1矩阵加上偏置D_b1，D_h1维度为[N, 128]</span></span><br><span class="line">    D_logit = tf.matmul(D_h1, D_W2) + D_b2 <span class="comment">#D_h1乘以D_W2矩阵加上偏置D_b2，D_logit维度为[N, 1]</span></span><br><span class="line">    D_prob = tf.nn.sigmoid(D_logit) <span class="comment">#D_logit经过一个sigmoid函数，D_prob维度为[N, 1]</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> D_prob, D_logit <span class="comment">#返回D_prob, D_logit</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot</span><span class="params">(samples)</span>:</span> <span class="comment">#保存图片时使用的plot函数</span></span><br><span class="line">    fig = plt.figure(figsize=(<span class="number">4</span>, <span class="number">4</span>)) <span class="comment">#初始化一个4行4列包含16张子图像的图片</span></span><br><span class="line">    gs = gridspec.GridSpec(<span class="number">4</span>, <span class="number">4</span>) <span class="comment">#调整子图的位置</span></span><br><span class="line">    gs.update(wspace=<span class="number">0.05</span>, hspace=<span class="number">0.05</span>) <span class="comment">#置子图间的间距</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> i, sample <span class="keyword">in</span> enumerate(samples): <span class="comment">#依次将16张子图填充进需要保存的图像</span></span><br><span class="line">        ax = plt.subplot(gs[i])</span><br><span class="line">        plt.axis(<span class="string">'off'</span>)</span><br><span class="line">        ax.set_xticklabels([])</span><br><span class="line">        ax.set_yticklabels([])</span><br><span class="line">        ax.set_aspect(<span class="string">'equal'</span>)</span><br><span class="line">        plt.imshow(sample.reshape(<span class="number">28</span>, <span class="number">28</span>), cmap=<span class="string">'Greys_r'</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> fig</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">G_sample = generator(Z) <span class="comment">#取得生成器的生成结果</span></span><br><span class="line">D_real, D_logit_real = discriminator(X) <span class="comment">#取得判别器判别的真实手写数字的结果</span></span><br><span class="line">D_fake, D_logit_fake = discriminator(G_sample) <span class="comment">#取得判别器判别的生成的手写数字的结果</span></span><br><span class="line"> </span><br><span class="line">D_loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=D_logit_real, labels=tf.ones_like(D_logit_real))) <span class="comment">#对判别器对真实样本的判别结果计算误差(将结果与1比较)</span></span><br><span class="line">D_loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=D_logit_fake, labels=tf.zeros_like(D_logit_fake))) <span class="comment">#对判别器对虚假样本(即生成器生成的手写数字)的判别结果计算误差(将结果与0比较)</span></span><br><span class="line">D_loss = D_loss_real + D_loss_fake <span class="comment">#判别器的误差</span></span><br><span class="line">G_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=D_logit_fake, labels=tf.ones_like(D_logit_fake))) <span class="comment">#生成器的误差(将判别器返回的对虚假样本的判别结果与1比较)</span></span><br><span class="line"> </span><br><span class="line">dreal_loss_sum = tf.summary.scalar(<span class="string">"dreal_loss"</span>, D_loss_real) <span class="comment">#记录判别器判别真实样本的误差</span></span><br><span class="line">dfake_loss_sum = tf.summary.scalar(<span class="string">"dfake_loss"</span>, D_loss_fake) <span class="comment">#记录判别器判别虚假样本的误差</span></span><br><span class="line">d_loss_sum = tf.summary.scalar(<span class="string">"d_loss"</span>, D_loss) <span class="comment">#记录判别器的误差</span></span><br><span class="line">g_loss_sum = tf.summary.scalar(<span class="string">"g_loss"</span>, G_loss) <span class="comment">#记录生成器的误差</span></span><br><span class="line"> </span><br><span class="line">summary_writer = tf.summary.FileWriter(<span class="string">'snapshots/'</span>, graph=tf.get_default_graph()) <span class="comment">#日志记录器</span></span><br><span class="line"> </span><br><span class="line">D_solver = tf.train.AdamOptimizer().minimize(D_loss, var_list=theta_D) <span class="comment">#判别器的训练器</span></span><br><span class="line">G_solver = tf.train.AdamOptimizer().minimize(G_loss, var_list=theta_G) <span class="comment">#生成器的训练器</span></span><br><span class="line"> </span><br><span class="line">mb_size = <span class="number">128</span> <span class="comment">#训练的batch_size</span></span><br><span class="line">Z_dim = <span class="number">100</span> <span class="comment">#生成器输入的随机噪声的列的维度</span></span><br><span class="line"> </span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">'MNIST_data'</span>, one_hot=<span class="literal">True</span>) <span class="comment">#mnist是手写数字数据集</span></span><br><span class="line"> </span><br><span class="line">sess = tf.Session() <span class="comment">#会话层</span></span><br><span class="line">sess.run(tf.global_variables_initializer()) <span class="comment">#初始化所有可训练参数</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">'out/'</span>): <span class="comment">#初始化训练过程中的可视化结果的输出文件夹</span></span><br><span class="line">    os.makedirs(<span class="string">'out/'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">'snapshots/'</span>): <span class="comment">#初始化训练过程中的模型保存文件夹</span></span><br><span class="line">    os.makedirs(<span class="string">'snapshots/'</span>)</span><br><span class="line"> </span><br><span class="line">saver = tf.train.Saver(var_list=tf.global_variables(), max_to_keep=<span class="number">50</span>) <span class="comment">#模型的保存器</span></span><br><span class="line"> </span><br><span class="line">i = <span class="number">0</span> <span class="comment">#训练过程中保存的可视化结果的索引</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> it <span class="keyword">in</span> range(<span class="number">1000000</span>): <span class="comment">#训练100万次</span></span><br><span class="line">    <span class="keyword">if</span> it % <span class="number">1000</span> == <span class="number">0</span>: <span class="comment">#每训练1000次就保存一下结果</span></span><br><span class="line">        samples = sess.run(G_sample, feed_dict=&#123;Z: sample_Z(<span class="number">16</span>, Z_dim)&#125;)</span><br><span class="line"> </span><br><span class="line">        fig = plot(samples) <span class="comment">#通过plot函数生成可视化结果</span></span><br><span class="line">        plt.savefig(<span class="string">'out/&#123;&#125;.png'</span>.format(str(i).zfill(<span class="number">3</span>)), bbox_inches=<span class="string">'tight'</span>) <span class="comment">#保存可视化结果</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        plt.close(fig)</span><br><span class="line"> </span><br><span class="line">    X_mb, _ = mnist.train.next_batch(mb_size) <span class="comment">#得到训练一个batch所需的真实手写数字(作为判别器的输入)</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">#下面是得到训练一次的结果，通过sess来run出来</span></span><br><span class="line">    _, D_loss_curr, dreal_loss_sum_value, dfake_loss_sum_value, d_loss_sum_value = sess.run([D_solver, D_loss, dreal_loss_sum, dfake_loss_sum, d_loss_sum], feed_dict=&#123;X: X_mb, Z: sample_Z(mb_size, Z_dim)&#125;)</span><br><span class="line">    _, G_loss_curr, g_loss_sum_value = sess.run([G_solver, G_loss, g_loss_sum], feed_dict=&#123;Z: sample_Z(mb_size, Z_dim)&#125;)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> it%<span class="number">100</span> ==<span class="number">0</span>: <span class="comment">#每过100次记录一下日志，可以通过tensorboard查看</span></span><br><span class="line">        summary_writer.add_summary(dreal_loss_sum_value, it)</span><br><span class="line">        summary_writer.add_summary(dfake_loss_sum_value, it)</span><br><span class="line">        summary_writer.add_summary(d_loss_sum_value, it)</span><br><span class="line">        summary_writer.add_summary(g_loss_sum_value, it)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> it % <span class="number">1000</span> == <span class="number">0</span>: <span class="comment">#每训练1000次输出一下结果</span></span><br><span class="line">        save(saver, sess, <span class="string">'snapshots/'</span>, it)</span><br><span class="line">        print(<span class="string">'Iter: &#123;&#125;'</span>.format(it))</span><br><span class="line">        print(<span class="string">'D loss: &#123;:.4&#125;'</span>. format(D_loss_curr))</span><br><span class="line">        print(<span class="string">'G_loss: &#123;:.4&#125;'</span>.format(G_loss_curr))</span><br><span class="line">        print()</span><br></pre></td></tr></table></figure>
+<p>利用 Tensorboard工具，可以将训练过程可视化：</p>
+<p>判别器损失：</p>
+<p><img src="/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users\dufub\Desktop\Leselier\source\_posts\基于Tensorflow的GAN生成手写数字识别\1.png" alt></p>
+<p>生成器损失：</p>
+<p><img src="/2019/08/14/基于Tensorflow的GAN生成手写数字识别/Users\dufub\Desktop\Leselier\source\_posts\基于Tensorflow的GAN生成手写数字识别\2.png" alt></p>
+<p>在训练的后期(训练2w次之后)，大家从生成器的误差曲线可以看出，生成器的误差陡增，生成效果也相应变差了(如下图所示)，这是<strong>生成器与判别器失衡</strong>的结果。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/13/Leetcode-C-1-3/" rel="next" title="Leetcode|C++(1-3)">
+                <i class="fa fa-chevron-left"></i> Leetcode|C++(1-3)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/abc.gif" alt="Leselier">
+            
+              <p class="site-author-name" itemprop="name">Leselier</p>
+              <p class="site-description motion-element" itemprop="description">A master student of JUN</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leselier</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
