@@ -87,22 +87,22 @@
 <meta property="og:site_name" content="Leselier&#39;s Blog">
 <meta property="og:description" content="Wasserstein GAN一、基本信息会议：ICML 2017  二、研究背景自从GAN在2014年提出以来，GAN就存在着训练困难、生成器和判别器的loss无法指示训练进程、生成样本缺乏多样性等问题。从那时起，很多论文都在尝试解决，但是效果不尽人意，比如最有名的一个改进DCGAN依靠的是对判别器和生成器的架构进行实验枚举，最终找到一组比较好的网络架构设置，但是实际上是治标不治本，没有彻底解决">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/11.png">
-<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/12.png">
-<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/13.png">
-<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/22.png">
-<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/21.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/11.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/12.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/13.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/22.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/21.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/1.jpg">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/2.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/3.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/4.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/5.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/6.png">
-<meta property="og:updated_time" content="2019-08-15T03:29:54.903Z">
+<meta property="og:updated_time" content="2019-08-15T03:37:05.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文解读——WGAN相关">
 <meta name="twitter:description" content="Wasserstein GAN一、基本信息会议：ICML 2017  二、研究背景自从GAN在2014年提出以来，GAN就存在着训练困难、生成器和判别器的loss无法指示训练进程、生成样本缺乏多样性等问题。从那时起，很多论文都在尝试解决，但是效果不尽人意，比如最有名的一个改进DCGAN依靠的是对判别器和生成器的架构进行实验枚举，最终找到一组比较好的网络架构设置，但是实际上是治标不治本，没有彻底解决">
-<meta name="twitter:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/11.png">
+<meta name="twitter:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/11.png">
 
 
 
@@ -361,9 +361,9 @@ JS(P_1||P_2)=log2</script><p>也就是说，只要$P_r$与$P_g$没有一点重�
 <p>有了这些理论分析，原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。</p>
 <p>实例：</p>
 <p>损失函数值的变化：</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\11.png" alt></p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\12.png" alt></p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\13.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/11.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/12.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/13.png" alt></p>
 <p><strong>原始GAN的第二个问题</strong>：多样性问题：</p>
 <p>该推导依然在判别器最优的情况下：</p>
 <script type="math/tex; mode=display">
@@ -396,9 +396,9 @@ KL(P_g||P_r)-2JS(P_r||P_g)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <p>第二种情况代表：生成器生成了不真实的样本，惩罚巨大。</p>
 <p>第一种错误对应的是缺乏多样性，第二种错误对应的是缺乏准确性。</p>
 <p><strong>这一放一打之下，生成器宁可多生成一些重复但是很“安全”的样本，也不愿意去生成多样性的样本，因为那样一不小心就会产生第二种错误，得不偿失。这种现象就是大家常说的collapse mode</strong></p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\22.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/22.png" alt></p>
 <p>训练到后面</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\21.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/21.png" alt></p>
 <p>那么原始GAN问题的根源可以归结为两点，一是等价优化的距离衡量（KL散度、JS散度）不合理，二是生成器随机初始化后的生成分布很难与真实分布有不可忽略的重叠。</p>
 <h5 id="2、WGAN之前的一个过渡解决方案"><a href="#2、WGAN之前的一个过渡解决方案" class="headerlink" title="2、WGAN之前的一个过渡解决方案"></a>2、WGAN之前的一个过渡解决方案</h5><p>对生成样本和真实样本加噪声，直观上说，使得原本的两个低维流形“弥散”到整个高维空间，强行让它们产生不可忽略的重叠。而一旦存在重叠，JS散度就能真正发挥作用，此时如果两个分布越靠近，它们“弥散”出来的部分重叠得越多，JS散度也会越小而不会一直是一个常数，于是（在第一种原始GAN形式下）梯度消失的问题就解决了。在训练过程中，我们可以对所加的噪声进行退火（annealing），慢慢减小其方差，到后面两个低维流形“本体”都已经有重叠时，就算把噪声完全拿掉，JS散度也能照样发挥作用，继续产生有意义的梯度把两个低维流形拉近，直到它们接近完全重合。</p>
 <p>但是，因为加噪JS散度的具体数值受到噪声的方差影响，随着噪声的退火，前后的数值就没法比较了，所以它不能成为$P_r$和$P_g$距离的本质性衡量。</p>
@@ -863,7 +863,15 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         }
       });
     </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -880,13 +888,5 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>
