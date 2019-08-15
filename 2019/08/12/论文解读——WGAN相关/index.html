@@ -87,17 +87,22 @@
 <meta property="og:site_name" content="Leselier&#39;s Blog">
 <meta property="og:description" content="Wasserstein GAN一、基本信息会议：ICML 2017  二、研究背景自从GAN在2014年提出以来，GAN就存在着训练困难、生成器和判别器的loss无法指示训练进程、生成样本缺乏多样性等问题。从那时起，很多论文都在尝试解决，但是效果不尽人意，比如最有名的一个改进DCGAN依靠的是对判别器和生成器的架构进行实验枚举，最终找到一组比较好的网络架构设置，但是实际上是治标不治本，没有彻底解决">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/11.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/12.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/13.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/22.png">
+<meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/21.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/1.jpg">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/2.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/3.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/4.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/5.png">
 <meta property="og:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/6.png">
-<meta property="og:updated_time" content="2019-08-13T02:34:06.375Z">
+<meta property="og:updated_time" content="2019-08-15T03:29:54.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文解读——WGAN相关">
 <meta name="twitter:description" content="Wasserstein GAN一、基本信息会议：ICML 2017  二、研究背景自从GAN在2014年提出以来，GAN就存在着训练困难、生成器和判别器的loss无法指示训练进程、生成样本缺乏多样性等问题。从那时起，很多论文都在尝试解决，但是效果不尽人意，比如最有名的一个改进DCGAN依靠的是对判别器和生成器的架构进行实验枚举，最终找到一组比较好的网络架构设置，但是实际上是治标不治本，没有彻底解决">
-<meta name="twitter:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/1.jpg">
+<meta name="twitter:image" content="https://leselier.github.io/2019/08/12/论文解读——WGAN相关/Users/dufub/Desktop/Leselier/source/_posts/论文解读——WGAN相关/11.png">
 
 
 
@@ -319,7 +324,9 @@
 -E_{x\thicksim P_{r}}[log(D(x))]-E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~(1)</script><p>其中，$P_r$ 是真实样本分布，$P_g$ 是由生成器产生的样本分布。</p>
 <p>那么，生成器的损失函数为</p>
 <script type="math/tex; mode=display">
-E_{x\thicksim P_{g}}[log(1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(2)</script><p>那么，原始GAN存在的第一个问题是：判别器越好，生成器梯度消失越严重。</p>
+E_{x\thicksim P_{g}}[log(1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(2)</script><hr>
+<hr>
+<p><strong>原始GAN存在的第一个问题是</strong>：判别器越好，生成器梯度消失越严重。</p>
 <p>从公式(1)得到，对于一个具体的样本 $x$ ，它可能来自真实分布也可能来自生成分布，它对公式(1)的损失函数的贡献是</p>
 <script type="math/tex; mode=display">
 -P_r(x)logD(x)-P_g(x)log[1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~(3)</script><p>令其关于 $D(x)$ 的导数为 0，得</p>
@@ -327,17 +334,17 @@ E_{x\thicksim P_{g}}[log(1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -\frac{P_r(x)}{D(x)}+\frac{P_g(x)}{1-D(x)}=0~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(4)</script><p>解得最优判别器为</p>
 <script type="math/tex; mode=display">
 D^*(x)=\frac{P_r(x)}{P_r(x)+P_g(x)}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(5)</script><p>这个结果从直观上很容易理解，就是看一个样本 $x$ 来自真实分布和生成分布的可能性的相对比例。如果 $P_r(x)=0$ 且 $P_g(x)\ne0$ ，最优判别器就应该非常自信地给出概率0；如果 $P_r(x)=P_g(x)$ ，说明该样本是真是假的可能性刚好都是一半，此时最优判别器也应该给出概率0.5。</p>
-<p>那么，为什么判别器越好，生成器梯度消失越严重？</p>
+<p>那么，为什么判别器越好，生成器的loss降不下去、生成器梯度消失越严重？</p>
 <p>我们探究一下在极端情况——判别器最优的时候，生成器的损失函数变成什么。给公式2加上一个不依赖于生成器的项，使之变成</p>
 <script type="math/tex; mode=display">
-E_{x\thicksim P_{r}}[log(D(x))]+E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~~~(6)</script><p>由于最小化公式(6)这个损失函数等价于最小化 $E_{x\thicksim P_{g}}[log(1-D(x)]$ ，而且它刚好是判别器损失函数的反。代入最优判别器即公式(3)，再进行简单的变换可以得到</p>
+E_{x\thicksim P_{r}}[log(D(x))]+E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(6)</script><p>由于最小化公式(6)这个损失函数等价于最小化 $E_{x\thicksim P_{g}}[log(1-D(x)]$ ，而且它刚好是判别器损失函数的反。代入最优判别器即公式(3)，再进行简单的变换可以得到</p>
 <script type="math/tex; mode=display">
 E_{x\thicksim P_{r}}log\frac{P_r(x)}{\frac{1}{2}[P_r(x)+P_g(x)]}+E_{x\thicksim P_{g}}log\frac{P_g(x)}{\frac{1}{2}[P_r(x)+P_g(x)]}-2log2~~~~~(7)</script><p>此处，我们引入 $KL$散度和 $JS$ 散度：</p>
 <p>$KL$散度是是两个概率分布之间差别的非对称性的度量。</p>
 <p>$JS$散度是是两个概率分布之间相似度的度量，基于 $KL$散度的变体。</p>
 <script type="math/tex; mode=display">
 KL(P_1||P_2)=E_{x\thicksim P_{1}}log\frac{P_1}{P_2}~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(8)</script><script type="math/tex; mode=display">
-JS(P_1||P_2)=\frac{1}{2}KL(P_1||\frac{P_1+P_2}{2})+\frac{1}{2}KL(P_2||\frac{P_1+P_2}{2})~~~~~~~~~~~~~~~~~(9)</script><p>也就是</p>
+JS(P_1||P_2)=\frac{1}{2}KL(P_1||\frac{P_1+P_2}{2})+\frac{1}{2}KL(P_2||\frac{P_1+P_2}{2})~~~~~~~~~~~~~~~~~(9)</script><p>公式(7)也就是</p>
 <script type="math/tex; mode=display">
 2JS(P_r||P_g)-2log2~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(10)</script><p>也就是说，目前可以得到结论：在生成器最优的情况下，我们的损失函数可以变换为真实分布$P_r$和生成分布$P_g$之间的$JS$散度，因为我们的判别器越优，最小化生成器的损失函数就会越近似于最小化$P_r$和$P_g$之间的$JS$散度。</p>
 <p>我们希望如果两个分布之间越接近它们的$JS$散度越小，我们通过优化$JS$散度就能将$P_g$去拟合$P_r$，达到以假乱真的目的。这个希望在两个分布有所重叠的时候是成立的，但是如果两个分布完全没有重叠的部分，或者它们重叠的部分可忽略（下面解释什么叫可忽略），它们的JS散度是多少呢？</p>
@@ -345,13 +352,19 @@ JS(P_1||P_2)=\frac{1}{2}KL(P_1||\frac{P_1+P_2}{2})+\frac{1}{2}KL(P_2||\frac{P_1+
 <p>最终</p>
 <script type="math/tex; mode=display">
 JS(P_1||P_2)=log2</script><p>也就是说，只要$P_r$与$P_g$没有一点重叠或者重叠部分可忽略，JS散度就固定是常数$log2$，那么对于梯度下降来说梯度为0。</p>
+<p>但是 $P_r$ 与 $P_g$ 不重叠的可能性非常大：</p>
 <ul>
 <li>首先，$P_r$与$P_g$之间几乎不可能有不可忽略的重叠，所以无论它们之间的“缝隙”多狭小，都肯定存在一个最优分割曲面把它们隔开，最多就是在那些可忽略的重叠处隔不开而已。</li>
 <li>由于判别器作为一个神经网络可以无限拟合这个分隔曲面，所以存在一个最优判别器，对几乎所有真实样本给出概率1，对几乎所有生成样本给出概率0，而那些隔不开的部分就是难以被最优判别器分类的样本，但是它们的测度为0，可忽略。</li>
 <li>最优判别器在真实分布和生成分布的支撑集上给出的概率都是常数（1和0），导致生成器的loss梯度为0，梯度消失。</li>
 </ul>
 <p>有了这些理论分析，原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。</p>
-<p>接下来，原始GAN的第二个问题：多样性问题：</p>
+<p>实例：</p>
+<p>损失函数值的变化：</p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\11.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\12.png" alt></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\13.png" alt></p>
+<p><strong>原始GAN的第二个问题</strong>：多样性问题：</p>
 <p>该推导依然在判别器最优的情况下：</p>
 <script type="math/tex; mode=display">
 E_{x\thicksim P_{r}}[logD^*(x)]+E_{x\thicksim P_{g}}[log(1-D^*(x)]=2JS(P_r||P_g)-2log2~~~~~~~~~~~~(11)</script><p>我们把$KL$散度变换成含$D^*$的形式：</p>
@@ -383,6 +396,9 @@ KL(P_g||P_r)-2JS(P_r||P_g)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <p>第二种情况代表：生成器生成了不真实的样本，惩罚巨大。</p>
 <p>第一种错误对应的是缺乏多样性，第二种错误对应的是缺乏准确性。</p>
 <p><strong>这一放一打之下，生成器宁可多生成一些重复但是很“安全”的样本，也不愿意去生成多样性的样本，因为那样一不小心就会产生第二种错误，得不偿失。这种现象就是大家常说的collapse mode</strong></p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\22.png" alt></p>
+<p>训练到后面</p>
+<p><img src="/2019/08/12/论文解读——WGAN相关/Users\dufub\Desktop\Leselier\source\_posts\论文解读——WGAN相关\21.png" alt></p>
 <p>那么原始GAN问题的根源可以归结为两点，一是等价优化的距离衡量（KL散度、JS散度）不合理，二是生成器随机初始化后的生成分布很难与真实分布有不可忽略的重叠。</p>
 <h5 id="2、WGAN之前的一个过渡解决方案"><a href="#2、WGAN之前的一个过渡解决方案" class="headerlink" title="2、WGAN之前的一个过渡解决方案"></a>2、WGAN之前的一个过渡解决方案</h5><p>对生成样本和真实样本加噪声，直观上说，使得原本的两个低维流形“弥散”到整个高维空间，强行让它们产生不可忽略的重叠。而一旦存在重叠，JS散度就能真正发挥作用，此时如果两个分布越靠近，它们“弥散”出来的部分重叠得越多，JS散度也会越小而不会一直是一个常数，于是（在第一种原始GAN形式下）梯度消失的问题就解决了。在训练过程中，我们可以对所加的噪声进行退火（annealing），慢慢减小其方差，到后面两个低维流形“本体”都已经有重叠时，就算把噪声完全拿掉，JS散度也能照样发挥作用，继续产生有意义的梯度把两个低维流形拉近，直到它们接近完全重合。</p>
 <p>但是，因为加噪JS散度的具体数值受到噪声的方差影响，随着噪声的退火，前后的数值就没法比较了，所以它不能成为$P_r$和$P_g$距离的本质性衡量。</p>
@@ -396,7 +412,7 @@ W(P_r,P_g)=\inf\limits_{\gamma\sim\prod(P_r,P_g)}E_{(x,y)\sim\gamma}[||x-y||]~~~
 <p>容易得到</p>
 <p>$KL(P_1||P_2)=KL(P_2||P_1)=\begin{cases}+\infty &amp; {if ~\theta\ne 0}\\0 &amp; {if~ \theta= 0}\end{cases}$</p>
 <p>$JS(P_1||P_2)=\begin{cases}log2 &amp; {if ~\theta\ne 0}\\0 &amp; {if~ \theta= 0}\end{cases}$</p>
-<p>$W(P_1,P_2)=|\theta|$                                                                                                                        $(16)$</p>
+<p>$W(P_1,P_2)=|\theta|$                                                                                                                                    $(16)$</p>
 <p>KL散度和JS散度是突变的，要么最大要么最小，<strong>Wasserstein距离却是平滑的</strong>，如果我们要用梯度下降法优化$\theta$这个参数，前两者根本提供不了梯度，Wasserstein距离却可以。类似地，在高维空间中如果两个分布不重叠或者重叠部分可忽略，则KL和JS既反映不了远近，也提供不了梯度，<strong>但是Wasserstein却可以提供有意义的梯度</strong>。</p>
 <p>但是Wasserstein距离定义（公式15）中的$\inf\limits_{\gamma\sim\prod(P_r,P_g)}E_{(x,y)\sim\gamma}[||x-y||]$无法直接求解，论文作者利用已有的定理将公式(15)转化为：</p>
 <script type="math/tex; mode=display">
@@ -413,7 +429,7 @@ K\cdot W(P_r,P_g)\approx\max\limits_{w:|f_w|_L\le K}E_{x\sim P_r}[f_w(x)]-E_{x\s
 L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(20)</script><p>尽可能最大，此时$L$就会近似真实分布与生成分布之间的Wasserstein距离（忽略常数倍数K）。注意原始GAN的判别器做的是真假二分类任务，所以最后一层是sigmoid，但是现在WGAN中的判别器$f_w$做的是近似拟合Wasserstein距离，属于回归任务，所以要把最后一层的sigmoid拿掉。</p>
 <p>接下来生成器要近似地最小化Wasserstein距离，可以最小化$L$，由于Wasserstein距离的优良性质，我们不需要担心生成器梯度消失的问题。再考虑到$L$的第一项与生成器无关，就得到了WGAN的两个loss。</p>
 <p>$-E_{x\sim P_g}[f_w(x)]$                                              (21)  ——WGAN生成器损失函数</p>
-<p>$E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]$                 (22)——WGAN判别器损失函数</p>
+<p>$E_{x\sim P_g}[f_w(x)]-E_{x\sim P_r}[f_w(x)]$                 (22)——WGAN判别器损失函数</p>
 <p><strong>公式(20)是公式(22)的反，可以指示训练进程，其数值越小，表示真实分布与生成分布的Wasserstein距离越小，GAN训练得越好。</strong></p>
 <p>这样，完整的GAN的算法流程为：</p>
 <p><img src="/2019/08/12/论文解读——WGAN相关/2.png" alt="1565596501452"></p>
