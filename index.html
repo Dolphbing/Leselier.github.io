@@ -191,6 +191,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -219,6 +239,691 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/20/差分隐私论文-中文-基于差分隐私的学术成绩隐私保护系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/20/差分隐私论文-中文-基于差分隐私的学术成绩隐私保护系统/" itemprop="url">差分隐私论文(中文)|基于差分隐私的学术成绩隐私保护系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-20T09:48:45+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>论文地址：<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2018&amp;filename=WHZG201705008&amp;uid=WEEvREcwSlJHSldRa1Fhb09jT0pmNExoNUdFbU9VN1RHM1dDUC85YzBuZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!&amp;v=MDMzMTZiSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUkxPZmIrUnZGaURuVkwvSk1pWFJhYkc0SDliTXFvOUY=" target="_blank" rel="noopener">https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2018&amp;filename=WHZG201705008&amp;uid=WEEvREcwSlJHSldRa1Fhb09jT0pmNExoNUdFbU9VN1RHM1dDUC85YzBuZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!&amp;v=MDMzMTZiSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUkxPZmIrUnZGaURuVkwvSk1pWFJhYkc0SDliTXFvOUY=</a></p>
+<h4 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h4><p>基于学生成绩的数据挖掘技术出现了许多创新,设计了一个基于差分隐私技术的学生成绩隐私保护系统,该系统从考虑保护学生成绩隐私角度出发,在发布学生成绩数据前,先对静态数据进行差分隐私保护处理,再将数据应用到真实教育数据发布中,最终不仅方便用户根据不同需求发布结果,而且达到对学生的个人隐私数据进行保护的目的。</p>
+<h4 id="二、系统框架"><a href="#二、系统框架" class="headerlink" title="二、系统框架"></a>二、系统框架</h4><p><img src="/2019/08/20/差分隐私论文-中文-基于差分隐私的学术成绩隐私保护系统/1.png" alt></p>
+<h4 id="三、算法实现"><a href="#三、算法实现" class="headerlink" title="三、算法实现"></a>三、算法实现</h4><p>差分隐私主要机制有两种：：</p>
+<p>1）对于数值类型结果加噪的拉普拉斯机制；</p>
+<p>2）对非数值类型结果加噪的指数机制。</p>
+<p>例如：学生成绩一般可以分为两种类型数据：数值型（分值 0 到 100）和非数值型（等级 A 到 F）。对于数值型查询结果，一般会在发布数据前对查询结果采用拉普拉斯机制进行加噪；对于非数值类型查询结果，一般会在发布数据前对查询结果采用指数机制进行加噪。</p>
+<p>算法流程：</p>
+<p><img src="/2019/08/20/差分隐私论文-中文-基于差分隐私的学术成绩隐私保护系统/2.png" alt></p>
+<h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p><img src="/2019/08/20/差分隐私论文-中文-基于差分隐私的学术成绩隐私保护系统/3.jpg" alt></p>
+<p>当ε = 0. 1 时，生成的成绩统 计结果相对误差为 0.113；当ε = 0. 5 时，生成的成绩统计结果相对误差为 0. 046；当ε = 0. 9 时，生成的成 绩统计结果相对误差为 0. 014。总之，ε 越大，加入随机噪声越小，隐私保护安全性越弱。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/20/全栈刷题之路-（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/20/全栈刷题之路-（一）/" itemprop="url">全栈刷题之路|（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-20T09:04:31+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、<strong>如何实现一个高效的单向链表逆序输出？</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;node;</span><br><span class="line"></span><br><span class="line"><span class="function">node* <span class="title">create</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	node* head=(node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">	head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	node* pre = head;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		node* q = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">		pre-&gt;next = q;</span><br><span class="line">		q-&gt;data = a[i];</span><br><span class="line">		pre-&gt;next = q;</span><br><span class="line">		pre = q;</span><br><span class="line">	&#125;</span><br><span class="line">	pre-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">(node* head)</span> </span>&#123;</span><br><span class="line">	node* q = head;</span><br><span class="line">	<span class="keyword">while</span> (q-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		q = q-&gt;next;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; q-&gt;data;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(node* head)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	node* pre = <span class="literal">NULL</span>;</span><br><span class="line">	node* cur = head-&gt;next;</span><br><span class="line">	node* next;</span><br><span class="line">	<span class="keyword">while</span> (cur != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (cur-&gt;next == <span class="literal">NULL</span>) &#123;</span><br><span class="line">			cur-&gt;next = pre;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		next = cur-&gt;next;</span><br><span class="line">		cur-&gt;next = pre;</span><br><span class="line">		pre = cur;</span><br><span class="line">		cur = next;</span><br><span class="line">	&#125;</span><br><span class="line">	head-&gt;next = cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	node* head = create(a, <span class="number">5</span>);</span><br><span class="line">	Print(head);</span><br><span class="line">	reverse(head);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	Print(head);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、<strong>已知sqrt(2)约等于1.414，要求不用数学库，求sqrt(2)精确到小数点后10位</strong></p>
+<p>①二分法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> E = <span class="number">0.0000000001</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt_2</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> low = <span class="number">1.41</span>, high = <span class="number">1.42</span>;</span><br><span class="line">	<span class="keyword">double</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">while</span> (high - low &gt; E) &#123;</span><br><span class="line">		<span class="keyword">if</span> (mid * mid &gt; <span class="number">2</span>)</span><br><span class="line">			high = mid;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			low = mid;</span><br><span class="line">		mid = (high + low) / <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> mid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sqrt_2();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>②牛顿迭代逼近法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> E = <span class="number">0.0000000001</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt_fun</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//当n&gt;=1时，从n开始迭代，否则从1开始迭代</span></span><br><span class="line">	<span class="keyword">double</span> res = n &gt; <span class="number">1</span> ? n : <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (res * res - n &gt; E)</span><br><span class="line">		res = <span class="number">0.5</span> * (res + n / res);</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sqrt_fun(<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、<strong>给定一个二叉搜索树(BST)，找到树中第 K 小的节点</strong></p>
+<p>树相关的题目，第一眼就想到递归求解，左右子树分别遍历。联想到二叉搜索树的性质，root 大于左子树，小于右子树，如果左子树的节点数目等于 K-1，那么 root 就是结果，否则如果左子树节点数目小于 K-1，那么结果必然在右子树，否则就在左子树。因此在搜索的时候同时返回节点数目，跟 K 做对比，就能得出结果了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ResultType</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">boolean</span> found;  <span class="comment">// 是否找到</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> val;  <span class="comment">// 节点数目</span></span><br><span class="line">        ResultType(<span class="keyword">boolean</span> found, <span class="keyword">int</span> val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.found = found;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> kthSmallestHelper(root, k).val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ResultType <span class="title">kthSmallestHelper</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ResultType(<span class="keyword">false</span>, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ResultType left = kthSmallestHelper(root.left, k);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 左子树找到，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (left.found) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ResultType(<span class="keyword">true</span>, left.val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 左子树的节点数目 = K-1，结果为 root 的值</span></span><br><span class="line">        <span class="keyword">if</span> (k - left.val == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ResultType(<span class="keyword">true</span>, root.val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 右子树寻找</span></span><br><span class="line">        ResultType right = kthSmallestHelper(root.right, k - left.val - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (right.found) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ResultType(<span class="keyword">true</span>, right.val);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 没找到，返回节点总数</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ResultType(<span class="keyword">false</span>, left.val + <span class="number">1</span> + right.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4、<strong>LRU缓存机制</strong>（缺）</p>
+<p>LRU（最近最少使用算法）——一种简单的缓存策略</p>
+<p>5、<strong>关于epoll和select的区别</strong>（缺）</p>
+<p>6、</p>
+<p>7、</p>
+<p>8、</p>
+<p>9、 <strong>输入 ping IP 后敲回车，发包前会发生什么？</strong></p>
+<p>首先根据目的IP和路由表决定走哪个网卡，再根据网卡的子网掩码地址判断目的IP是否在子网内。如果不在则会通过ARP缓存查询IP的网卡地址，不存在的话会通过广播询问目的IP的mac地址，得到后就开始发包了，同时mac地址也会被arp缓存起来。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/" itemprop="url">差分隐私(专利)|一种基于生成式对抗网络的深度差分隐私保护方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-19T15:01:54+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、基本信息</p>
+<p>该专利提供一种基于生成式对抗网络反馈的深度差分隐私保护方法，用于解决深度学习模型应用中攻击者利用自编码等方法还原出训练集数据的问题，应用深度差分隐私保护方法实现训练数据集中用户隐私保护目的。</p>
+<p>二、研究背景</p>
+<p>近年来深度学习在很多领域成效卓然，受到越来越多研究者的关注。深度学习通过神经网络的分层处理，将低 层特征组合形成更加抽象的高层表示属性类别或特征，以发现数据的分布式特征表示，其模型性能与训练数据集的规模和质量密切相关，而训练数据集中通常包含较多的敏感信息，训练数据集在很多领域有广泛应用，包括安防领域的人脸识别、色情图片检测以及金融企业数据分析等，该领域将训练好的模型公布供大家使用，但是数据集中涉及敏感信息而不希望被推断出来。目前攻击者通过一定的攻击手段可以还原出训练数据集，从而使得用户隐私信息泄露。如公安机关发布犯罪嫌疑人识别模型，其训练数据集包含全国人口图像信息，当攻击者使用某一攻击手段还原出训练数据集中的图像时使得个人敏感信息得到泄露，因此如何在不泄露个人敏感信息的前提下提升数据可用性，是当前深度学习应用面临的主要问题，将极大影响深度学习未来的发展与应用。</p>
+<p>差分隐私是2006年微软研究院提出的一种基于数据失真的隐私保护方法，该方法建立在坚实的数学基础之上，其基本思想是对原始数据、对原始数据的转换或者是对统计结果添加噪音来达到隐私保护效果。该保护方法可以确保在某一数据集中插入或者删除一条记录的操作不会影响任何计算的输出结果。另外，该保护模型不关心攻击者所具有的背景知识，即使攻击者已经掌握除某一条记录之外的所有记录的信息。所有有利于保护训练数据集，与敏感信息保护的根本宗旨高度契合。</p>
+<p>三、创新点</p>
+<p>该发明在无需考虑攻击者所拥有的任何可能的背景知识的情况下，首先依据训练数据集的潜在数据集规模，查询敏感度、攻击者最大攻击概率计算隐私预算的上界;然后在深度网络参数优化计算中融合差分隐私思想添加噪声数据，基于差分隐私与高斯分布可组合特点，计算深度网络每一层的隐私预算，在随机梯度下降计算中添加 高斯噪音使之总体隐私预算最小;最后利用生成式对抗网络生成攻击者可能得到的最优结果，通过对比攻击结果和原始数据间差别反馈调节深度差分隐私模型参数，实现训练数据集可用性与隐私保护度的平衡。但根据现有的了解，还没有任何机构或组织将深度差分隐私模型与生成式对抗网络进行结合。</p>
+<p>四、系统结构</p>
+<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/1.png" alt></p>
+<p>四、详解</p>
+<p>具体步骤：</p>
+<p>（1）依据输入训练数据集的潜在数据集规模，查询敏感度、攻击者最大攻击概率计算隐私预算的上界；</p>
+<p>计算隐私预算的上界的方式：</p>
+<script type="math/tex; mode=display">
+\epsilon \le \frac{\triangle q}{\triangle v}ln[\frac{(n-1)p}{1-p}]</script><p>其中，$\epsilon$ 为隐私预算，$n$ 为数据集的潜在数据集规模（假设输入数据集为 $D$ ，该数据集的近邻数据集 $D^\prime$ 可能的取值方法为 $n$），$\triangle q$ 为针对数据集 $D$ 和 $D^\prime$ 的查询函数的敏感度，$\triangle v$ 为查询函数在相邻数据集上的最大差异值，$p$ 为攻击者得出攻击对象在或者不在结果集中的概率。</p>
+<p>（2）本步骤主要是依据深度差分隐私模型训练输入数据集，其具体过程为:在深度网络参数优化计算中融合差分隐私思想添加噪声数据，根据步骤(1)设置隐私预算上界，在此条件下随机选取隐私预算，然后基于差分隐私与高斯分布组合特点，在随机梯度下降中计算深度网络每一层的实际隐私预算，并据此添加高斯噪声使总体隐私预算最小；</p>
+<p>计算深度网络每一层的隐私预算，在随机梯度下降计算中添加高斯噪音使深度差分隐私模型中总体隐私预算最小，根据差分隐私与高斯分布组合特点，总体 隐私预算值由深度网络每层预算值累加而成，深度网络每层噪声添加方式如下：</p>
+<script type="math/tex; mode=display">
+\tilde{g_t}\gets \frac{1}{S}\sum \bar{g_t}(x_i)+N(0,\sigma^2C^2)</script><p>其中，$x_i$ 为输入值，$\sigma$ 为噪声规模，$C$ 为梯度阈值，$\bar{g_t}(x_i) $ 为根据梯度阈值剪枝后的梯度值，$S$ 为训练batch的大小。</p>
+<p>（3）利用步骤(2)中深度差分隐私模型进行深度网络模型训练，并提取训练过程中隐私保护后生成数据的数据特征信息；将随机噪声数据输入到生成式对抗网络中，以隐私保护后生成数据特征信息为参考，调节输入的随机噪声数据使生成器生成的模拟数据尽可能近似隐私保护后生成数据特征分布，并对生成的模拟数据进行分类得到分类准确率；</p>
+<p>（4）将原始数据集输入到生成式对抗网络中，生成近似隐私保护前数据特征分布的模拟数据，与步骤(3)中得到的隐私保护后生成数据进行分类准确率对比，设置准确率误 差阈值，确保步骤(3)分类准确率对与步骤(4)的分类准确率的差值在预先设定阈值范围 内，否则重复步骤(2)调整隐私预算参数，重新训练深度差分隐私模型直至满足预先设定阈值条件为止。</p>
+<p>在步骤(3)和步骤(4)中，所述生成式对抗网络由生成器G和判别器D构成，在整个 训练过程中G和D为“博弈”双方，生成器G捕捉样本数据的分布，判别器D是一个二分类器，用 于判断输入的结果是来自于训练数据的概率；G和D均为非线性映射函数，是多层感知机或 卷积神经网络;在训练过程中，生成器G的目标是尽量生成与原始数据接近的结果去欺骗判 别器D;而D的目标是尽量把G生成的结果和真实数据区分开来，G和D形成了一个动态的“博 弈过程”，G和D之间的关系定义为：</p>
+<script type="math/tex; mode=display">
+\min\limits_{G}\max\limits_{D}V(D,G)</script><p>在步骤(4)中，利用生成式对抗网络中生成器生成攻击者可能得到的最优结果，并 从中选出最接近真实数据集的攻击结果，通过比较隐私保护后生成数据分类准确率和隐私 保护前生成数据分类准确率，若相似度超过设定阈值，则重新对深度差分隐私模型进行参 数调优，直到满足条件为止。</p>
+<p>该发明的优点：</p>
+<p>（1）相比现有技术，本发明给出了差分隐私中隐私预算的上界的计算式，缩减了该参数随机选取时的选择范围，加快了深度差分隐私保护模型训练速度，进而优化了模型隐 私保护度选择的准确性。</p>
+<p>（2）相比现有技术，本发明利用生成式对抗网络对深度差分隐私模型进行反馈以及评价，提前评估了攻击者反推原始数据集的可能性，同时对隐私保护效果进行了定量评价，实现训练数据集可用性与隐私保护度的平衡，避免用户敏感信息的泄露，提高了安全性和可靠性。</p>
+<p>深度差分隐私保护模型：</p>
+<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/Users\dufub\Desktop\Leselier\source\_posts\差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法\2.png" alt></p>
+<p>生成对抗网络过程示意图：</p>
+<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/Users\dufub\Desktop\Leselier\source\_posts\差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法\3.png" alt></p>
+<p>下载地址：<a href="https://patents.google.com/patent/CN107368752A/zh" target="_blank" rel="noopener">https://patents.google.com/patent/CN107368752A/zh</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/18/读书-统计学原理（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/18/读书-统计学原理（一）/" itemprop="url">读书|统计学原理（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T16:02:52+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、集中趋势的量度"><a href="#一、集中趋势的量度" class="headerlink" title="一、集中趋势的量度"></a>一、集中趋势的量度</h3><h5 id="均值：平均数的一般量度"><a href="#均值：平均数的一般量度" class="headerlink" title="均值：平均数的一般量度"></a>均值：平均数的一般量度</h5><script type="math/tex; mode=display">
+\bar{x}=\frac{x_1+x_2+…+x_n}{n}=\frac{\sum_x}{n}</script><p>异常值：与其他数据格格不入的极高或极低的数值</p>
+<p>偏斜数据：当异常值将数据向左向右“拉”时即产生偏斜数据</p>
+<p><img src="/2019/08/18/读书-统计学原理（一）/1.png" alt></p>
+<h5 id="中位数：中间值"><a href="#中位数：中间值" class="headerlink" title="中位数：中间值"></a>中位数：中间值</h5><p>如果数值对称，平均值=中位数</p>
+<h5 id="众数：频数最大的数值"><a href="#众数：频数最大的数值" class="headerlink" title="众数：频数最大的数值"></a>众数：频数最大的数值</h5><p>总数是唯一能用于类别数据的平均数</p>
+<h3 id="二、分散性与变异性的量度"><a href="#二、分散性与变异性的量度" class="headerlink" title="二、分散性与变异性的量度"></a>二、分散性与变异性的量度</h3><h5 id="全距：也叫极差，可以指出数据的扩展范围"><a href="#全距：也叫极差，可以指出数据的扩展范围" class="headerlink" title="全距：也叫极差，可以指出数据的扩展范围"></a>全距：也叫极差，可以指出数据的扩展范围</h5><p>全距仅仅描述了数据的宽度，并没有描述数据在上、下界之间的分布形态</p>
+<p><img src="/2019/08/18/读书-统计学原理（一）/2.png" alt></p>
+<h5 id="迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分"><a href="#迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分" class="headerlink" title="迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分"></a>迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分</h5><p><img src="/2019/08/18/读书-统计学原理（一）/3.png" alt></p>
+<h5 id="四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数"><a href="#四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数" class="headerlink" title="四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数"></a>四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数</h5><p>四分位距=上四分位数-下四分位数  ：一个不易受异常值影响的“迷你距”</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/" itemprop="url">深度学习论文解读|Deep Residual Learning for Image Recognition</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T10:35:03+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、基本信息</p>
+<p>会议：CVPR2016    最佳论文</p>
+<p>二、研究背景</p>
+<p>残差网络是为了解决深度神经网络（DNN）隐藏层过多时的网络退化问题而提出。退化（degradation）问题是指：当网络隐藏层变多时，网络的准确度达到饱和然后急剧退化，而且这个退化不是由于过拟合引起的。</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/1.png" alt></p>
+<p>三、创新点</p>
+<p>解决了退化问题，简化了网络训练过程并且可以从更深的网络中获得更高的准确率，该网络能够根据输入学习残差函数而不是原始函数。</p>
+<p>四、详解</p>
+<p>（1）退化现象并不是由过拟合导致的，而是因为当网络很深时，模型变得越来越复杂，比相对较浅的网络更难优化。 </p>
+<p>（2）引入残差学习，不再让网络中一部分堆叠的层直接去拟合 $F(x)$ ，而是 $F(x)+x$ ，网络实现上，在该堆叠的网络输入端直接加一个shortcut连接到输出端（非线形激活函数之前）。</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/2.png" alt></p>
+<p>网络架构：</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/3.png" alt></p>
+<p>五、实验</p>
+<p>（1）ImageNet分类</p>
+<p>文中比较了不同深度下的平原网络和残差网络在ImageNet数据集上的分类结果。从下图中可以看出，对于平原网络，34层的训练误差和测试误差均比18层的要高，而对于残差网络，34层的网络的性能却比18层的性能好很多。而且相对于平原网络，残差网络有着更快的收敛速度。</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/4.png" alt></p>
+<p>（2）Cifar10分类</p>
+<p>文中在cifar10数据集上对更深的网络做了类似的对比实验，并得到了一致的结论，不同的是，对于1202层和110层的残差网络，110层的结果更优于1202层，这是由于1202层的网络十分庞大，而cifar10数据集相对于ImgeNet数据集非常小，导致模型训练出现了过拟合。不过这个问题可以通过正则化的方法来解决。<br><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/5.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -304,7 +1009,10 @@
       
         
           
-            
+            <p>一、基本信息</p>
+<p><img src="/2019/08/16/差分隐私论文解读-Differentially-Private-Releasing-via-Deep-Generative-Model/2.png" alt></p>
+<p>二、研究背景</p>
+
           
         
       
@@ -423,7 +1131,41 @@
       
         
           
-            
+            <p>来自《知乎读书一小时》系列</p>
+<h3 id="第一章：计算机是如何聊天的"><a href="#第一章：计算机是如何聊天的" class="headerlink" title="第一章：计算机是如何聊天的"></a>第一章：计算机是如何聊天的</h3><p>计算机之间想要相互交流，就需要一个网络地址来对每一台计算机进行标号，就像每一部手机需要一个号码进行通话一样。</p>
+<p>任意两台计算机的网络地址放在一起进行比较，分为两种不同的情况：</p>
+<h4 id="（1）相同网段的通信"><a href="#（1）相同网段的通信" class="headerlink" title="（1）相同网段的通信"></a>（1）相同网段的通信</h4><p>计算机上网需要一个IP地址、一个掩码、一个网关和一个域名服务器DNS地址</p>
+<p><img src="/2019/08/16/读书-计算机是怎么聊天的/1.png" alt></p>
+<p>小明的网络掩码为24，也就是二进制的24位，三个字节。</p>
+<p>小明Ping小美的电脑，也就是小明Ping 10.1.1.3，它会判断是不是和自己再一个网段。</p>
+<p><strong>怎么判断呢？</strong></p>
+<p>用自己的掩码（3个字节）去遮掩（从左到右）10.1.1.3。$\to$ 掩码的由来</p>
+<p>被遮盖的是 10.1.1 ，也就是网段号，所以一个IP地址由两部分组成：<strong>网段号+主机号</strong></p>
+<p>小明发现，自己和小美处在同一个网段，网段号都是 10.1.1，在同一个网段里，那么这样事情就简单了，先检查自己的ARP缓存里是否有对方网卡的硬件地址MAC，如果有，那Ping包可以完成封装发出去。</p>
+<p>如果没有，就要发个ARP广播询问对方，那么又如何确定用哪个接口来发广播？</p>
+<p><strong>查找路由表</strong></p>
+<p>接着，小美的电脑通过点对点单播回复小明的电脑。而且MAC会在一段时间内保存在ARP的缓存中。</p>
+<h4 id="（2）不同网段的通信"><a href="#（2）不同网段的通信" class="headerlink" title="（2）不同网段的通信"></a>（2）不同网段的通信</h4><p>小明Ping小丽的电脑，用掩码得到小丽的网段号是 10.1.2，和自己的不同，所以也无法使用ARP广播来发现对方的网卡硬件地址，需要查找路由表</p>
+<p><img src="/2019/08/16/读书-计算机是怎么聊天的/2.png" alt></p>
+<p>前三条都没有匹配到，所以选择最后一条万能路由（所有IP包最后可以成功匹配的归宿），在这里也是小明的默认网关，小明的电脑发现网关硬件接口MAC后，把Ping包发给网关10.1.1.1，网关硬件接口接收到以太网帧后，把对应的IP包放在缓存，通知IP层来取走，接着再进行路由匹配查找（采用路由最长匹配原则）。</p>
+<p>路由转发严格遵守一个规则：</p>
+<p>下一跳更靠近目的地，只要把IP包发给下一跳，意味着IP包最终可以达到终点。</p>
+<h4 id="（3）访问互联网"><a href="#（3）访问互联网" class="headerlink" title="（3）访问互联网"></a>（3）访问互联网</h4><p>域名解析 $\to$ 浏览器HTTP格式打包 $\to$ 三次握手连接 $\to$ TCP传输 $\to$ 服务器将自己的网页回传 $\to$ 释放TCP连接</p>
+<h3 id="第二章：识别网络掩码"><a href="#第二章：识别网络掩码" class="headerlink" title="第二章：识别网络掩码"></a>第二章：识别网络掩码</h3><p>IP地址与网络掩码做[按位与]操作得到网段号</p>
+<p>比如小明 10.1.1.2和255.255.255.0进行按位与操作得到10.1.1就是网段号。</p>
+<p>那么10.1.1.0/24包括多少个IP地址？  0-255，一共256个IP地址。</p>
+<p><strong>规律</strong>:网络掩码增加一位，比如/24 $\to$ /25， 意味着IP地址被分成2份。</p>
+<p><img src="/2019/08/16/读书-计算机是怎么聊天的/3.png" alt></p>
+<h3 id="第三章：如何自动获取IP地址"><a href="#第三章：如何自动获取IP地址" class="headerlink" title="第三章：如何自动获取IP地址"></a>第三章：如何自动获取IP地址</h3><p>动态主机配置协议（DHCP）</p>
+<p>1、客户端发现服务器——客户端进程广播一个发现服务器的报文</p>
+<p>2、服务器回复客户端——服务器从IP地址池里选择一个空闲IP地址、对应的网络掩码、缺省网关和域名服务器IP地址给客户端。</p>
+<p>3、客户端请求IP参数——客户端接收到服务器的回复，接受服务器分配的IP参数并请求服务器提供的IP参数</p>
+<p>4、服务器确认请求——服务器最终确认客户端的请求，以单播形式发给客户端。</p>
+<p>以上的前提条件：<strong>客户端与服务器在一个广播域内。</strong></p>
+<p>如果不在，可以引入<strong>DHCP中继代理</strong></p>
+<p>通俗地说，DHCP中继代理就是让客户端与服务器相互发现彼此的中介结构</p>
+<p><img src="/2019/08/16/读书-计算机是怎么聊天的/4.png" alt></p>
+
           
         
       
@@ -544,6 +1286,16 @@
           
             <p>《薛兆丰经济学讲义》</p>
 <p>第一章 稀缺——为何商业是最大的慈善</p>
+<p>-经济规律在哪里都起作用，哪怕是在战俘营里面都起作用。</p>
+<p>-当别人在讨论到底是公平重要，还是效率重要的时候，学过经济学 的人明白，公平背后往往是效率的考量，不是单个人效率的考量，而是 整体社会长远发展的效率的考量。公平和效率，往往是一枚硬币的两 面。</p>
+<blockquote>
+<p>破窗理论：</p>
+<p>一 个顽童把窗户打破了，窗户的主人就要去买玻璃，这将刺激玻璃的生 产。制造玻璃的工人完成订单以后，有了钱，就可以去买面包，面包工 人又可以去买衣服。这样就推动了一连串的生产。破窗理论的支持者 说，有破坏才有进步，多难兴邦，破坏本身就是好的。</p>
+</blockquote>
+<p>-行善扶贫难见成效的原因：（1）缺乏反馈机制（2）委托代理问题（3）所托非人问题（4）养懒汉效应</p>
+<p>-造成稀缺的原因：（1）我们想要的东西别人也想要（2）人的需求在不断变化，不断升级</p>
+<p>第二章 成本——不要只盯着钱</p>
+<p>-</p>
 
           
         
@@ -860,596 +1612,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leselier">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/abc.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leselier's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/" itemprop="url">差分隐私论文解读|GENERATING DIFFERENTIALLY PRIVATE DATASETS USING GANS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-13T16:55:51+08:00">
-                2019-08-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一、基本信息</p>
-<p>会议：ICLR 2018 Conference Blind Submission</p>
-<p>二、研究背景</p>
-<p>随着深度学习的发展，深度学习所需要的大量数据也造成隐私泄漏的风险，比如，通过生成数据还原训练集的真实数据。为了在利用机器学习的方法的同时也能保护隐私数据，目前已经开发了一系列的技术，但目前来说，差分隐私是隐私保护效果最好的一种技术。</p>
-<p>三、创新点</p>
-<p>1、我们提出了一种新的非交互式差异隐私数据发布机制，以及据我们所知，这是复杂现实世界数据的第一个实用的解决方案；</p>
-<p>2、我们引入了一种新技术，通过在前馈网络训练过程中增加噪声来进行隐私保护；</p>
-<p>3、我们证明这种技术可以保证所有的输出和神经网络中的学习到的权重可以保证差分隐私；</p>
-<p>4、我们证明我们能够在保持合理隐私预算的同时实现学习任务的高准确性。</p>
-<p>四、详解</p>
-<p>1、GAN的介绍</p>
-<p>一个生成网络与一个判别网络组成。生成网络从潜在空间（latent space）中随机取样作为输入，其输出结果需要尽量模仿训练集中的真实样本。判别网络的输入则为真实样本或生成网络的输出，其目的是将生成网络的输出从真实样本中尽可能分辨出来。而生成网络则要尽可能地欺骗判别网络。两个网络相互对抗、不断调整参数，最终目的是使判别网络无法判断生成网络的输出结果是否真实。</p>
-<p>2、差分隐私</p>
-<p>给定一个具有差分隐私的算法 $A_p(\cdot)$ 。该算法是一种随机化算法，目的是为了让观察者难以重构输入数据，其中观察者是任何使用数据获取算法输出的人。差异隐私的定义：</p>
-<p>Definition 3.1：设有随机化算法 $A_p$ 提供 ($\epsilon$,$\delta$) 差分隐私保护，对于任何两个兄弟数据集 $D$ 和 $D^{\prime}$ （它们之间相差一条数据）和任何一个输出子集 $S$ ，满足：</p>
-<script type="math/tex; mode=display">
-P(A_P(D)\in S)\leqslant e^{\epsilon}\cdot P(A_P(D^\prime)\in S) + \delta</script><p>可以得到这个定义等价于：</p>
-<script type="math/tex; mode=display">
-|log(\frac{P(A_P(D)=s)}{P(A_P(D^\prime)= s)})|\leqslant \epsilon</script><p>并且有 $1-\delta$ 的可能性 $s$ 在输出范围，$\epsilon$ 反应了隐私水平，$\epsilon$ 越小，表示在两个数据集上的输出差别小，说明具有较高的数据扰动，但隐私保护程度高。没有隐私保护的话，$\epsilon=\infty$  。</p>
-<p>实现差分隐私最广泛使用的两种机制是拉普拉斯算子和高斯噪声，我们在这里使用高斯噪声机制，高斯噪声机制定义：</p>
-<script type="math/tex; mode=display">
-M(d)\triangleq f(d)+N(0,s^2_f\sigma^2)</script><p>这里 $s_f$是差分隐私的敏感度，$s_f=|f(d)-f(d^\prime)|$ 。</p>
-<p>3、具体方法</p>
-<p>需要实现的目标：</p>
-<p>给定一个数据集 $X\sim p_{data}(x)$，利用差分隐私机制 $M$ 生成一个人工数据集 $\widetilde{X} = M(X)$。</p>
-<p>-数据分布相似或相同 $\widetilde{X}\sim p_{data}(x)$</p>
-<p>-对任意相邻数据集 $X,X^\prime$ 提供差分隐私保护 $P(M(X)\in S)\leqslant e^{\epsilon}\cdot P(M(X^\prime)\in S) + \delta$</p>
-<p>为了实现差分隐私，我们采用如下的办法：</p>
-<p><img src="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users\dufub\Desktop\Leselier\source\_posts\差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS\1.png" alt></p>
-<p>在GAN的判别器神经网络中引入噪声层，以致于使它的输出和生成器神经网络的权重满足差分隐私，这样，我们可以利用生成器生成可以用于发布的满足差分隐私的数据集。</p>
-<p>4、理论分析，只要我们高斯噪声层 $Y\sim N(0,\sigma^2)$ 满足 $\sigma \ge C\sqrt{2log(1.25/\delta)}/\epsilon$ ，就能满足 $(\epsilon,\delta)-$差分隐私。</p>
-<p>这里 $C$ 是查询函数的敏感度。</p>
-<p>证明：满足 $(\epsilon,\delta)-$差分隐私即</p>
-<script type="math/tex; mode=display">
-|ln\frac{e^{-\frac{1}{2\sigma^2}x^2}}{e^{-\frac{1}{2\sigma^2}(x+\triangle f)^2}}|=|\frac{1}{2\sigma^2}(2x\triangle f+(\triangle f)^2)|\le \epsilon\\
-\therefore|x| \le \frac{\sigma^2\epsilon}{\triangle f}-\frac{\triangle f}{2}</script><p>令 $t=\frac{\sigma^2\epsilon}{\triangle f}-\frac{\triangle f}{2}$ ，当且仅当 $||x||\le t$ 时，该分布是满足 $(\epsilon,\delta)-$差分隐私的，而当 $||x||&gt;t$ 时为隐私泄露，我们希望隐私泄露的概率小于 $\delta$ ，即</p>
-<script type="math/tex; mode=display">
-P(|x|>t)<\delta \\
-P(x>t)<\frac{\delta}{2}</script><p>又有</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\begin{split}
-P(x>t)&=\frac{1}{\sqrt{2\pi\sigma}}\int_t ^{\infty} e^{-\frac{x^2}{2\sigma^2}}dx \\
-&<\frac{1}{\sqrt{2\pi\sigma}}\int_t ^{\infty} \frac{x}{t}e^{-\frac{x^2}{2\sigma^2}}dx  ~~【因为x>t】\\
-&=\frac{\sigma}{\sqrt{2\pi}t}e^{-\frac{t^2}{2\sigma^2}}
-\end{split}
-\end{equation}</script><p>那么问题转化为</p>
-<script type="math/tex; mode=display">
-\frac{\sigma}{\sqrt{2\pi}t}e^{-\frac{t^2}{2\sigma^2}}<\frac{\delta}{2} \\
-\frac{t}{\sigma}e^{-\frac{t^2}{2\sigma^2}}>\frac{2}{\sqrt{2\pi}\delta} \\
-ln\frac{t}{\sigma}+\frac{t^2}{2\sigma^2}>ln\frac{2}{\sqrt{2\pi}t}</script><p>将上式按下面的方法拆开：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\left\{
-\begin{array}{**lr**}
-ln\frac{t}{\sigma}\ge0 \\
-\frac{t^2}{2\sigma^2}>ln\frac{2}{\sqrt{2\pi}t}
-\end{array}
-\right.
-\end{equation}</script><p>由于 $t=\frac{\sigma^2\epsilon}{\triangle f}-\frac{\triangle f}{2}$ ，若令 $\sigma=C\frac{\triangle f}{\epsilon}$ ，那么 $t=C\sigma-\frac{\triangle f}{2}$ 。得：</p>
-<script type="math/tex; mode=display">
-\frac{t}{\sigma} = c-\frac{\epsilon}{2C}\\
-\epsilon <1，C\ge1  \\
-ln(C-\frac\epsilon {2c})>ln(c-\frac{1}{2})\ge0 \\
-\therefore C\ge\frac{3}{2}</script><p>又：</p>
-<script type="math/tex; mode=display">
-\frac{t^2}{2\sigma^2}=\frac{1}{2}(C-\frac{\epsilon}{2C})^2=\frac{1}{2}(C^2-\epsilon+\frac{\epsilon^2}{4C^2})</script><p>因为$\epsilon&lt;1，C\ge\frac{3}{2}$</p>
-<script type="math/tex; mode=display">
-C^2-\epsilon+\frac{\epsilon^2}{4C^2}>C^2-\frac{8}{9}>2ln\frac{2}{\sqrt{2\pi}\delta} \\
-C^2>ln\frac 2 \pi e^{\frac8 9}+2ln\frac{1}{\delta} \\
-\because ln\frac 2 \pi e^{\frac8 9}>1.25^2 \\
-\therefore C^2>2ln\frac{1.25}{\delta}</script><p>又 <script type="math/tex">\sigma=C\frac{\triangle f}{\epsilon}</script> ，所以可以得到 $\sigma \ge C\sqrt{2log(1.25/\delta)}/\epsilon$ 。</p>
-<p>五、实验</p>
-<p>基于MNIST数据集和SVHN数据集</p>
-<p><img src="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users\dufub\Desktop\Leselier\source\_posts\差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS\2.png" alt></p>
-<p>在分类器中的表现为：</p>
-<p><img src="/2019/08/13/差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS/Users\dufub\Desktop\Leselier\source\_posts\差分隐私论文解读-GENERATING-DIFFERENTIALLY-PRIVATE-DATASETS-USING-GANS\3.png" alt></p>
-<p>六、结论与思考</p>
-<p>通过差分隐私保证非交互式私有数据发布的问题。我们使用生成对抗网络来生成人工隐私保护数据集。对于深度学习中现有的隐私保护工作，该方法允许发布已清理的数据并在其上训练任何非私有模型。选择GAN作为生成模型可确保可扩展性，并使该技术适用于结构复杂的真实数据。此外，此方法不需要在释放之前对生成的数据运行隐私测试。</p>
-<p>此外，我们引入了一种新方法，用于保护深度神经网络特有的训练数据的隐私，这是在数据空间中添加噪声。它提供差分隐私保证，允许以简单直接的方式构建隐私保护模型，而无需修改优化算法。</p>
-<p>在我们的实验中，我们表明，训练人工数据的学生模型可以在MNIST数据集上实现高效用，同时保持可接受的隐私性和灵活性的性能成本更复杂的SVHN数据的水平。直接向受过训练的模型添加隐私仍然提供更好的准确性。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/12/论文解读——WGAN相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leselier">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/abc.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leselier's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/12/论文解读——WGAN相关/" itemprop="url">论文解读——WGAN相关</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-12T17:03:52+08:00">
-                2019-08-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Wasserstein-GAN"><a href="#Wasserstein-GAN" class="headerlink" title="Wasserstein GAN"></a>Wasserstein GAN</h3><h4 id="一、基本信息"><a href="#一、基本信息" class="headerlink" title="一、基本信息"></a>一、基本信息</h4><p>会议：ICML 2017 </p>
-<h4 id="二、研究背景"><a href="#二、研究背景" class="headerlink" title="二、研究背景"></a>二、研究背景</h4><p>自从GAN在2014年提出以来，GAN就存在着训练困难、生成器和判别器的loss无法指示训练进程、生成样本缺乏多样性等问题。从那时起，很多论文都在尝试解决，但是效果不尽人意，比如最有名的一个改进<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1511.06434" target="_blank" rel="noopener">DCGAN</a>依靠的是对判别器和生成器的架构进行实验枚举，最终找到一组比较好的网络架构设置，但是实际上是治标不治本，没有彻底解决问题。</p>
-<h4 id="三、创新点"><a href="#三、创新点" class="headerlink" title="三、创新点"></a>三、创新点</h4><p>Wasserstein GAN（WGAN）成功地做到了以下几点：</p>
-<p>1、彻底解决GAN训练不稳定的问题，不再需要平衡生成器和判别器的训练程度</p>
-<p>2、基本解决了collapse mode的问题，确保了生成样本的多样性 </p>
-<p>3、训练过程中终于有一个像交叉熵、准确率这样的数值来指示训练的进程，这个数值越小代表GAN训练得越好，代表生成器产生的图像质量越高</p>
-<p>4、以上一切好处不需要精心设计的网络架构，最简单的多层全连接网络就可以做到</p>
-<h4 id="四、详解"><a href="#四、详解" class="headerlink" title="四、详解"></a>四、详解</h4><h5 id="1、原始GAN存在的问题"><a href="#1、原始GAN存在的问题" class="headerlink" title="1、原始GAN存在的问题"></a>1、原始GAN存在的问题</h5><p>原始GAN中判别器要最小化如下损失函数，尽可能把真实样本分为正例，生成样本分为负例：</p>
-<script type="math/tex; mode=display">
--E_{x\thicksim P_{r}}[log(D(x))]-E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~(1)</script><p>其中，$P_r$ 是真实样本分布，$P_g$ 是由生成器产生的样本分布。</p>
-<p>那么，生成器的损失函数为</p>
-<script type="math/tex; mode=display">
-E_{x\thicksim P_{g}}[log(1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(2)</script><hr>
-<hr>
-<p><strong>原始GAN存在的第一个问题是</strong>：判别器越好，生成器梯度消失越严重。</p>
-<p>从公式(1)得到，对于一个具体的样本 $x$ ，它可能来自真实分布也可能来自生成分布，它对公式(1)的损失函数的贡献是</p>
-<script type="math/tex; mode=display">
--P_r(x)logD(x)-P_g(x)log[1-D(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~(3)</script><p>令其关于 $D(x)$ 的导数为 0，得</p>
-<script type="math/tex; mode=display">
--\frac{P_r(x)}{D(x)}+\frac{P_g(x)}{1-D(x)}=0~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(4)</script><p>解得最优判别器为</p>
-<script type="math/tex; mode=display">
-D^*(x)=\frac{P_r(x)}{P_r(x)+P_g(x)}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(5)</script><p>这个结果从直观上很容易理解，就是看一个样本 $x$ 来自真实分布和生成分布的可能性的相对比例。如果 $P_r(x)=0$ 且 $P_g(x)\ne0$ ，最优判别器就应该非常自信地给出概率0；如果 $P_r(x)=P_g(x)$ ，说明该样本是真是假的可能性刚好都是一半，此时最优判别器也应该给出概率0.5。</p>
-<p>那么，为什么判别器越好，生成器的loss降不下去、生成器梯度消失越严重？</p>
-<p>我们探究一下在极端情况——判别器最优的时候，生成器的损失函数变成什么。给公式2加上一个不依赖于生成器的项，使之变成</p>
-<script type="math/tex; mode=display">
-E_{x\thicksim P_{r}}[log(D(x))]+E_{x\thicksim P_{g}}[log(1-D(x)] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(6)</script><p>由于最小化公式(6)这个损失函数等价于最小化 $E_{x\thicksim P_{g}}[log(1-D(x)]$ ，而且它刚好是判别器损失函数的反。代入最优判别器即公式(3)，再进行简单的变换可以得到</p>
-<script type="math/tex; mode=display">
-E_{x\thicksim P_{r}}log\frac{P_r(x)}{\frac{1}{2}[P_r(x)+P_g(x)]}+E_{x\thicksim P_{g}}log\frac{P_g(x)}{\frac{1}{2}[P_r(x)+P_g(x)]}-2log2~~~~~(7)</script><p>此处，我们引入 $KL$散度和 $JS$ 散度：</p>
-<p>$KL$散度是是两个概率分布之间差别的非对称性的度量。</p>
-<p>$JS$散度是是两个概率分布之间相似度的度量，基于 $KL$散度的变体。</p>
-<script type="math/tex; mode=display">
-KL(P_1||P_2)=E_{x\thicksim P_{1}}log\frac{P_1}{P_2}~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(8)</script><script type="math/tex; mode=display">
-JS(P_1||P_2)=\frac{1}{2}KL(P_1||\frac{P_1+P_2}{2})+\frac{1}{2}KL(P_2||\frac{P_1+P_2}{2})~~~~~~~~~~~~~~~~~(9)</script><p>公式(7)也就是</p>
-<script type="math/tex; mode=display">
-2JS(P_r||P_g)-2log2~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(10)</script><p>也就是说，目前可以得到结论：在生成器最优的情况下，我们的损失函数可以变换为真实分布$P_r$和生成分布$P_g$之间的$JS$散度，因为我们的判别器越优，最小化生成器的损失函数就会越近似于最小化$P_r$和$P_g$之间的$JS$散度。</p>
-<p>我们希望如果两个分布之间越接近它们的$JS$散度越小，我们通过优化$JS$散度就能将$P_g$去拟合$P_r$，达到以假乱真的目的。这个希望在两个分布有所重叠的时候是成立的，但是如果两个分布完全没有重叠的部分，或者它们重叠的部分可忽略（下面解释什么叫可忽略），它们的JS散度是多少呢？</p>
-<p>此时，我们对$JS$散度进行计算，由于 $P_1(x)=0$时$P_2(x)\ne0$，$P_1(x)\ne0$时$P_2(x)=0$。可得$log\frac{P_2}{\frac{1}{2}(P_2+0)}=log2$，$log\frac{P_1}{\frac{1}{2}(P_1+0)}=log2$</p>
-<p>最终</p>
-<script type="math/tex; mode=display">
-JS(P_1||P_2)=log2</script><p>也就是说，只要$P_r$与$P_g$没有一点重叠或者重叠部分可忽略，JS散度就固定是常数$log2$，那么对于梯度下降来说梯度为0。</p>
-<p>但是 $P_r$ 与 $P_g$ 不重叠的可能性非常大：</p>
-<ul>
-<li>首先，$P_r$与$P_g$之间几乎不可能有不可忽略的重叠，所以无论它们之间的“缝隙”多狭小，都肯定存在一个最优分割曲面把它们隔开，最多就是在那些可忽略的重叠处隔不开而已。</li>
-<li>由于判别器作为一个神经网络可以无限拟合这个分隔曲面，所以存在一个最优判别器，对几乎所有真实样本给出概率1，对几乎所有生成样本给出概率0，而那些隔不开的部分就是难以被最优判别器分类的样本，但是它们的测度为0，可忽略。</li>
-<li>最优判别器在真实分布和生成分布的支撑集上给出的概率都是常数（1和0），导致生成器的loss梯度为0，梯度消失。</li>
-</ul>
-<p>有了这些理论分析，原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。</p>
-<p>实例：</p>
-<p>损失函数值的变化：</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/11.png" alt></p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/12.png" alt></p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/13.png" alt></p>
-<p><strong>原始GAN的第二个问题</strong>：多样性问题：</p>
-<p>该推导依然在判别器最优的情况下：</p>
-<script type="math/tex; mode=display">
-E_{x\thicksim P_{r}}[logD^*(x)]+E_{x\thicksim P_{g}}[log(1-D^*(x)]=2JS(P_r||P_g)-2log2~~~~~~~~~~~~(11)</script><p>我们把$KL$散度变换成含$D^*$的形式：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\begin{split}
-KL(P_g||P_r)&=E_{x\thicksim P_{g}}[log\frac{P_g(x)}{P_r(x)}]\\
-&=E_{x\thicksim P_{g}}[log\frac{P_g(x)/(P_r(x)+P_g(x))}{P_r(x)/(P_r(x)+P_g(x))}]\\
-&=E_{x\thicksim P_{g}}[log\frac{1-D^*(x)}{D^*(x)}]\\
-&=E_{x\thicksim P_{g}}log[1-D^*(x)]-E_{x\thicksim P_{g}}logD^*(x)
-\end{split}
-\end{equation}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(12)</script><p>公式(11)、(12)联立得最小化生成器目标的等价变形为：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\begin{split}
-E_{x\thicksim P_{g}}[-logD^*(x)]&=KL(P_g||P_r)-E_{x\thicksim P_{g}}log[1-D^*(x)]\\
-&=KL(P_g||P_r)-2JS(P_r||P_g)+2log2+E_{x\thicksim P_{r}}[logD^*(x)]~~ ~~(13)
-\end{split}
-\end{equation}</script><p>注意上式最后两项不依赖于生成器G，最终得到最小化生成器目标函数$E_{x\thicksim P_{g}}[-logD^*(x)]$等价于最小化</p>
-<script type="math/tex; mode=display">
-KL(P_g||P_r)-2JS(P_r||P_g)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(14)</script><p>这个等价最小化目标存在两个严重的问题。</p>
-<p>第一是它同时要最小化生成分布与真实分布的KL散度，却又要最大化两者的JS散度，一个要拉近，一个却要推远！这在直观上非常荒谬，在数值上则会导致梯度不稳定，这是后面那个JS散度项的毛病。</p>
-<p>第二，即便是前面那个正常的KL散度项也有毛病。因为KL散度不是一个对称的衡量。也就是说：$KL(P_g||P_r)$和$KL(P_r||P_g)$是不一样的：</p>
-<ul>
-<li>当$P_g(x)\to 0$而$P_r(x)\to1$时，$P_g(x)log\frac{P_g(x)}{P_r(x)}\to 0$，对$KL(P_g||P_r)$贡献趋近0</li>
-<li>当$P_g(x)\to 1$而$P_r(x)\to0$时，$P_g(x)log\frac{P_g(x)}{P_r(x)}\to +\infty$，对$KL(P_g||P_r)$贡献趋近正无穷</li>
-</ul>
-<p>第一种情况代表：生成器没能生成真实的样本，惩罚微小；</p>
-<p>第二种情况代表：生成器生成了不真实的样本，惩罚巨大。</p>
-<p>第一种错误对应的是缺乏多样性，第二种错误对应的是缺乏准确性。</p>
-<p><strong>这一放一打之下，生成器宁可多生成一些重复但是很“安全”的样本，也不愿意去生成多样性的样本，因为那样一不小心就会产生第二种错误，得不偿失。这种现象就是大家常说的collapse mode</strong></p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/22.png" alt></p>
-<p>训练到后面</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/21.png" alt></p>
-<p>那么原始GAN问题的根源可以归结为两点，一是等价优化的距离衡量（KL散度、JS散度）不合理，二是生成器随机初始化后的生成分布很难与真实分布有不可忽略的重叠。</p>
-<h5 id="2、WGAN之前的一个过渡解决方案"><a href="#2、WGAN之前的一个过渡解决方案" class="headerlink" title="2、WGAN之前的一个过渡解决方案"></a>2、WGAN之前的一个过渡解决方案</h5><p>对生成样本和真实样本加噪声，直观上说，使得原本的两个低维流形“弥散”到整个高维空间，强行让它们产生不可忽略的重叠。而一旦存在重叠，JS散度就能真正发挥作用，此时如果两个分布越靠近，它们“弥散”出来的部分重叠得越多，JS散度也会越小而不会一直是一个常数，于是（在第一种原始GAN形式下）梯度消失的问题就解决了。在训练过程中，我们可以对所加的噪声进行退火（annealing），慢慢减小其方差，到后面两个低维流形“本体”都已经有重叠时，就算把噪声完全拿掉，JS散度也能照样发挥作用，继续产生有意义的梯度把两个低维流形拉近，直到它们接近完全重合。</p>
-<p>但是，因为加噪JS散度的具体数值受到噪声的方差影响，随着噪声的退火，前后的数值就没法比较了，所以它不能成为$P_r$和$P_g$距离的本质性衡量。</p>
-<h5 id="3、Wasserstein距离"><a href="#3、Wasserstein距离" class="headerlink" title="3、Wasserstein距离"></a>3、Wasserstein距离</h5><p>Wasserstein距离定义如下：</p>
-<script type="math/tex; mode=display">
-W(P_r,P_g)=\inf\limits_{\gamma\sim\prod(P_r,P_g)}E_{(x,y)\sim\gamma}[||x-y||]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(15)</script><p>其中，$\prod(P_r,P_g)$是$P_r$和$P_g$组合起来的所有可能的联合分布的集合，对于每一个可能的联合分布而言，可以从采样$(x,y)\sim\gamma$得到一个真实样本$x$和一个生成样本$y$，并计算出这对样本的距离$||x-y||$，接着可以计算该联合分布$\gamma$下样本对距离的期望值$E_{(x,y)\sim\gamma}[||x-y||]$。在所有可能的联合分布中对该期望值取得的下界$\inf\limits_{\gamma\sim\prod(P_r,P_g)}E_{(x,y)\sim\gamma}[||x-y||]$就定义为Wasserstein距离。</p>
-<p>直观上，理解Wasserstein距离为把$P_g$分布挪到$P_r$分布的位置上的最小消耗。</p>
-<p><strong>Wasserstein距离相比KL散度、JS散度的优越性在于，即便两个分布没有重叠，Wasserstein距离仍然能够反映它们的远近</strong></p>
-<p>举例：考虑如下二维空间中的两个分布$P_1$和$P_2$，$P_1$在线段AB上均匀分布，$P_2$在线段CD上均匀分布，通过控制参数$\theta$可以控制着两个分布的距离远近。</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/1.jpg" alt="img"></p>
-<p>容易得到</p>
-<p>$KL(P_1||P_2)=KL(P_2||P_1)=\begin{cases}+\infty &amp; {if ~\theta\ne 0}\\0 &amp; {if~ \theta= 0}\end{cases}$</p>
-<p>$JS(P_1||P_2)=\begin{cases}log2 &amp; {if ~\theta\ne 0}\\0 &amp; {if~ \theta= 0}\end{cases}$</p>
-<p>$W(P_1,P_2)=|\theta|$                                                                                                                                    $(16)$</p>
-<p>KL散度和JS散度是突变的，要么最大要么最小，<strong>Wasserstein距离却是平滑的</strong>，如果我们要用梯度下降法优化$\theta$这个参数，前两者根本提供不了梯度，Wasserstein距离却可以。类似地，在高维空间中如果两个分布不重叠或者重叠部分可忽略，则KL和JS既反映不了远近，也提供不了梯度，<strong>但是Wasserstein却可以提供有意义的梯度</strong>。</p>
-<p>但是Wasserstein距离定义（公式15）中的$\inf\limits_{\gamma\sim\prod(P_r,P_g)}E_{(x,y)\sim\gamma}[||x-y||]$无法直接求解，论文作者利用已有的定理将公式(15)转化为：</p>
-<script type="math/tex; mode=display">
-W(P_r,P_g)=\frac{1}{K}\sup\limits_{||f||_L\le K}E_{x\sim P_r}[f(x)]-E_{x\sim P_g}[f(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(17)</script><p>这里，需要引入Lipschitz连续的概念，它是一个比通常普通的连续更强的光滑性条件。</p>
-<p>它在一个连续函数$f$上面额外施加了一个限制，要求存在一个常数$K\geq 0$使得定义域内的任意两个元素$x_1$和$x_2$都满足</p>
-<script type="math/tex; mode=display">
-|f(x_1)-f(x_2)|\leq K|x_1-x_2|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(18)</script><p>$K$叫做函数$f$的Lipschitz常数。</p>
-<p>公式(17)的意思就是在要求函数$f$的Lipschitz常数$||f||_L$不超过$K$的条件下，对所有可能满足条件的$f$取到$E_{x\sim P_r}[f(x)]-E_{x\sim P_g}[f(x)]$的上界，然后再除以$K$。特别地，我们可以用一组参数$w$来定义一系列可能的函数$f_w$，此时求解公式(17)可以近似变成求解如下形式</p>
-<script type="math/tex; mode=display">
-K\cdot W(P_r,P_g)\approx\max\limits_{w:|f_w|_L\le K}E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(19)</script><p>我们可以把$f$用一个带参数$w$的神经网络来表示，由于神经网络的拟合能力足够强大，我们有理由相信，这样定义出来的一系列$f_w$虽然无法囊括所有可能，但是也足以高度近似公式(17)要求的那个$sup_{||f||_{L\leq K}}$了。</p>
-<p>最后，还不能忘了满足公式(19)中$||f_w||_L\leq K$这个限制。我们其实不关心具体的K是多少，只要它不是正无穷就行，因为它只是会使得梯度变大K倍，并不会影响梯度的方向。所以作者采取了一个非常简单的做法，就是限制神经网络$f_{\theta}$的所有参数$w_i$的不超过某个范围$[-c,c]$，比如$w_i\in[-0.01,0.01]$，此时关于输入样本$x$的导数$\frac{\partial f_w}{\partial x}$也不会超过某个范围，所以一定存在某个不知道的常数K使得$f_w$的局部变动幅度不会超过它，Lipschitz连续条件得以满足。具体在算法实现中，只需要每次更新完$w$后把它clip回这个范围就可以了。</p>
-<p>到此为止，我们可以构造一个含参数$w$、最后一层不是非线性激活层的判别器网络$f_w$，在限制$w$不超过某个范围的条件下，使得</p>
-<script type="math/tex; mode=display">
-L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(20)</script><p>尽可能最大，此时$L$就会近似真实分布与生成分布之间的Wasserstein距离（忽略常数倍数K）。注意原始GAN的判别器做的是真假二分类任务，所以最后一层是sigmoid，但是现在WGAN中的判别器$f_w$做的是近似拟合Wasserstein距离，属于回归任务，所以要把最后一层的sigmoid拿掉。</p>
-<p>接下来生成器要近似地最小化Wasserstein距离，可以最小化$L$，由于Wasserstein距离的优良性质，我们不需要担心生成器梯度消失的问题。再考虑到$L$的第一项与生成器无关，就得到了WGAN的两个loss。</p>
-<p>$-E_{x\sim P_g}[f_w(x)]$                                              (21)  ——WGAN生成器损失函数</p>
-<p>$E_{x\sim P_g}[f_w(x)]-E_{x\sim P_r}[f_w(x)]$                 (22)——WGAN判别器损失函数</p>
-<p><strong>公式(20)是公式(22)的反，可以指示训练进程，其数值越小，表示真实分布与生成分布的Wasserstein距离越小，GAN训练得越好。</strong></p>
-<p>这样，完整的GAN的算法流程为：</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/2.png" alt="1565596501452"></p>
-<p>上文说过，WGAN与原始GAN第一种形式相比，只改了四点：</p>
-<ul>
-<li>判别器最后一层去掉sigmoid</li>
-<li>生成器和判别器的loss不取log</li>
-<li>每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c</li>
-<li>不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行</li>
-</ul>
-<p>前三点都是从理论分析中得到的，已经介绍完毕；第四点却是作者从实验中发现的，属于trick，相对比较“玄”。作者发现如果使用Adam，判别器的loss有时候会崩掉，当它崩掉时，Adam给出的更新方向与梯度方向夹角的cos值就变成负数，更新方向与梯度方向南辕北辙，这意味着判别器的loss梯度是不稳定的，所以不适合用Adam这类基于动量的优化算法。作者改用RMSProp之后，问题就解决了，因为RMSProp适合梯度不稳定的情况。</p>
-<h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>1、判别器所近似的Wasserstein距离与生成器的生成图片质量高度相关</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/3.png" alt="1565596849041"></p>
-<p>2、WGAN如果用类似DCGAN架构，生成图片的效果与DCGAN差不多：</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/4.png" alt="1565596921785"></p>
-<p>但是厉害的地方在于WGAN不用DCGAN各种特殊的架构设计也能做到不错的效果，比如如果大家一起拿掉Batch Normalization的话，DCGAN就崩了：</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/5.png" alt="1565596970602"></p>
-<p>如果WGAN和原始GAN都使用多层全连接网络（MLP），不用CNN，WGAN质量会变差些，但是原始GAN不仅质量变得更差，而且还出现了collapse mode，即多样性不足：</p>
-<p><img src="/2019/08/12/论文解读——WGAN相关/6.png" alt="1565597001833"></p>
-<h4 id="五、结论与思考"><a href="#五、结论与思考" class="headerlink" title="五、结论与思考"></a>五、结论与思考</h4><p>WGAN前作分析了Ian Goodfellow提出的原始GAN两种形式各自的问题，第一种形式等价在最优判别器下等价于最小化生成分布与真实分布之间的JS散度，由于随机生成分布很难与真实分布有不可忽略的重叠以及JS散度的突变特性，使得生成器面临梯度消失的问题；第二种形式在最优判别器下等价于既要最小化生成分布与真实分布直接的KL散度，又要最大化其JS散度，相互矛盾，导致梯度不稳定，而且KL散度的不对称性使得生成器宁可丧失多样性也不愿丧失准确性，导致collapse mode现象。</p>
-<p>WGAN前作针对分布重叠问题提出了一个过渡解决方案，通过对生成样本和真实样本加噪声使得两个分布产生重叠，理论上可以解决训练不稳定的问题，可以放心训练判别器到接近最优，但是未能提供一个指示训练进程的可靠指标，也未做实验验证。</p>
-<p>WGAN本作引入了Wasserstein距离，由于它相对KL散度与JS散度具有优越的平滑特性，理论上可以解决梯度消失问题。接着通过数学变换将Wasserstein距离写成可求解的形式，利用一个参数数值范围受限的判别器神经网络来最大化这个形式，就可以近似Wasserstein距离。在此近似最优判别器下优化生成器使得Wasserstein距离缩小，就能有效拉近生成分布与真实分布。WGAN既解决了训练不稳定的问题，也提供了一个可靠的训练进程指标，而且该指标确实与生成样本的质量高度相关。作者对WGAN进行了实验验证。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leselier">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/abc.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leselier's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/11/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-11T14:27:07+08:00">
-                2019-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1495,7 +1664,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1507,10 +1676,10 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">4</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -1765,15 +1934,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         }
       });
     </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1790,5 +1951,13 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
