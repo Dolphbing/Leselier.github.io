@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="编程语言,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="A master student of JUN">
-<meta name="keywords" content="二进制">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="https://Leselier.github.io/categories/index.html">
+<meta name="description" content="1、auto的使用c++11引入了auto类型说明符，auto让编译器通过初始值来推算变量的类型，所以auto定义的变量必须有初始值。使用auto也能在一条语句中声明多个变量，因为一条声明语句只能有一个基本数据类型，所以该语句中所有变量的初始基本数据类型都必须一样：eg: auto i=0,*p=&amp;amp; i; //正确 auto sz=0,pi=3.14;//错误，sz和pi的类型不一样。 2">
+<meta name="keywords" content="编程语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++中的auto和for循环">
+<meta property="og:url" content="https://Leselier.github.io/2019/10/07/C-中的auto和for循环/index.html">
 <meta property="og:site_name" content="Leselier&#39;s Blog">
-<meta property="og:description" content="A master student of JUN">
+<meta property="og:description" content="1、auto的使用c++11引入了auto类型说明符，auto让编译器通过初始值来推算变量的类型，所以auto定义的变量必须有初始值。使用auto也能在一条语句中声明多个变量，因为一条声明语句只能有一个基本数据类型，所以该语句中所有变量的初始基本数据类型都必须一样：eg: auto i=0,*p=&amp;amp; i; //正确 auto sz=0,pi=3.14;//错误，sz和pi的类型不一样。 2">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-20T08:13:00.081Z">
+<meta property="og:updated_time" content="2019-10-07T00:36:50.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文章分类">
-<meta name="twitter:description" content="A master student of JUN">
+<meta name="twitter:title" content="C++中的auto和for循环">
+<meta name="twitter:description" content="1、auto的使用c++11引入了auto类型说明符，auto让编译器通过初始值来推算变量的类型，所以auto定义的变量必须有初始值。使用auto也能在一条语句中声明多个变量，因为一条声明语句只能有一个基本数据类型，所以该语句中所有变量的初始基本数据类型都必须一样：eg: auto i=0,*p=&amp;amp; i; //正确 auto sz=0,pi=3.14;//错误，sz和pi的类型不一样。 2">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://Leselier.github.io/categories/">
+  <link rel="canonical" href="https://Leselier.github.io/2019/10/07/C-中的auto和for循环/">
 
 
 
 
 
-  <title>文章分类 | Leselier's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>C++中的auto和for循环 | Leselier's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -243,40 +243,158 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/10/07/C-中的auto和for循环/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">文章分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                No categories
-            </div>
-            <div class="category-all">
+          <h1 class="post-title" itemprop="name headline">C++中的auto和for循环</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-            </div>
-          </div>
-        
-      </div>
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-07T08:22:50+08:00">
+                2019-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h5 id="1、auto的使用"><a href="#1、auto的使用" class="headerlink" title="1、auto的使用"></a>1、auto的使用</h5><p>c++11引入了auto类型说明符，auto让编译器通过初始值来推算变量的类型，所以auto定义的变量必须有初始值。<br>使用auto也能在一条语句中声明多个变量，因为一条声明语句只能有一个基本数据类型，所以该语句中所有变量的初始基本数据类型都必须一样：<br>eg: auto i=0,*p=&amp; i; //正确 auto sz=0,pi=3.14;//错误，sz和pi的类型不一样。</p>
+<h5 id="2、范围for循环"><a href="#2、范围for循环" class="headerlink" title="2、范围for循环"></a>2、范围for循环</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(declaration:expression)</span><br><span class="line">	statement</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>expression 部分是一个对象，用于表示一个序列，declaration部分负责定义一个变量，该变量被用于访问序列中的基础元素，每次迭代declaration部分的变量会被初始化为expression部分的下一个元素值。</p>
+</blockquote>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">"Hello,World!"</span>)</span></span>;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> c : s)</span><br><span class="line">		<span class="keyword">if</span> (c == <span class="string">'o'</span>)</span><br><span class="line">			cnt++;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> c : s)          <span class="comment">//拷贝s中的元素</span></span><br><span class="line">		<span class="keyword">if</span> (c == <span class="string">'o'</span>)</span><br><span class="line">			c=<span class="string">'a'</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> &amp;c : s)         <span class="comment">//修改s中的元素</span></span><br><span class="line">		<span class="keyword">if</span> (c == <span class="string">'o'</span>)</span><br><span class="line">			c = <span class="string">'a'</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;c : s)   <span class="comment">//只读s中的元素</span></span><br><span class="line">		<span class="keyword">if</span> (c == <span class="string">'a'</span>)</span><br><span class="line">			cnt++;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<blockquote>
+<p>2</p>
+<p>Hello,World!</p>
+<p>Hello,World!</p>
+<p>Hella,Warld!</p>
+<p>4</p>
+<p>Hella,Warld!</p>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程语言/" rel="tag"># 编程语言</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/04/C-STL/" rel="next" title="C++STL">
+                <i class="fa fa-chevron-left"></i> C++STL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -309,8 +427,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -379,6 +506,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、auto的使用"><span class="nav-number">1.</span> <span class="nav-text">1、auto的使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、范围for循环"><span class="nav-number">2.</span> <span class="nav-text">2、范围for循环</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#用法"><span class="nav-number"></span> <span class="nav-text">用法</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
