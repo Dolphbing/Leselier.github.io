@@ -255,6 +255,266 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/" itemprop="url">深度学习论文解读|Deep Residual Learning for Image Recognition</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T10:35:03+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、基本信息</p>
+<p>会议：CVPR2016    最佳论文</p>
+<p>二、研究背景</p>
+<p>残差网络是为了解决深度神经网络（DNN）隐藏层过多时的网络退化问题而提出。退化（degradation）问题是指：当网络隐藏层变多时，网络的准确度达到饱和然后急剧退化，而且这个退化不是由于过拟合引起的。</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/1.png" alt></p>
+<p>三、创新点</p>
+<p>解决了退化问题，简化了网络训练过程并且可以从更深的网络中获得更高的准确率，该网络能够根据输入学习残差函数而不是原始函数。</p>
+<p>四、详解</p>
+<p>（1）退化现象并不是由过拟合导致的，而是因为当网络很深时，模型变得越来越复杂，比相对较浅的网络更难优化。 </p>
+<p>（2）引入残差学习，不再让网络中一部分堆叠的层直接去拟合 $F(x)$ ，而是 $F(x)+x$ ，网络实现上，在该堆叠的网络输入端直接加一个shortcut连接到输出端（非线形激活函数之前）。</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/2.png" alt></p>
+<p>网络架构：</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/3.png" alt></p>
+<p>五、实验</p>
+<p>（1）ImageNet分类</p>
+<p>文中比较了不同深度下的平原网络和残差网络在ImageNet数据集上的分类结果。从下图中可以看出，对于平原网络，34层的训练误差和测试误差均比18层的要高，而对于残差网络，34层的网络的性能却比18层的性能好很多。而且相对于平原网络，残差网络有着更快的收敛速度。</p>
+<p><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/4.png" alt></p>
+<p>（2）Cifar10分类</p>
+<p>文中在cifar10数据集上对更深的网络做了类似的对比实验，并得到了一致的结论，不同的是，对于1202层和110层的残差网络，110层的结果更优于1202层，这是由于1202层的网络十分庞大，而cifar10数据集相对于ImgeNet数据集非常小，导致模型训练出现了过拟合。不过这个问题可以通过正则化的方法来解决。<br><img src="/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/5.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/16/差分隐私论文解读-Differentially-Private-Releasing-via-Deep-Generative-Model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/16/差分隐私论文解读-Differentially-Private-Releasing-via-Deep-Generative-Model/" itemprop="url">差分隐私论文解读|Differentially Private Releasing via Deep Generative Model</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-16T11:17:32+08:00">
+                2019-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、基本信息</p>
+<p><img src="/2019/08/16/差分隐私论文解读-Differentially-Private-Releasing-via-Deep-Generative-Model/2.png" alt></p>
+<p>二、研究背景</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/16/读书-计算机是怎么聊天的/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1448,7 +1708,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1461,7 +1721,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
