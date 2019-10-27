@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JAVA,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="10、注解10.1 元注解说简单点，就是 定义其他注解的注解 。 比如Override这个注解，就不是一个元注解。而是通过元注解定义出来的。 1234@Target(ElementType.METHOD)@Retention(RetentionPolicy.SOURCE)public @interface Override &amp;#123;&amp;#125; 这里面的 @Target @Retention">
+<meta name="keywords" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA基础篇（二）——基础知识5">
+<meta property="og:url" content="https://Leselier.github.io/2019/10/21/JAVA基础篇（二）——基础知识5/index.html">
+<meta property="og:site_name" content="Leselier&#39;s Blog">
+<meta property="og:description" content="10、注解10.1 元注解说简单点，就是 定义其他注解的注解 。 比如Override这个注解，就不是一个元注解。而是通过元注解定义出来的。 1234@Target(ElementType.METHOD)@Retention(RetentionPolicy.SOURCE)public @interface Override &amp;#123;&amp;#125; 这里面的 @Target @Retention">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/1186376/201708/1186376-20170803224827084-101464516.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/879896/201606/879896-20160604194640227-215496499.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/879896/201606/879896-20160604232610055-1944763982.gif">
+<meta property="og:image" content="https://itimetraveler.github.io/gallery/java-genericity/lowerBounds.png">
+<meta property="og:image" content="https://itimetraveler.github.io/gallery/java-genericity/upperBounds.png">
+<meta property="og:updated_time" content="2019-10-21T12:55:50.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA基础篇（二）——基础知识5">
+<meta name="twitter:description" content="10、注解10.1 元注解说简单点，就是 定义其他注解的注解 。 比如Override这个注解，就不是一个元注解。而是通过元注解定义出来的。 1234@Target(ElementType.METHOD)@Retention(RetentionPolicy.SOURCE)public @interface Override &amp;#123;&amp;#125; 这里面的 @Target @Retention">
+<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/1186376/201708/1186376-20170803224827084-101464516.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://Leselier.github.io/2019/10/21/JAVA基础篇（二）——基础知识5/">
+
+
+
+
+
+  <title>JAVA基础篇（二）——基础知识5 | Leselier's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Leselier" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leselier's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/10/21/JAVA基础篇（二）——基础知识5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA基础篇（二）——基础知识5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-21T20:03:10+08:00">
+                2019-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="10、注解"><a href="#10、注解" class="headerlink" title="10、注解"></a>10、注解</h4><h5 id="10-1-元注解"><a href="#10-1-元注解" class="headerlink" title="10.1 元注解"></a>10.1 元注解</h5><p>说简单点，就是 定义其他注解的注解 。 比如Override这个注解，就不是一个元注解。而是通过元注解定义出来的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.SOURCE)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里面的 @Target @Retention 就是元注解。</p>
+<p>元注解有四个:@Target（表示该注解可以用于什么地方）、@Retention（表示再什么级别保存该注解信息）、@Documented（将此注解包含再javadoc中）、@Inherited（允许子类继承父类中的注解）。</p>
+<h5 id="10-2-自定义注解"><a href="#10-2-自定义注解" class="headerlink" title="10.2 自定义注解"></a>10.2 自定义注解</h5><p>除了元注解，都是自定义注解。通过元注解定义出来的注解。 如我们常用的Override 、Autowire等。 日常开发中也可以自定义一个注解，这些都是自定义注解。</p>
+<h5 id="10-3-JAVA中常用注解使用"><a href="#10-3-JAVA中常用注解使用" class="headerlink" title="10.3 JAVA中常用注解使用"></a>10.3 JAVA中常用注解使用</h5><blockquote>
+<p><strong>注解，java中提供了一种原程序中的元素关联任何信息、任何元素的途径的途径和方法。</strong></p>
+</blockquote>
+<p>注解是那些插入到源代码中使用其他工具可以对其进行处理的标签。注解不会改变程序的编译方式。java编译器会对包含注解与不包含注解的代码生成相同的虚拟机指令。在java中，注解是被当做修饰符（如public/static之类）来使用的。</p>
+<p>注释是供人看的，注解是供程序调用的。一种是程序员写给另一个程序员的，一种是程序员写给计算机解析的。</p>
+<p><strong>自定义注解</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.METHOD,ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Description &#123;</span><br><span class="line">    <span class="function">String <span class="title">desc</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">    <span class="function">String <span class="title">author</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">age</span><span class="params">()</span> <span class="keyword">default</span> 18</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用关键字@interface定义注解;</li>
+<li>成员变量以无参无异常的方式声明;</li>
+<li>可以通过default关键字给成员变量指定默认值；</li>
+<li>成员变量的类型是受限制的，包括原始类型、String、Class、Annotation、Enumeration;</li>
+<li>如果注解只有一个成员变量，则成员名称必须取名value(),在使用中可以忽略成员名称与赋值号(=);</li>
+<li>注解可以没有成员，没有成员的注解称为标示注解。</li>
+</ul>
+<p><strong>使用注解</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @&lt;注解名称&gt;(&lt;成员名1&gt;=&lt;成员值1&gt;,&lt;成员名2&gt;=&lt;成员值2&gt; ...)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Description</span>(desc = <span class="string">"I'm class annotation"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Description</span>(desc = <span class="string">"I'm method annotation"</span>,author = <span class="string">"rudy"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">eyeColor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"red"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解析注解</strong></p>
+<p>通过反射获取类、方法、成员上的<code>运行时</code>注解信息，从而实现动态控制程序运行的逻辑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Annotation.Description;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testParse</span><span class="params">()</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// 取出注解</span></span><br><span class="line">        Class cls = Class.forName(<span class="string">"Annotation.AnnotationApp"</span>);</span><br><span class="line">        <span class="keyword">boolean</span> isExit =  cls.isAnnotationPresent(Description.class);</span><br><span class="line">        <span class="keyword">if</span>(isExit)&#123;</span><br><span class="line">            <span class="comment">// 做逻辑处理</span></span><br><span class="line">            Description annotation = (Description) cls.getAnnotation(Description.class);</span><br><span class="line">            System.out.println(<span class="string">"get annotation:"</span> + annotation.desc());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"no annotation!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用类加载器加载类，获取类对象;</li>
+<li>判断是否存在类注解;</li>
+<li>取出类注解，做逻辑处理;</li>
+<li>方法注解类似。</li>
+</ul>
+<h5 id="10-4-注解与反射的结合"><a href="#10-4-注解与反射的结合" class="headerlink" title="10.4 注解与反射的结合"></a>10.4 注解与反射的结合</h5><p>首先反射注解，那么保留策略必须是Runtime，也就是@Retention(RetentionPolicy.RUNTIME)</p>
+<p>①定义一个注解类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.FIELD&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>②在定义一个类使用注解类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> </span>&#123;</span><br><span class="line">    <span class="meta">@MyAnnotation</span>(<span class="number">20</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> String.valueOf(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③在main方法里面反射注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = MyBean.class.getDeclaredField(<span class="string">"value"</span>);<span class="comment">//获取成员变量value</span></span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);<span class="comment">//将value设置成可访问的</span></span><br><span class="line">            <span class="keyword">if</span>(field.isAnnotationPresent(MyAnnotation.class))&#123;<span class="comment">//判断成员变量是否有注解</span></span><br><span class="line">                MyAnnotation myAnnotation = field.getAnnotation(MyAnnotation.class);<span class="comment">//获取定义在成员变量中的注解MyAnnotation</span></span><br><span class="line">                <span class="keyword">int</span> value = myAnnotation.value();<span class="comment">//获取定义在MyBean的MyAnnotation里面属性值</span></span><br><span class="line">                MyBean myBean=<span class="keyword">new</span> MyBean();</span><br><span class="line">                field.setInt(myBean, value);<span class="comment">//将注解的值20可以赋给成员变量value</span></span><br><span class="line">                System.out.println(myBean);<span class="comment">//验证结果</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<p><img src="https://images2017.cnblogs.com/blog/1186376/201708/1186376-20170803224827084-101464516.png" alt="img"></p>
+<h5 id="10-5-如何自定义一个注解"><a href="#10-5-如何自定义一个注解" class="headerlink" title="10.5 如何自定义一个注解"></a>10.5 如何自定义一个注解</h5><p>在Java中，类使用class定义，接口使用interface定义，注解和接口的定义差不多，增加了一个@符号，即@interface，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAuth &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注解中可以定义成员变量，用于信息的描述，跟接口中方法的定义类似，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAuth &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以添加默认值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAuth &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span> <span class="keyword">default</span> "猿天地"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的介绍只是完成了自定义注解的第一步，开发中日常使用注解大部分是用在类上，方法上，字段上，示列代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAuth &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Target</strong></p>
+<p>用于指定被修饰的注解修饰哪些程序单元，也就是上面说的类，方法，字段</p>
+<p><strong>Retention</strong></p>
+<p>用于指定被修饰的注解被保留多长时间，分别SOURCE（注解仅存在于源码中，在class字节码文件中不包含）,CLASS（默认的保留策略，注解会在class字节码文件中存在，但运行时无法获取）,RUNTIME（注解会在class字节码文件中存在，在运行时可以通过反射获取到）三种类型，如果想要在程序运行过程中通过反射来获取注解的信息需要将Retention设置为RUNTIME</p>
+<p><strong>Documented</strong></p>
+<p>用于指定被修饰的注解类将被javadoc工具提取成文档</p>
+<p><strong>Inherited</strong></p>
+<p>用于指定被修饰的注解类将具有继承性</p>
+<p>10.6 Spring常用注解</p>
+<p>@Configuration把一个类作为一个IoC容器，它的某个方法头上如果注册了@Bean，就会作为这个Spring容器中的Bean。</p>
+<p>@Scope注解 作用域</p>
+<p>@Lazy(true) 表示延迟初始化</p>
+<p>@Service用于标注业务层组件、</p>
+<p>@Controller用于标注控制层组件@Repository用于标注数据访问组件，即DAO组件。</p>
+<p>@Component泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p>
+<p>@Scope用于指定scope作用域的（用在类上）</p>
+<p>@PostConstruct用于指定初始化方法（用在方法上）</p>
+<p>@PreDestory用于指定销毁方法（用在方法上）</p>
+<p>@DependsOn：定义Bean初始化及销毁时的顺序</p>
+<p>@Primary：自动装配时当出现多个Bean候选者时，被注解为@Primary的Bean将作为首选者，否则将抛出异常</p>
+<p>@Autowired 默认按类型装配，如果我们想使用按名称装配，可以结合@Qualifier注解一起使用。如下：</p>
+<p>@Autowired @Qualifier(“personDaoBean”) 存在多个实例配合使用</p>
+<p>@Resource默认按名称装配，当找不到与名称匹配的bean才会按类型装配。</p>
+<p>@PostConstruct 初始化注解</p>
+<p>@PreDestroy 摧毁注解 默认 单例 启动就加载</p>
+<p><strong>Spring中的这几个注解有什么区别：@Component 、@Repository、@Service、@Controller</strong></p>
+<p>1、@Component指的是组件，</p>
+<p>@Controller，@Repository和@Service 注解都被@Component修饰，用于代码中区分表现层，持久层和业务层的组件，代码中组件不好归类时可以使用@Component来标注</p>
+<p>2、当前版本只有区分的作用，未来版本可能会添加更丰富的功能</p>
+<h4 id="11、JMS"><a href="#11、JMS" class="headerlink" title="11、JMS"></a>11、JMS</h4><h5 id="11-1-什么是Java消息服务"><a href="#11-1-什么是Java消息服务" class="headerlink" title="11.1 什么是Java消息服务"></a>11.1 什么是Java消息服务</h5><p>Java消息服务指的是两个应用程序之间进行异步通信的API，它为标准消息协议和消息服务提供了一组通用接口，包括创建、发送、读取消息等，用于支持JAVA应用程序开发。在J2EE中，当两个应用程序使用JMS进行通信时，它们之间并不是直接相连的，而是通过一个共同的消息收发服务连接起来，可以达到解耦的效果，我们将会在接下来的教程中详细介绍。</p>
+<p>​        在JAVA中，如果两个应用程序之间对各自都不了解，甚至这两个程序可能部署在不同的大洲上，那么它们之间如何发送消息呢？举个例子，一个应用程序A部署在印度，另一个应用程序部署在美国，然后每当A触发某件事后，B想从A获取一些更新信息。当然，也有可能不止一个B对A的更新信息感兴趣，可能会有N个类似B的应用程序想从A中获取更新的信息。</p>
+<p>　　在这种情况下，JAVA提供了最佳的解决方案-JMS，完美解决了上面讨论的问题。</p>
+<p>　　JMS同样适用于基于事件的应用程序，如聊天服务，它需要一种发布事件机制向所有与服务器连接的客户端发送消息。JMS与RMI不同，发送消息的时候，接收者不需要在线。服务器发送了消息，然后就不管了；等到客户端上线的时候，能保证接收到服务器发送的消息。这是一个很强大的解决方案，能处理当今世界很多普遍问题。</p>
+<h5 id="11-2-JMS消息传送模型"><a href="#11-2-JMS消息传送模型" class="headerlink" title="11.2 JMS消息传送模型"></a>11.2 JMS消息传送模型</h5><p>在JMS API出现之前，大部分产品使用“点对点”和“发布/订阅”中的任一方式来进行消息通讯。JMS定义了这两种消息发送模型的规范，它们相互独立。任何JMS的提供者可以实现其中的一种或两种模型，这是它们自己的选择。JMS规范提供了通用接口保证我们基于JMS API编写的程序适用于任何一种模型。</p>
+<p>　　让我们更加详细的看下这两种消息传送模型：</p>
+<p><strong>点对点消息传送模型</strong></p>
+<p>　　在点对点消息传送模型中，应用程序由消息队列，发送者，接收者组成。每一个消息发送给一个特殊的消息队列，该队列保存了所有发送给它的消息(除了被接收者消费掉的和过期的消息)。点对点消息模型有一些特性，如下：</p>
+<ul>
+<li>每个消息只有一个接收者；</li>
+<li>消息发送者和接收者并没有时间依赖性；</li>
+<li>当消息发送者发送消息的时候，无论接收者程序在不在运行，都能获取到消息；</li>
+<li>当接收者收到消息的时候，会发送确认收到通知（acknowledgement）。</li>
+</ul>
+<p><img src="https://images2015.cnblogs.com/blog/879896/201606/879896-20160604194640227-215496499.gif" alt="img"></p>
+<p><strong>发布/订阅消息传递模型</strong></p>
+<p>　　在发布/订阅消息模型中，发布者发布一个消息，该消息通过topic传递给所有的客户端。在这种模型中，发布者和订阅者彼此不知道对方，是匿名的且可以动态发布和订阅topic。topic主要用于保存和传递消息，且会一直保存消息直到消息被传递给客户端。</p>
+<p>发布/订阅消息模型特性如下：</p>
+<ul>
+<li>一个消息可以传递给多个订阅者</li>
+<li>发布者和订阅者有时间依赖性，只有当客户端创建订阅后才能接受消息，且订阅者需一直保持活动状态以接收消息。</li>
+<li>为了缓和这样严格的时间相关性，JMS允许订阅者创建一个可持久化的订阅。这样，即使订阅者没有被激活（运行），它也能接收到发布者的消息。</li>
+</ul>
+<p><img src="https://images2015.cnblogs.com/blog/879896/201606/879896-20160604232610055-1944763982.gif" alt="img"></p>
+<h4 id="12、JMX"><a href="#12、JMX" class="headerlink" title="12、JMX"></a>12、JMX</h4><h5 id="12-1-java-lang-management"><a href="#12-1-java-lang-management" class="headerlink" title="12.1 java.lang.management.*"></a>12.1 java.lang.management.*</h5><p>这个包提供了用于监控和管理Java虚拟机的管理接口，以及Java运行时中的其他组件。</p>
+<p><strong>(一)、接口概述</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">接口名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/BufferPoolMXBean.html" target="_blank" rel="noopener">BufferPoolMXBean</a></td>
+<td style="text-align:left">缓冲池的管理接口，例如：<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html" target="_blank" rel="noopener">直接</a>或<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/MappedByteBuffer.html" target="_blank" rel="noopener">映射</a>缓冲池。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ClassLoadingMXBean.html" target="_blank" rel="noopener">ClassLoadingMXBean</a></td>
+<td style="text-align:left">Java虚拟机的类加载系统的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/CompilationMXBean.html" target="_blank" rel="noopener">CompilationMXBean</a></td>
+<td style="text-align:left">Java虚拟机的编译系统的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html" target="_blank" rel="noopener">GarbageCollectorMXBean</a></td>
+<td style="text-align:left">Java虚拟机的垃圾收集的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryManagerMXBean.html" target="_blank" rel="noopener">MemoryManagerMXBean</a></td>
+<td style="text-align:left">内存管理器的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryMXBean.html" target="_blank" rel="noopener">MemoryMXBean</a></td>
+<td style="text-align:left">Java虚拟机的存储系统的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryPoolMXBean.html" target="_blank" rel="noopener">MemoryPoolMXBean</a></td>
+<td style="text-align:left">内存池的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/OperatingSystemMXBean.html" target="_blank" rel="noopener">OperatingSystemMXBean</a></td>
+<td style="text-align:left">正在运行Java虚拟机的操作系统的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/PlatformLoggingMXBean.html" target="_blank" rel="noopener">PlatformLoggingMXBean</a></td>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html" target="_blank" rel="noopener">日志</a>工具的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/PlatformManagedObject.html" target="_blank" rel="noopener">PlatformManagedObject</a></td>
+<td style="text-align:left">受平台管理的对象就是JMX的<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MXBean.html" target="_blank" rel="noopener">MXBean</a>，用于监控和管理Java平台中的组件。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/RuntimeMXBean.html" target="_blank" rel="noopener">RuntimeMXBean</a></td>
+<td style="text-align:left">Java虚拟机的运行时系统的管理接口。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ThreadMXBean.html" target="_blank" rel="noopener">ThreadMXBean</a></td>
+<td style="text-align:left">Java虚拟机的线程系统的管理接口。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>(二)、类概述</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/LockInfo.html" target="_blank" rel="noopener">LockInfo</a></td>
+<td style="text-align:left">锁的相关信息。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ManagementFactory.html" target="_blank" rel="noopener">ManagementFactory</a></td>
+<td style="text-align:left">ManagementFactory类是一个工厂类，用于获取由Java平台管理的bean。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ManagementPermission.html" target="_blank" rel="noopener">ManagementPermission</a></td>
+<td style="text-align:left">当一段代码通过SecurityManager运行，并且调用在Java平台的管理接口中定义的方法时，SecurityManager便会检查这个对象所代表的许可。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryNotificationInfo.html" target="_blank" rel="noopener">MemoryNotificationInfo</a></td>
+<td style="text-align:left">内存通知相关的信息。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryUsage.html" target="_blank" rel="noopener">MemoryUsage</a></td>
+<td style="text-align:left">MemoryUsage对象表示内存使用状态的快照。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MonitorInfo.html" target="_blank" rel="noopener">MonitorInfo</a></td>
+<td style="text-align:left">对象监控器锁的相关信息。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ThreadInfo.html" target="_blank" rel="noopener">ThreadInfo</a></td>
+<td style="text-align:left">线程信息。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>(三)、枚举概述</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">枚举名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryType.html" target="_blank" rel="noopener">MemoryType</a></td>
+<td style="text-align:left"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryPoolMXBean.html" target="_blank" rel="noopener">内存池</a>的类型。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>(四)、java.lang.management包详述</strong></p>
+<p>这个包提供了用于监控和管理Java虚拟机的管理接口，以及Java运行时中的其他组件。它可以对正在运行的Java虚拟机进行本地和远程的监控和管理。</p>
+<p><strong>(1). Java平台的MXBean</strong></p>
+<p>Java平台的MXBean是一种受管理的bean，它遵循<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">JMX</a>的仪表技术规范，并且仅会使用一组基本的数据类型。Java平台的每个MXBean都是一个<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/PlatformManagedObject.html" target="_blank" rel="noopener">PlatformManagedObject</a>对象，具有唯一的名称。</p>
+<p><strong>(2). ManagementFactory</strong></p>
+<p><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ManagementFactory.html" target="_blank" rel="noopener">ManagementFactory</a>类是Java平台的管理工厂类。这个类提供了一组静态的工厂方法，可用于获取Java平台的MXBan，这样便使得应用程序能够直接访问MXBean。</p>
+<p>getPlatformMBeanServer方法能够访问一个Java平台的MBeanServer。当首次调用这个方法时，它会创建Java平台的MBeanServer，并且会注册所有的MXBean，包括<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/PlatformManagedObject.html" target="_blank" rel="noopener">Java平台的MXBean</a>。Java平台的每个MXBean都会通过一个唯一的名称进行注册，这个名称是由管理接口的规范所定义的。这个MBeanServer可以在相同的Java虚拟机中运行的多个不同的受管理组件之间共享。</p>
+<p><strong>(3). 互用性</strong></p>
+<p>管理应用程序和运行Java虚拟机的平台的MBeanServer能够相互操作，而不需要Java平台的MXBean接口所使用的类。在JMX的连接器服务端和连接器客户端之间传输的数据类型是JMX的<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/openmbean/OpenType.html" target="_blank" rel="noopener">开放类型</a>，这样便使得多个版本之间可以相互操作。当通过MBeanServer接口访问时，MXBean接口使用的一种数据类型会映射至一种开放类型。请参考<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MXBean.html#MXBean-spec" target="_blank" rel="noopener">MXBean</a>规范的详细信息。</p>
+<p><strong>(4). 访问MXBean的方法</strong></p>
+<p>应用程序可以通过下面的方式监控Java虚拟机的性能和运行时环境：</p>
+<h5 id="a-直接访问MXBean接口"><a href="#a-直接访问MXBean接口" class="headerlink" title="a. 直接访问MXBean接口"></a>a. 直接访问MXBean接口</h5><ul>
+<li><p>获取正在运行的Java虚拟机的本地MXBean实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RuntimeMXBean mxbean = ManagementFactory.getRuntimeMXBean();</span><br><span class="line"><span class="comment">// 获取标准属性“VmVendor”</span></span><br><span class="line">String vendor = mxbean.getVmVendor();</span><br></pre></td></tr></table></figure>
+<p>或者，调用getPlatformMXBean或getPlatformMXBeans方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RuntimeMXBean mxbean = ManagementFactory.getPlatformMXBean(RuntimeMXBean.class);</span><br><span class="line"><span class="comment">// 获取标准属性“VmVendor”</span></span><br><span class="line">String vendor = mxbean.getVmVendor();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构造MXBean代理实例，将方法调用转发至给定的MBeanServer：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MBeanServerConnection mbs;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接至一个正在运行的JVM（或自身），然后获取已经注册过JVM MXBean的MBeanServerConnection...</span></span><br><span class="line"><span class="comment">// 为RuntimeMXBean接口获取MBean代理</span></span><br><span class="line">RuntimeMXBean proxy =ManagementFactory.getPlatformMXBean(mbs,RuntimeMXBean.class);</span><br><span class="line"><span class="comment">// 获取标准属性“VmVendor”</span></span><br><span class="line">String vendor = proxy.getVmVendor();</span><br></pre></td></tr></table></figure>
+<p>通常，会通过代理访问远程Java虚拟机的MXBean。可以使用另一种方法创建MXBean代理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeMXBean proxy =ManagementFactory.newPlatformMXBeanProxy(mbs,</span><br><span class="line">ManagementFactory.RUNTIME_MXBEAN_NAME,RuntimeMXBean.class);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="b-通过MBeanServer间接访问MXBean接口"><a href="#b-通过MBeanServer间接访问MXBean接口" class="headerlink" title="b. 通过MBeanServer间接访问MXBean接口"></a>b. 通过MBeanServer间接访问MXBean接口</h5><p>应用程序可以通过<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/management/ManagementFactory.html" target="_blank" rel="noopener">Java平台的MBeanServer</a>访问本地的MXBean，或者通过专用的MBeanServerConnection访问远程的MXBean。MXBean的属性和操作都只会使用JMX的开放类型，包括基本数据类型、<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/openmbean/CompositeData.html" target="_blank" rel="noopener">CompositeData</a>类型和<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/openmbean/TabularData.html" target="_blank" rel="noopener">TabularData</a>类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MBeanServerConnection mbs;</span><br><span class="line"><span class="comment">// 连接至一个正在运行的JVM（或自身），然后获取已经注册过JVM MXBean的MBeanServerConnection...</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">// 假设RuntimeMXBean已经在mbs中注册过</span></span><br><span class="line">ObjectName oname = <span class="keyword">new</span> ObjectName(ManagementFactory.RUNTIME_MXBEAN_NAME);</span><br><span class="line"><span class="comment">// 获取标准属性“VmVendor”</span></span><br><span class="line">String vendor = (String) mbs.getAttribute(oname, <span class="string">"VmVendor"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (....) &#123;</span><br><span class="line"><span class="comment">// 捕获ObjectName构造器和MBeanServer.getAttribute方法抛出的异常...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>(5). Java平台扩展</strong></p>
+<p>通过定义平台相关的接口，Java虚拟机的具体实现就可以向管理接口添加自己的平台扩展，这样能够扩展标准管理接口的功能，使其包含平台专用的性能度量和管理操作。ManagementFactory类中的静态工厂方法会返回具有平台扩展功能的MXBean。</p>
+<p>建议在命名平台专用的属性时，使用供应商专用的前缀（例如，使用供应商的名称作为前缀）。这样便能避免未来对标准管理接口进行扩展时，新增的属性名称和平台扩展产生冲突。如果未来对标准管理接口进行扩展时，为某个管理接口定义了一个新的属性，并且这个属性的名称恰巧和某个供应商专用的属性名称相同，那么就必须修改访问这个供应商特定属性的应用程序，这样才能解决版本和兼容性的问题。</p>
+<p>下面举个例子，演示如何通过平台扩展访问某个属性：</p>
+<h5 id="a-直接访问Oracle专用的MXBean接口"><a href="#a-直接访问Oracle专用的MXBean接口" class="headerlink" title="a.直接访问Oracle专用的MXBean接口"></a>a.直接访问Oracle专用的MXBean接口</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;com.sun.management.GarbageCollectorMXBean&gt; mxbeans =ManagementFactory.getPlatformMXBeans(com.sun.management.GarbageCollectorMXBean.class);</span><br><span class="line"><span class="keyword">for</span> (com.sun.management.GarbageCollectorMXBean gc : mxbeans) &#123;</span><br><span class="line"><span class="comment">// 获取标准属性“CollectionCount”</span></span><br><span class="line">String count = mxbean.getCollectionCount();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取平台专用属性“LastGcInfo”</span></span><br><span class="line">GcInfo gcinfo = gc.getLastGcInfo();</span><br><span class="line">...&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="b-通过MBeanServer和代理访问Oracle专用的MXBean接口"><a href="#b-通过MBeanServer和代理访问Oracle专用的MXBean接口" class="headerlink" title="b. 通过MBeanServer和代理访问Oracle专用的MXBean接口"></a>b. 通过MBeanServer和代理访问Oracle专用的MXBean接口</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MBeanServerConnection mbs;</span><br><span class="line"><span class="comment">// 连接至一个正在运行的JVM（或自身），然后获取已经注册过JVM MXBean的MBeanServerConnection...</span></span><br><span class="line"></span><br><span class="line">List&lt;com.sun.management.GarbageCollectorMXBean&gt; mxbeans =ManagementFactory.getPlatformMXBeans(mbs, com.sun.management.GarbageCollectorMXBean.class);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (com.sun.management.GarbageCollectorMXBean gc : mxbeans) &#123;</span><br><span class="line"><span class="comment">// 获取标准属性“CollectionCount”</span></span><br><span class="line">String count = mxbean.getCollectionCount();</span><br><span class="line"><span class="comment">// 获取平台专用属性“LastGcInfo”</span></span><br><span class="line">GcInfo gcinfo = gc.getLastGcInfo();</span><br><span class="line">...&#125;</span><br></pre></td></tr></table></figure>
+<p>除非另有说明，向这个包中的任意类的构造器或方法传递一个null参数，都将会抛出一个NullPointerException（空指针异常）。</p>
+<p>java.lang.management包的API是线程安全的。</p>
+<h5 id="12-2-javax-management"><a href="#12-2-javax-management" class="headerlink" title="12.2 javax.management"></a>12.2 javax.management</h5><p>这个包提供了Java管理扩展的核心类。</p>
+<p>Java管理扩展（JMXTM）API是一种用于管理和监控的标准API。典型用途包括：</p>
+<ul>
+<li>查询和修改应用程序的配置；</li>
+<li>积累应用程序行为相关的统计数据，并且对外提供这些数据；</li>
+<li>发出状态变化和环境错误的通知。</li>
+</ul>
+<p>JMX API还可以作为系统、网络等设施的管理解决方案的一部分来使用。</p>
+<p>这个API包含远程访问的功能，因此，远程管理程序应当能够和正在运行的应用程序展开交互，这样便能实现这些用途了。</p>
+<h4 id="13、泛型"><a href="#13、泛型" class="headerlink" title="13、泛型"></a>13、泛型</h4><h5 id="13-1-泛型与继承"><a href="#13-1-泛型与继承" class="headerlink" title="13.1 泛型与继承"></a>13.1 泛型与继承</h5><p>泛型就是广泛的类型，就是在不同类型之间都可以使用的就叫做泛型，使用的是类型里面的方法，所以如果要使用泛型就需要保证使用泛型的类需要有共同的方法，泛型(generics，genericity)又称为“参数类型化(parameterized type)”或“模板(templates)”，是和继承(inheritance)不同而互补的一种组件复用机制。</p>
+<p>​       继承和泛型的不同之处在于——在一个系统中，继承层次是垂直方向，从抽象到具体，而泛型是水平方向上的。当运用继承，不同的类型将拥有相同的接口，并获得了多态性;当运用泛型，将拥有许多不同的类型，并得以相同的算法作用在它们身上。因此，一般说来，当类型与实现方法无关时，使用泛型;否则，用继承，既然如此可以更进一步的总结为，使用泛型的类之间它们应该有共同的方法，否则泛型也就没有意义了。</p>
+<p>　　而且本身泛型的T这个字符因为代表的是Object类型,所以任何的关于Object类型可以使用的方法和参数它都可以使用。</p>
+<p>　　泛型类的本质是：让泛型类里面的类类型的参数可识别化(在真正使用的时候需要指定参数类型)。</p>
+<p>　　泛型方法的本质是：让泛型方法里面的类类型参数可识别化(在真正使用的时候需要指定参数类型)。</p>
+<p>　　泛型接口的本质是：让泛型接口里面的类类型参数可识别化(在真正使用的时候需要指定参数类型)。</p>
+<h5 id="13-2-类型擦除"><a href="#13-2-类型擦除" class="headerlink" title="13.2 类型擦除"></a>13.2 类型擦除</h5><p><strong>类型参数化</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cache</span> </span>&#123;</span><br><span class="line">	Object value;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(Object value)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.value = value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假设 Cache 能够存取任何类型的值，于是，我们可以这样使用它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Cache cache = <span class="keyword">new</span> Cache();</span><br><span class="line">cache.setValue(<span class="number">134</span>);</span><br><span class="line"><span class="keyword">int</span> value = (<span class="keyword">int</span>) cache.getValue();</span><br><span class="line">cache.setValue(<span class="string">"hello"</span>);</span><br><span class="line">String value1 = (String) cache.getValue();</span><br></pre></td></tr></table></figure>
+<p>使用的方法也很简单，只要我们做正确的强制转换就好了。</p>
+<p>但是，泛型却给我们带来了不一样的编程体验。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cache</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	T value;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.value = value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就是泛型，它将 value 这个属性的类型也参数化了，这就是所谓的参数化类型。再看它的使用方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Cache&lt;String&gt; cache1 = <span class="keyword">new</span> Cache&lt;String&gt;();</span><br><span class="line">cache1.setValue(<span class="string">"123"</span>);</span><br><span class="line">String value2 = cache1.getValue();</span><br><span class="line">		</span><br><span class="line">Cache&lt;Integer&gt; cache2 = <span class="keyword">new</span> Cache&lt;Integer&gt;();</span><br><span class="line">cache2.setValue(<span class="number">456</span>);</span><br><span class="line"><span class="keyword">int</span> value3 = cache2.getValue();</span><br></pre></td></tr></table></figure>
+<p>什么是类型擦除</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; l1 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">List&lt;Integer&gt; l2 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">System.out.println(l1.getClass() == l2.getClass());</span><br></pre></td></tr></table></figure>
+<p>打印的结果为 true 是因为 List<string><code>和</code>List<integer>在 jvm 中的 Class 都是 List.class。</integer></string></p>
+<p>泛型信息被擦除了。</p>
+<h5 id="13-3-泛型中KTVE"><a href="#13-3-泛型中KTVE" class="headerlink" title="13.3 泛型中KTVE"></a>13.3 泛型中KTVE</h5><p>E - Element (在集合中使用，因为集合中存放的是元素)</p>
+<p>T - Type（Java 类）</p>
+<p>K - Key（键）</p>
+<p>V - Value（值）</p>
+<p>N - Number（数值类型）</p>
+<p>？ - 表示不确定的java类型（无限制通配符类型）</p>
+<p>S、U、V - 2nd、3rd、4th types</p>
+<p>Object - 是所有类的根类，任何类的对象都可以设置给该Object引用变量，使用的时候可能需要类型强制转换，但是用使用了泛型T、E等这些标识符后，在实际用之前类型就已经确定了，不需要再进行类型强制转换。</p>
+<h5 id="13-4-泛型各种用法"><a href="#13-4-泛型各种用法" class="headerlink" title="13.4 泛型各种用法"></a>13.4 泛型各种用法</h5><p>泛型按照使用情况可以分为 3 种。</p>
+<ol>
+<li>泛型类。</li>
+<li>泛型方法。</li>
+<li>泛型接口。</li>
+</ol>
+<p><strong>泛型类</strong></p>
+<p>我们可以这样定义一个泛型类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	T field1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>尖括号 <code>&lt;&gt;</code>中的 T 被称作是类型参数，用于指代任何类型。事实上，T 只是一种习惯性写法，如果你愿意。你可以这样写。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">Hello</span>&gt; </span>&#123;</span><br><span class="line">	Hello field1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但出于规范的目的，Java 还是建议我们用单个大写字母来代表类型参数。常见的如：</p>
+<p>T 代表一般的任何类。<br>E 代表 Element 的意思，或者 Exception 异常的意思。<br>K 代表 Key 的意思。<br>V 代表 Value 的意思，通常与 K 一起配合使用。<br>S 代表 Subtype 的意思，文章后面部分会讲解示意。<br>如果一个类被 <t>的形式定义，那么它就被称为是泛型类。</t></p>
+<p>那么对于泛型类怎么样使用呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Test&lt;String&gt; test1 = <span class="keyword">new</span> Test&lt;&gt;();</span><br><span class="line">Test&lt;Integer&gt; test2 = <span class="keyword">new</span> Test&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>只要在对泛型类创建实例的时候，在尖括号中赋值相应的类型便是。T 就会被替换成对应的类型，如 String 或者是 Integer。你可以相像一下，当一个泛型类被创建时，内部自动扩展成下面的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">	String field1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，泛型类不至接受一个类型参数，它还可以这样接受多个类型参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MultiType</span> &lt;<span class="title">E</span>,<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	E value1;</span><br><span class="line">	T value2;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> E <span class="title">getValue1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> value1;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">getValue2</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> value2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>泛型方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">testMethod</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>泛型方法与泛型类稍有不同的地方是，类型参数也就是尖括号那一部分是写在返回值前面的。<code>&lt;T&gt;</code>中的 T 被称为类型参数，而方法中的 T 被称为参数化类型，它不是运行时真正的参数。</p>
+<p>当然，声明的类型参数，其实也是可以当作返回值的类型的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>  &lt;T&gt; <span class="function">T <span class="title">testMethod1</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>泛型类与泛型方法的共存现象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">		System.out.println(t.getClass().getName());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span>  &lt;T&gt; <span class="function">T <span class="title">testMethod1</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> t;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>Test1&lt;T&gt;</code>是泛型类，testMethod 是泛型类中的普通方法，而 testMethod1 是一个泛型方法。而泛型类中的类型参数与泛型方法中的类型参数是没有相应的联系的，<strong>泛型方法始终以自己定义的类型参数为准</strong>。</p>
+<p>所以，针对上面的代码，我们可以这样编写测试代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Test1&lt;String&gt; t = <span class="keyword">new</span> Test1();</span><br><span class="line">t.testMethod(<span class="string">"generic"</span>);</span><br><span class="line">Integer i = t.testMethod1(<span class="keyword">new</span> Integer(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<p>泛型类的实际类型参数是 String，而传递给泛型方法的类型参数是 Integer，两者不想干。</p>
+<p>但是，为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名。比如，<code>Test1&lt;T&gt;</code>代码可以更改为这样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">		System.out.println(t.getClass().getName());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span>  &lt;E&gt; <span class="function">E <span class="title">testMethod1</span><span class="params">(E e)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> e;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>泛型接口</p>
+<p>泛型接口和泛型类差不多，所以一笔带过。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="13-5-限定通配符和非限定通配符"><a href="#13-5-限定通配符和非限定通配符" class="headerlink" title="13.5 限定通配符和非限定通配符"></a>13.5 限定通配符和非限定通配符</h5><p> 有两种限定通配符，一种是它通过确保类型必须是T的子类来设定类型的上界，另一种是它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面表示了非限定通配符，因为可以用任意类型来替代。</p>
+<p>即：限定通配符包括两种：</p>
+<ol>
+<li>表示类型的上界，格式为：&lt;？ extends T&gt;，即类型必须为T类型或者T子类</li>
+<li>表示类型的下界，格式为：&lt;？ super T&gt;，即类型必须为T类型或者T的父类<pre><code>非限定通配符：类型为&lt;T&gt;,可以用任意类型来替代。
+</code></pre></li>
+</ol>
+<h5 id="13-6-上下界限定符extends-和-super"><a href="#13-6-上下界限定符extends-和-super" class="headerlink" title="13.6 上下界限定符extends 和 super"></a>13.6 上下界限定符extends 和 super</h5><p><code>&lt;? extends T&gt;</code>和<code>&lt;? super T&gt;</code>是Java泛型中的<strong>“通配符（Wildcards）”</strong>和<strong>“边界（Bounds）”</strong>的概念。</p>
+<ul>
+<li><code>&lt;? extends T&gt;</code>：是指 <strong>“上界通配符（Upper Bounds Wildcards）”</strong></li>
+<li><code>&lt;? super T&gt;</code>：是指 <strong>“下界通配符（Lower Bounds Wildcards）”</strong></li>
+</ul>
+<h5 id="为什么要用通配符和边界？"><a href="#为什么要用通配符和边界？" class="headerlink" title="为什么要用通配符和边界？"></a><strong>为什么要用通配符和边界？</strong></h5><p>使用泛型的过程中，经常出现一种很别扭的情况。比如按照题主的例子，我们有Fruit类，和它的派生类Apple类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">extends</span> <span class="title">Fruit</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>然后有一个最简单的容器：Plate类。盘子里可以放一个泛型的“东西”。我们可以对这个东西做最简单的“放”和“取”的动作：<code>set( )</code>和<code>get( )</code>方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plate</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> T item;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Plate</span><span class="params">(T t)</span></span>&#123;item=t;&#125;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T t)</span></span>&#123;item=t;&#125;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> item;&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我定义一个“水果盘子”，逻辑上水果盘子当然可以装苹果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plate&lt;Fruit&gt; p=<span class="keyword">new</span> Plate&lt;Apple&gt;(<span class="keyword">new</span> Apple());</span><br></pre></td></tr></table></figure>
+<p>但实际上Java编译器不允许这个操作。会报错，“装苹果的盘子”无法转换成“装水果的盘子”。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: incompatible types: Plate&lt;Apple&gt; cannot be converted to Plate&lt;Fruit&gt;</span><br></pre></td></tr></table></figure>
+<p>所以我的尴尬症就犯了。实际上，编译器脑袋里认定的逻辑是这样的：</p>
+<ul>
+<li>苹果 IS-A 水果</li>
+<li>装苹果的盘子 NOT-IS-A 装水果的盘子</li>
+</ul>
+<p>所以，就算容器里装的东西之间有继承关系，但容器之间是没有继承关系的。所以我们不可以把Plate的引用传递给Plate。</p>
+<p>为了让泛型用起来更舒服，Sun的大脑袋们就想出了<code>&lt;? extends T&gt;</code>和<code>&lt;? super T&gt;</code>的办法，来让“水果盘子”和“苹果盘子”之间发生关系。</p>
+<h5 id="什么是上界？"><a href="#什么是上界？" class="headerlink" title="什么是上界？"></a><strong>什么是上界？</strong></h5><p>下面代码就是“上界通配符（Upper Bounds Wildcards）”：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plate&lt;？ extends Fruit&gt;</span><br></pre></td></tr></table></figure>
+<p>翻译成人话就是：一个能放水果以及一切是水果派生类的盘子。再直白点就是：啥水果都能放的盘子。这和我们人类的逻辑就比较接近了。Plate&lt;？ extends Fruit&gt;<code>和</code>Plate<apple>最大的区别就是：Plate&lt;？ extends Fruit&gt;是Plate<fruit>以及Plate<apple>的基类。直接的好处就是，我们可以用“苹果盘子”给“水果盘子”赋值了。</apple></fruit></apple></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plate&lt;? extends Fruit&gt; p=<span class="keyword">new</span> Plate&lt;Apple&gt;(<span class="keyword">new</span> Apple());</span><br></pre></td></tr></table></figure>
+<p>如果把Fruit和Apple的例子再扩展一下，食物分成水果和肉类，水果有苹果和香蕉，肉类有猪肉和牛肉，苹果还有两种青苹果和红苹果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Lev 1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Food</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Lev 2</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> <span class="keyword">extends</span> <span class="title">Food</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Meat</span> <span class="keyword">extends</span> <span class="title">Food</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Lev 3</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">extends</span> <span class="title">Fruit</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banana</span> <span class="keyword">extends</span> <span class="title">Fruit</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pork</span> <span class="keyword">extends</span> <span class="title">Meat</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Beef</span> <span class="keyword">extends</span> <span class="title">Meat</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Lev 4</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedApple</span> <span class="keyword">extends</span> <span class="title">Apple</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GreenApple</span> <span class="keyword">extends</span> <span class="title">Apple</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个体系中，下界通配符 <code>Plate&lt;？ extends Fruit&gt;</code> 覆盖下图中蓝色的区域。</p>
+<p><a href="https://itimetraveler.github.io/gallery/java-genericity/lowerBounds.png" target="_blank" rel="noopener"><img src="https://itimetraveler.github.io/gallery/java-genericity/lowerBounds.png" alt="img"></a></p>
+<h2 id="什么是下界？"><a href="#什么是下界？" class="headerlink" title="什么是下界？"></a><strong>什么是下界？</strong></h2><p>相对应的，“下界通配符（Lower Bounds Wildcards）”：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plate&lt;？ <span class="keyword">super</span> Fruit&gt;</span><br></pre></td></tr></table></figure>
+<p>表达的就是相反的概念：一个能放水果以及一切是水果基类的盘子。<code>Plate&lt;？ super Fruit&gt;</code>是<code>Plate&lt;Fruit&gt;</code>的基类，但不是<code>Plate&lt;Apple&gt;</code>的基类。对应刚才那个例子，<code>Plate&lt;？ super Fruit&gt;</code>覆盖下图中红色的区域。</p>
+<p><a href="https://itimetraveler.github.io/gallery/java-genericity/upperBounds.png" target="_blank" rel="noopener"><img src="https://itimetraveler.github.io/gallery/java-genericity/upperBounds.png" alt="img"></a></p>
+<p><strong>上下界通配符的副作用</strong></p>
+<p>边界让Java不同泛型之间的转换更容易了。但不要忘记，这样的转换也有一定的副作用。那就是容器的部分功能可能失效。</p>
+<p>还是以刚才的Plate为例。我们可以对盘子做两件事，往盘子里set()新东西，以及从盘子里get()东西。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plate</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> T item;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Plate</span><span class="params">(T t)</span></span>&#123;item=t;&#125;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T t)</span></span>&#123;item=t;&#125;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> item;&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>上界<code>&lt;? extends T&gt;</code>不能往里存，只能往外取</strong></p>
+<p><code>&lt;? extends Fruit&gt;</code>会使往盘子里放东西的<code>set( )</code>方法失效。但取东西<code>get( )</code>方法还有效。比如下面例子里两个set()方法，插入Apple和Fruit都报错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Plate&lt;? extends Fruit&gt; p=<span class="keyword">new</span> Plate&lt;Apple&gt;(<span class="keyword">new</span> Apple());	</span><br><span class="line"><span class="comment">//不能存入任何元素p.set(new Fruit());    //Error</span></span><br><span class="line">p.set(<span class="keyword">new</span> Apple());    <span class="comment">//Error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//读取出来的东西只能存放在Fruit或它的基类里。</span></span><br><span class="line">Fruit newFruit1=p.get();</span><br><span class="line">Object newFruit2=p.get();</span><br><span class="line">Apple newFruit3=p.get();    <span class="comment">//Error</span></span><br></pre></td></tr></table></figure>
+<p>原因是编译器只知道容器内是Fruit或者它的派生类，但具体是什么类型不知道。可能是Fruit？可能是Apple？也可能是Banana，RedApple，GreenApple？编译器在看到后面用Plate赋值以后，盘子里没有被标上有“苹果”。而是标上一个占位符：CAP#1，来表示捕获一个Fruit或Fruit的子类，具体是什么类不知道，代号CAP#1。然后无论是想往里插入Apple或者Meat或者Fruit编译器都不知道能不能和这个CAP#1匹配，所以就都不允许。</p>
+<p>所以通配符<code>&lt;?&gt;</code>和类型参数的区别就在于，对编译器来说所有的T都代表同一种类型。比如下面这个泛型方法里，三个T都指代同一个类型，要么都是String，要么都是Integer。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">fill</span><span class="params">(T... t)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>但通配符<code>&lt;?&gt;</code>没有这种约束，Plate&lt;?&gt;单纯的就表示：盘子里放了一个东西，是什么我不知道。</p>
+<p>所以题主问题里的错误就在这里，Plate&lt;？ extends Fruit&gt;里什么都放不进去。</p>
+<p><strong>下界<code>&lt;? super T&gt;</code>不影响往里存，但往外取只能放在Object对象里</strong></p>
+<p>使用下界&lt;? super Fruit&gt;会使从盘子里取东西的get( )方法部分失效，只能存放到Object对象里。set( )方法正常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Plate&lt;? <span class="keyword">super</span> Fruit&gt; p=<span class="keyword">new</span> Plate&lt;Fruit&gt;(<span class="keyword">new</span> Fruit());</span><br><span class="line"><span class="comment">//存入元素正常</span></span><br><span class="line">p.set(<span class="keyword">new</span> Fruit());</span><br><span class="line">p.set(<span class="keyword">new</span> Apple());</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取出来的东西只能存放在Object类里。</span></span><br><span class="line">Apple newFruit3=p.get();    <span class="comment">//Error</span></span><br><span class="line">Fruit newFruit1=p.get();    <span class="comment">//Error</span></span><br><span class="line">Object newFruit2=p.get();</span><br></pre></td></tr></table></figure>
+<p>因为下界规定了元素的最小粒度的下限，实际上是放松了容器元素的类型控制。既然元素是Fruit的基类，那往里存粒度比Fruit小的都可以。但往外读取元素就费劲了，只有所有类的基类Object对象才能装下。但这样的话，元素的类型信息就全部丢失。</p>
+<p><strong>PECS原则</strong></p>
+<p>最后看一下什么是PECS（Producer Extends Consumer Super）原则，已经很好理解了：</p>
+<ul>
+<li><p><strong>频繁往外读取内容的，适合用上界Extends。</strong></p>
+</li>
+<li><p><strong>经常往里插入的，适合用下界Super。</strong></p>
+</li>
+</ul>
+<h5 id="13-7-List和原始类型List之间的区别"><a href="#13-7-List和原始类型List之间的区别" class="headerlink" title="13.7 List和原始类型List之间的区别"></a>13.7 List和原始类型List之间的区别</h5><p>原始类型List和带参数类型之间的主要区别是，在编译时编译器不会对原始类型进行类型安全检查，却会对带参数的类型进行检查。</p>
+<p>通过使用Object作为类型，可以告知编译器该方法可以接受任何类型的对象，比如String或Integer。</p>
+<p>它们之间的第二点区别是，你可以把任何带参数的类型传递给原始类型List，但却不能把List传递给接受 List的方法，因为会产生编译错误。</p>
+<h5 id="13-8-List-lt-gt-和List之间的区别"><a href="#13-8-List-lt-gt-和List之间的区别" class="headerlink" title="13.8 List&lt;?&gt;和List之间的区别"></a>13.8 List&lt;?&gt;和List之间的区别</h5><p>List 是一个未知类型的List，而List 其实是任意类型的List。你可以把List, List赋值给List，却不能把List赋值给 List。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/19/JAVA容器源代码/" rel="next" title="JAVA容器源代码">
+                <i class="fa fa-chevron-left"></i> JAVA容器源代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/25/LinkedList源码学习/" rel="prev" title="LinkedList源码学习">
+                LinkedList源码学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/abc.JPG" alt="Leselier">
+            
+              <p class="site-author-name" itemprop="name">Leselier</p>
+              <p class="site-description motion-element" itemprop="description">A master student of JUN</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Leselier" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5708446219/home" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#10、注解"><span class="nav-number">1.</span> <span class="nav-text">10、注解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#10-1-元注解"><span class="nav-number">1.1.</span> <span class="nav-text">10.1 元注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-2-自定义注解"><span class="nav-number">1.2.</span> <span class="nav-text">10.2 自定义注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-3-JAVA中常用注解使用"><span class="nav-number">1.3.</span> <span class="nav-text">10.3 JAVA中常用注解使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-4-注解与反射的结合"><span class="nav-number">1.4.</span> <span class="nav-text">10.4 注解与反射的结合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-5-如何自定义一个注解"><span class="nav-number">1.5.</span> <span class="nav-text">10.5 如何自定义一个注解</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、JMS"><span class="nav-number">2.</span> <span class="nav-text">11、JMS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#11-1-什么是Java消息服务"><span class="nav-number">2.1.</span> <span class="nav-text">11.1 什么是Java消息服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-2-JMS消息传送模型"><span class="nav-number">2.2.</span> <span class="nav-text">11.2 JMS消息传送模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、JMX"><span class="nav-number">3.</span> <span class="nav-text">12、JMX</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#12-1-java-lang-management"><span class="nav-number">3.1.</span> <span class="nav-text">12.1 java.lang.management.*</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#a-直接访问MXBean接口"><span class="nav-number">3.2.</span> <span class="nav-text">a. 直接访问MXBean接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-通过MBeanServer间接访问MXBean接口"><span class="nav-number">3.3.</span> <span class="nav-text">b. 通过MBeanServer间接访问MXBean接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#a-直接访问Oracle专用的MXBean接口"><span class="nav-number">3.4.</span> <span class="nav-text">a.直接访问Oracle专用的MXBean接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-通过MBeanServer和代理访问Oracle专用的MXBean接口"><span class="nav-number">3.5.</span> <span class="nav-text">b. 通过MBeanServer和代理访问Oracle专用的MXBean接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-2-javax-management"><span class="nav-number">3.6.</span> <span class="nav-text">12.2 javax.management</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、泛型"><span class="nav-number">4.</span> <span class="nav-text">13、泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#13-1-泛型与继承"><span class="nav-number">4.1.</span> <span class="nav-text">13.1 泛型与继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-2-类型擦除"><span class="nav-number">4.2.</span> <span class="nav-text">13.2 类型擦除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-3-泛型中KTVE"><span class="nav-number">4.3.</span> <span class="nav-text">13.3 泛型中KTVE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-4-泛型各种用法"><span class="nav-number">4.4.</span> <span class="nav-text">13.4 泛型各种用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-5-限定通配符和非限定通配符"><span class="nav-number">4.5.</span> <span class="nav-text">13.5 限定通配符和非限定通配符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-6-上下界限定符extends-和-super"><span class="nav-number">4.6.</span> <span class="nav-text">13.6 上下界限定符extends 和 super</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要用通配符和边界？"><span class="nav-number">4.7.</span> <span class="nav-text">为什么要用通配符和边界？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是上界？"><span class="nav-number">4.8.</span> <span class="nav-text">什么是上界？</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是下界？"><span class="nav-number"></span> <span class="nav-text">什么是下界？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#13-7-List和原始类型List之间的区别"><span class="nav-number">0.1.</span> <span class="nav-text">13.7 List和原始类型List之间的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-8-List-lt-gt-和List之间的区别"><span class="nav-number">0.2.</span> <span class="nav-text">13.8 List&lt;?&gt;和List之间的区别</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leselier</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body>
+</html>
