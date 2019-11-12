@@ -255,6 +255,1159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/10/17/JAVA基础（二）———基础知识2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/17/JAVA基础（二）———基础知识2/" itemprop="url">JAVA基础（二）———基础知识2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-17T21:37:58+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="二、JAVA基础知识"><a href="#二、JAVA基础知识" class="headerlink" title="二、JAVA基础知识"></a>二、JAVA基础知识</h3><h4 id="4、集合类"><a href="#4、集合类" class="headerlink" title="4、集合类"></a>4、集合类</h4><h5 id="4-1-集合类的关系图谱"><a href="#4-1-集合类的关系图谱" class="headerlink" title="4.1 集合类的关系图谱"></a>4.1 集合类的关系图谱</h5><p><strong>Collection 和 Collections</strong></p>
+<p>首先要明确的是，Collection 和 Collections是两个不同的概念。Collection是一个接口，所有的集合类（除Map外）都要继承（实现）自该接口。它提供了对集合对象进行基本操作的通用接口方法。Collections是一个包装类，它包含有各种有关集合操作的静态多态方法。（Collections是一个工具类，不能实例化）</p>
+<p><a href="http://www.hollischuang.com/wp-content/uploads/2016/03/CollectionVsCollections.jpeg" target="_blank" rel="noopener"><img src="http://www.hollischuang.com/wp-content/uploads/2016/03/CollectionVsCollections.jpeg" alt="CollectionVsCollections"></a></p>
+<p><strong>Collection家族关系图</strong></p>
+<p><a href="http://www.hollischuang.com/wp-content/uploads/2016/03/java-collection-hierarchy.jpeg" target="_blank" rel="noopener"><img src="http://www.hollischuang.com/wp-content/uploads/2016/03/java-collection-hierarchy.jpeg" alt="java-collection-hierarchy"></a></p>
+<p><strong>Map家族的关系图</strong></p>
+<p><a href="http://www.hollischuang.com/wp-content/uploads/2016/03/MapClassHierarchy-600x354.jpg" target="_blank" rel="noopener"><img src="http://www.hollischuang.com/wp-content/uploads/2016/03/MapClassHierarchy-600x354.jpg" alt="MapClassHierarchy-600x354"></a></p>
+<p><strong>关系图谱</strong></p>
+<p><a href="http://www.hollischuang.com/wp-content/uploads/2016/03/collection-summary.png" target="_blank" rel="noopener"><img src="http://www.hollischuang.com/wp-content/uploads/2016/03/collection-summary.png" alt="collection-summary"></a></p>
+<p><strong>代码示例</strong></p>
+<p>下面是一个简单的例子来说明一些集合类型:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; a1 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">a1.add(<span class="string">"Program"</span>);</span><br><span class="line">a1.add(<span class="string">"Creek"</span>);</span><br><span class="line">a1.add(<span class="string">"Java"</span>);</span><br><span class="line">a1.add(<span class="string">"Java"</span>);</span><br><span class="line">System.out.println(<span class="string">"ArrayList Elements"</span>);</span><br><span class="line">System.out.print(<span class="string">"\t"</span> + a1 + <span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; l1 = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">l1.add(<span class="string">"Program"</span>);</span><br><span class="line">l1.add(<span class="string">"Creek"</span>);</span><br><span class="line">l1.add(<span class="string">"Java"</span>);</span><br><span class="line">l1.add(<span class="string">"Java"</span>);</span><br><span class="line">System.out.println(<span class="string">"LinkedList Elements"</span>);</span><br><span class="line">System.out.print(<span class="string">"\t"</span> + l1 + <span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">Set&lt;String&gt; s1 = <span class="keyword">new</span> HashSet&lt;String&gt;(); <span class="comment">// or new TreeSet() will order the elements;</span></span><br><span class="line">s1.add(<span class="string">"Program"</span>);</span><br><span class="line">s1.add(<span class="string">"Creek"</span>);</span><br><span class="line">s1.add(<span class="string">"Java"</span>);</span><br><span class="line">s1.add(<span class="string">"Java"</span>);</span><br><span class="line">s1.add(<span class="string">"tutorial"</span>);</span><br><span class="line">System.out.println(<span class="string">"Set Elements"</span>);</span><br><span class="line">System.out.print(<span class="string">"\t"</span> + s1 + <span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">Map&lt;String, String&gt; m1 = <span class="keyword">new</span> HashMap&lt;String, String&gt;(); <span class="comment">// or new TreeMap() will order based on keys</span></span><br><span class="line">m1.put(<span class="string">"Windows"</span>, <span class="string">"2000"</span>);</span><br><span class="line">m1.put(<span class="string">"Windows"</span>, <span class="string">"XP"</span>);</span><br><span class="line">m1.put(<span class="string">"Language"</span>, <span class="string">"Java"</span>);</span><br><span class="line">m1.put(<span class="string">"Website"</span>, <span class="string">"programcreek.com"</span>);</span><br><span class="line">System.out.println(<span class="string">"Map Elements"</span>);</span><br><span class="line">System.out.print(<span class="string">"\t"</span> + m1);</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList Elements</span><br><span class="line">    [Program, Creek, Java, Java]</span><br><span class="line">LinkedList Elements</span><br><span class="line">    [Program, Creek, Java, Java]</span><br><span class="line">Set Elements</span><br><span class="line">    [tutorial, Creek, Program, Java]</span><br><span class="line">Map Elements</span><br><span class="line">    &#123;Windows=XP, Website=programcreek.com, Language=Java&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-ArrayList和LinkedList和Vector的区别"><a href="#4-2-ArrayList和LinkedList和Vector的区别" class="headerlink" title="4.2 ArrayList和LinkedList和Vector的区别"></a>4.2 ArrayList和LinkedList和Vector的区别</h5><p>List主要有ArrayList、LinkedList与Vector几种实现。</p>
+<p>这三者都实现了List 接口，使用方式也很相似,主要区别在于因为实现方式的不同,所以对不同的操作具有不同的效率。</p>
+<p>ArrayList 是一个可改变大小的数组.当更多的元素加入到ArrayList中时,其大小将会动态地增长.内部的元素可以直接通过get与set方法进行访问,因为ArrayList本质上就是一个数组.</p>
+<p>LinkedList 是一个双链表,在添加和删除元素时具有比ArrayList更好的性能.但在get与set方面弱于ArrayList.</p>
+<p>当然,这些对比都是指数据量很大或者操作很频繁的情况下的对比,如果数据和运算量很小,那么对比将失去意义.</p>
+<p>Vector 和ArrayList类似,但属于强同步类。如果你的程序本身是线程安全的(thread-safe,没有在多个线程之间共享同一个集合/对象),那么使用ArrayList是更好的选择。</p>
+<p>Vector和ArrayList在更多元素添加进来时会请求更大的空间。Vector每次请求其大小的双倍空间，而ArrayList每次对size增长50%.</p>
+<p>而 LinkedList 还实现了 Queue 接口,该接口比List提供了更多的方法,包括 offer(),peek(),poll()等.</p>
+<p>注意: 默认情况下ArrayList的初始容量非常小,所以如果可以预估数据量的话,分配一个较大的初始值属于最佳实践,这样可以减少调整大小的开销。</p>
+<h5 id="4-3-SynchronizedList和Vector的区别"><a href="#4-3-SynchronizedList和Vector的区别" class="headerlink" title="4.3 SynchronizedList和Vector的区别"></a>4.3 SynchronizedList和Vector的区别</h5><p>Vector是java.util包中的一个类。 SynchronizedList是java.util.Collections中的一个静态内部类。</p>
+<p>在多线程的场景中可以直接使用Vector类，也可以使用Collections.synchronizedList(List list)方法来返回一个线程安全的List。</p>
+<p><strong>那么，到底SynchronizedList和Vector有没有区别，为什么java api要提供这两种线程安全的List的实现方式呢？</strong></p>
+<p>首先，我们知道Vector和Arraylist都是List的子类，他们底层的实现都是一样的。所以这里比较如下两个<code>list1</code>和<code>list2</code>的区别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">List list2 =  Collections.synchronizedList(list);</span><br><span class="line">Vector&lt;String&gt; list1 = <span class="keyword">new</span> Vector&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+<p><strong>1)、比较几个重要的方法。</strong></p>
+<p><strong>(1)add方法</strong></p>
+<p><strong>Vector的实现：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    insertElementAt(element, index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">insertElementAt</span><span class="params">(E obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">if</span> (index &gt; elementCount) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(index</span><br><span class="line">                                                 + <span class="string">" &gt; "</span> + elementCount);</span><br><span class="line">    &#125;</span><br><span class="line">    ensureCapacityHelper(elementCount + <span class="number">1</span>);</span><br><span class="line">    System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>, elementCount - index);</span><br><span class="line">    elementData[index] = obj;</span><br><span class="line">    elementCount++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityHelper</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        grow(minCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>synchronizedList的实现：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">synchronized</span> (mutex) &#123;</span><br><span class="line">       list.add(index, element);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，使用同步代码块的方式调用ArrayList的add()方法。ArrayList的add方法内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    rangeCheckForAdd(index);</span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>,</span><br><span class="line">                     size - index);</span><br><span class="line">    elementData[index] = element;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rangeCheckForAdd</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt; size || index &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">    ensureExplicitCapacity(minCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面两段代码中发现有两处不同： <strong>1.Vector使用同步方法实现，synchronizedList使用同步代码块实现。 2.两者的扩充数组容量方式不一样（两者的add方法在扩容方面的差别也就是ArrayList和Vector的差别。）</strong></p>
+<p><strong>(2) remove方法</strong></p>
+<p><strong>synchronizedList的实现：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (mutex) &#123;<span class="keyword">return</span> list.remove(index);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ArrayList类的remove方法内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    rangeCheck(index);</span><br><span class="line"></span><br><span class="line">    modCount++;</span><br><span class="line">    E oldValue = elementData(index);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">        System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                         numMoved);</span><br><span class="line">    elementData[--size] = <span class="keyword">null</span>; <span class="comment">// clear to let GC do its work</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Vector的实现：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        modCount++;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= elementCount)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(index);</span><br><span class="line">        E oldValue = elementData(index);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> numMoved = elementCount - index - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">            System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">        elementData[--elementCount] = <span class="keyword">null</span>; <span class="comment">// Let gc do its work</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> oldValue;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>从remove方法中我们发现除了一个使用同步方法，一个使用同步代码块之外几乎无任何区别。</strong></p>
+<blockquote>
+<p><strong>通过比较其他方法，我们发现，SynchronizedList里面实现的方法几乎都是使用同步代码块包上List的方法。如果该List是ArrayList,那么，SynchronizedList和Vector的一个比较明显区别就是一个使用了同步代码块，一个使用了同步方法。</strong></p>
+</blockquote>
+<p><strong>2)、区别分析</strong></p>
+<p><strong>数据增长区别</strong></p>
+<blockquote>
+<p><strong>从内部实现机制来讲ArrayList和Vector都是使用数组(Array)来控制集合中的对象。当你向这两种类型中增加元素的时候，如果元素的数目超出了内部数组目前的长度它们都需要扩展内部数组的长度，Vector缺省情况下自动增长原来一倍的数组长度，ArrayList是原来的50%,所以最后你获得的这个集合所占的空间总是比你实际需要的要大。所以如果你要在集合中保存大量的数据那么使用Vector有一些优势，因为你可以通过设置集合的初始化大小来避免不必要的资源开销。</strong></p>
+</blockquote>
+<p><strong>同步代码块和同步方法的区别</strong> 1.同步代码块在锁定的范围上可能比同步方法要小，一般来说锁的范围大小和性能是成反比的。 2.同步块可以更加精确的控制锁的作用域（锁的作用域就是从锁被获取到其被释放的时间），同步方法的锁的作用域就是整个方法。 3.静态代码块可以选择对哪个对象加锁，但是静态方法只能给this对象加锁。</p>
+<blockquote>
+<p><strong>因为SynchronizedList只是使用同步代码块包裹了ArrayList的方法，而ArrayList和Vector中同名方法的方法体内容并无太大差异，所以在锁定范围和锁的作用域上两者并无却别。 在锁定的对象区别上，SynchronizedList的同步代码块锁定的是mutex对象，Vector锁定的是this对象。那么mutex对象又是什么呢？ 其实SynchronizedList有一个构造函数可以传入一个Object,如果在调用的时候显示的传入一个对象，那么锁定的就是用户传入的对象。如果没有指定，那么锁定的也是this对象。</strong></p>
+</blockquote>
+<p>所以，SynchronizedList和Vector的区别目前为止有两点： 1.如果使用add方法，那么他们的扩容机制不一样。 2.SynchronizedList可以指定锁定的对象。</p>
+<p>但是，凡事都有但是。 SynchronizedList中实现的类并没有都使用synchronized同步代码块。其中有listIterator和listIterator(int index)并没有做同步处理。但是Vector却对该方法加了方法锁。 所以说，在使用SynchronizedList进行遍历的时候要手动加锁。</p>
+<p>但是，但是之后还有但是。</p>
+<p>之前的比较都是基于我们将ArrayList转成SynchronizedList。那么如果我们想把LinkedList变成线程安全的，或者说我想要方便在中间插入和删除的同步的链表，那么我可以将已有的LinkedList直接转成 SynchronizedList，而不用改变他的底层数据结构。而这一点是Vector无法做到的，因为他的底层结构就是使用数组实现的，这个是无法更改的。</p>
+<p>所以，最后，SynchronizedList和Vector最主要的区别： <strong>1.SynchronizedList有很好的扩展和兼容功能。他可以将所有的List的子类转成线程安全的类。</strong> <strong>2.使用SynchronizedList的时候，进行遍历时要手动进行同步处理</strong>。 <strong>3.SynchronizedList可以指定锁定的对象。</strong></p>
+<h5 id="4-4-HashMap、HashTable、ConcurrentHashMap区别"><a href="#4-4-HashMap、HashTable、ConcurrentHashMap区别" class="headerlink" title="4.4 HashMap、HashTable、ConcurrentHashMap区别"></a>4.4 HashMap、HashTable、ConcurrentHashMap区别</h5><p><strong>HashMap和HashTable有何不同？</strong></p>
+<p>线程安全：</p>
+<p>HashTable 中的方法是同步的，而HashMap中的方法在默认情况下是非同步的。在多线程并发的环境下，可以直接使用HashTable，但是要使用HashMap的话就要自己增加同步处理了。</p>
+<p>继承关系： HashTable是基于陈旧的Dictionary类继承来的。 HashMap继承的抽象类AbstractMap实现了Map接口。</p>
+<p>允不允许null值： HashTable中，key和value都不允许出现null值，否则会抛出NullPointerException异常。 HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。</p>
+<p>默认初始容量和扩容机制： HashTable中的hash数组初始大小是11，增加的方式是 old*2+1。HashMap中hash数组的默认大小是16，而且一定是2的指数。原因参考全网把Map中的hash()分析的最透彻的文章，别无二家。-HollisChuang’s Blog</p>
+<p>哈希值的使用不同 ： HashTable直接使用对象的hashCode。 HashMap重新计算hash值。</p>
+<p>遍历方式的内部实现上不同 ： Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。 HashMap 实现 Iterator，支持fast-fail，Hashtable的 Iterator 遍历支持fast-fail，用 Enumeration 不支持 fast-fail</p>
+<p><strong>HashMap 和 ConcurrentHashMap 的区别？</strong></p>
+<p>ConcurrentHashMap和HashMap的实现方式不一样，虽然都是使用桶数组实现的，但是还是有区别，ConcurrentHashMap对桶数组进行了分段，而HashMap并没有。</p>
+<p>ConcurrentHashMap在每一个分段上都用锁进行了保护。HashMap没有锁机制。所以，前者线程安全的，后者不是线程安全的。</p>
+<p>PS：以上区别基于jdk1.8以前的版本。</p>
+<h5 id="4-5-List和Set区别"><a href="#4-5-List和Set区别" class="headerlink" title="4.5 List和Set区别"></a>4.5 List和Set区别</h5><p>List,Set都是继承自Collection接口。都是用来存储一组相同类型的元素的。</p>
+<p>List特点：元素有放入顺序，元素可重复 。</p>
+<p>有顺序，即先放入的元素排在前面。</p>
+<p>Set特点：元素无放入顺序，元素不可重复。</p>
+<p>无顺序，即先放入的元素不一定排在前面。 不可重复，即相同元素在set中只会保留一份。所以，有些场景下，set可以用来去重。 不过需要注意的是，set在元素插入时是要有一定的方法来判断元素是否重复的。这个方法很重要，决定了set中可以保存哪些元素。</p>
+<h5 id="4-6-Set如何保证不重复的元素"><a href="#4-6-Set如何保证不重复的元素" class="headerlink" title="4.6 Set如何保证不重复的元素"></a>4.6 Set如何保证不重复的元素</h5><p>在Java的Set体系中，根据实现方式不同主要分为两大类。HashSet和TreeSet。</p>
+<p>1、TreeSet 是二差树实现的,Treeset中的数据是自动排好序的，不允许放入null值 2、HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，就如数据库中唯一约束</p>
+<p>在HashSet中，基本的操作都是有HashMap底层实现的，因为HashSet底层是用HashMap存储数据的。当向HashSet中添加元素的时候，首先计算元素的hashcode值，然后通过扰动计算和按位与的方式计算出这个元素的存储位置，如果这个位置位空，就将元素添加进去；如果不为空，则用equals方法比较元素是否相等，相等就不添加，否则找一个空位添加。</p>
+<p>TreeSet的底层是TreeMap的keySet()，而TreeMap是基于红黑树实现的，红黑树是一种平衡二叉查找树，它能保证任何一个节点的左右子树的高度差不会超过较矮的那棵的一倍。</p>
+<p>TreeMap是按key排序的，元素在插入TreeSet时compareTo()方法要被调用，所以TreeSet中的元素要实现Comparable接口。TreeSet作为一种Set，它不允许出现重复元素。TreeSet是用compareTo()来判断重复元素的。</p>
+<h5 id="4-7-Java-8中stream相关方法"><a href="#4-7-Java-8中stream相关方法" class="headerlink" title="4.7 Java 8中stream相关方法"></a>4.7 Java 8中stream相关方法</h5><p>在Java中，集合和数组是我们经常会用到的数据结构，需要经常对他们做增、删、改、查、聚合、统计、过滤等操作。相比之下，关系型数据库中也同样有这些操作，但是在Java 8之前，集合和数组的处理并不是很便捷。</p>
+<p>不过，这一问题在Java 8中得到了改善，Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。本文就来介绍下如何使用Stream。特别说明一下，关于Stream的性能及原理不是本文的重点，如果大家感兴趣后面会出文章单独介绍。</p>
+<p><strong>1）Stream介绍</strong></p>
+<p>Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。</p>
+<p>Stream API可以极大提高Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。</p>
+<p>这种风格将要处理的元素集合看作一种流，流在管道中传输，并且可以在管道的节点上进行处理，比如筛选，排序，聚合等。</p>
+<p>Stream有以下特性及优点：</p>
+<ul>
+<li>无存储。Stream不是一种数据结构，它只是某种数据源的一个视图，数据源可以是一个数组，Java容器或I/O channel等。</li>
+<li>为函数式编程而生。对Stream的任何修改都不会修改背后的数据源，比如对Stream执行过滤操作并不会删除被过滤的元素，而是会产生一个不包含被过滤元素的新Stream。</li>
+<li>惰式执行。Stream上的操作并不会立即执行，只有等到用户真正需要结果的时候才会执行。</li>
+<li>可消费性。Stream只能被“消费”一次，一旦遍历过就会失效，就像容器的迭代器那样，想要再次遍历必须重新生成。</li>
+</ul>
+<p>我们举一个例子，来看一下到底Stream可以做什么事情：</p>
+<p>上面的例子中，获取一些带颜色塑料球作为数据源，首先过滤掉红色的、把它们融化成随机的三角形。再过滤器并删除小的三角形。最后计算出剩余图形的周长。</p>
+<p>如上图，对于流的处理，主要有三种关键性操作：分别是流的创建、中间操作（intermediate operation）以及最终操作(terminal operation)。</p>
+<p><strong>2）Stream的创建</strong></p>
+<p>在Java 8中，可以有多种方法来创建流。</p>
+<p><strong>（1）、通过已有的集合来创建流</strong></p>
+<p>在Java 8中，除了增加了很多Stream相关的类以外，还对集合类自身做了增强，在其中增加了stream方法，可以将一个集合类转换成流。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">"Hollis"</span>, <span class="string">"HollisChuang"</span>, <span class="string">"hollis"</span>, <span class="string">"Hello"</span>, <span class="string">"HelloWorld"</span>, <span class="string">"Hollis"</span>);</span><br><span class="line">Stream&lt;String&gt; stream = strings.stream();</span><br></pre></td></tr></table></figure>
+<p>以上，通过一个已有的List创建一个流。除此以外，还有一个parallelStream方法，可以为集合创建一个并行流。</p>
+<p>这种通过集合创建出一个Stream的方式也是比较常用的一种方式。</p>
+<p><strong>（2）、通过Stream创建流</strong></p>
+<p>可以使用Stream类提供的方法，直接返回一个由指定元素组成的流。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">"Hollis"</span>, <span class="string">"HollisChuang"</span>, <span class="string">"hollis"</span>, <span class="string">"Hello"</span>, <span class="string">"HelloWorld"</span>, <span class="string">"Hollis"</span>);</span><br></pre></td></tr></table></figure>
+<p>如以上代码，直接通过of方法，创建并返回一个Stream。</p>
+<p><strong>2）Stream中间操作</strong></p>
+<p>Stream有很多中间操作，多个中间操作可以连接起来形成一个流水线，每一个中间操作就像流水线上的一个工人，每人工人都可以对流进行加工，加工后得到的结果还是一个流。</p>
+<p><a href="https://camo.githubusercontent.com/245638178114b71fe0054245f8449c97752ff907/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313139343037353231392e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/245638178114b71fe0054245f8449c97752ff907/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313139343037353231392e6a7067" alt="img"></a>￼</p>
+<p>以下是常用的中间操作列表:</p>
+<p><a href="https://camo.githubusercontent.com/1872cc3bf10ab486bc728651f402137af6768bf3/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313139343535363438342e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/1872cc3bf10ab486bc728651f402137af6768bf3/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313139343535363438342e6a7067" alt="img"></a>￼</p>
+<p><strong>filter</strong></p>
+<p>filter 方法用于通过设置的条件过滤出元素。以下代码片段使用 filter 方法过滤掉空字符串：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">"Hollis"</span>, <span class="string">""</span>, <span class="string">"HollisChuang"</span>, <span class="string">"H"</span>, <span class="string">"hollis"</span>);</span><br><span class="line">strings.stream().filter(string -&gt; !string.isEmpty()).forEach(System.out::println);</span><br><span class="line"><span class="comment">//Hollis, , HollisChuang, H, hollis</span></span><br></pre></td></tr></table></figure>
+<p><strong>map</strong></p>
+<p>map 方法用于映射每个元素到对应的结果，以下代码片段使用 map 输出了元素对应的平方数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().map( i -&gt; i*i).forEach(System.out::println);</span><br><span class="line"><span class="comment">//9,4,4,9,49,9,25</span></span><br></pre></td></tr></table></figure>
+<p><strong>limit/skip</strong></p>
+<p>limit 返回 Stream 的前面 n 个元素；skip 则是扔掉前 n 个元素。以下代码片段使用 limit 方法保理4个元素：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().limit(<span class="number">4</span>).forEach(System.out::println);</span><br><span class="line"><span class="comment">//3,2,2,3</span></span><br></pre></td></tr></table></figure>
+<p><strong>sorted</strong></p>
+<p>sorted 方法用于对流进行排序。以下代码片段使用 sorted 方法进行排序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().sorted().forEach(System.out::println);</span><br><span class="line"><span class="comment">//2,2,3,3,3,5,7</span></span><br></pre></td></tr></table></figure>
+<p><strong>distinct</strong></p>
+<p>distinct主要用来去重，以下代码片段使用 distinct 对元素进行去重：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().distinct().forEach(System.out::println);</span><br><span class="line"><span class="comment">//3,2,7,5</span></span><br></pre></td></tr></table></figure>
+<p>接下来我们通过一个例子和一张图，来演示下，当一个Stream先后通过filter、map、sort、limit以及distinct处理后会发生什么。</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">"Hollis"</span>, <span class="string">"HollisChuang"</span>, <span class="string">"hollis"</span>, <span class="string">"Hello"</span>, <span class="string">"HelloWorld"</span>, <span class="string">"Hollis"</span>);</span><br><span class="line">Stream s = strings.stream().filter(string -&gt; string.length()&lt;= <span class="number">6</span>).map(String::length).sorted().limit(<span class="number">3</span>)</span><br><span class="line">            .distinct();</span><br></pre></td></tr></table></figure>
+<p>过程及每一步得到的结果如下图：</p>
+<p><a href="https://camo.githubusercontent.com/12a4a188624b105b44c05f82810020b6f81ea907/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313234323032353530362e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/12a4a188624b105b44c05f82810020b6f81ea907/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313234323032353530362e6a7067" alt="img"></a>￼</p>
+<p><strong>3）Stream最终操作</strong></p>
+<p>Stream的中间操作得到的结果还是一个Stream，那么如何把一个Stream转换成我们需要的类型呢？比如计算出流中元素的个数、将流装换成集合等。这就需要最终操作（terminal operation）</p>
+<p>最终操作会消耗流，产生一个最终结果。也就是说，在最终操作之后，不能再次使用流，也不能在使用任何中间操作，否则将抛出异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: stream has already been operated upon or closed</span><br></pre></td></tr></table></figure>
+<p>俗话说，“你永远不会两次踏入同一条河”也正是这个意思。</p>
+<p>常用的最终操作如下图：</p>
+<p><a href="https://camo.githubusercontent.com/59b30017b1c1cb6e224f2d4fb03d6c5bcac4a31f/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313139343630363835312e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/59b30017b1c1cb6e224f2d4fb03d6c5bcac4a31f/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313139343630363835312e6a7067" alt="img"></a>￼</p>
+<p><strong>forEach</strong></p>
+<p>Stream 提供了方法 ‘forEach’ 来迭代流中的每个数据。以下代码片段使用 forEach 输出了10个随机数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Random random = <span class="keyword">new</span> Random();</span><br><span class="line">random.ints().limit(<span class="number">10</span>).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<p><strong>count</strong></p>
+<p>count用来统计流中的元素个数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">"Hollis"</span>, <span class="string">"HollisChuang"</span>, <span class="string">"hollis"</span>,<span class="string">"Hollis666"</span>, <span class="string">"Hello"</span>, <span class="string">"HelloWorld"</span>, <span class="string">"Hollis"</span>);</span><br><span class="line">System.out.println(strings.stream().count());</span><br><span class="line"><span class="comment">//7</span></span><br></pre></td></tr></table></figure>
+<p><strong>collect</strong></p>
+<p>collect就是一个归约操作，可以接受各种做法作为参数，将流中的元素累积成一个汇总结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">"Hollis"</span>, <span class="string">"HollisChuang"</span>, <span class="string">"hollis"</span>,<span class="string">"Hollis666"</span>, <span class="string">"Hello"</span>, <span class="string">"HelloWorld"</span>, <span class="string">"Hollis"</span>);</span><br><span class="line">strings  = strings.stream().filter(string -&gt; string.startsWith(<span class="string">"Hollis"</span>)).collect(Collectors.toList());</span><br><span class="line">System.out.println(strings);</span><br><span class="line"><span class="comment">//Hollis, HollisChuang, Hollis666, Hollis</span></span><br></pre></td></tr></table></figure>
+<p>接下来，我们还是使用一张图，来演示下，前文的例子中，当一个Stream先后通过filter、map、sort、limit以及distinct处理后会，在分别使用不同的最终操作可以得到怎样的结果：</p>
+<p>下图，展示了文中介绍的所有操作的位置、输入、输出以及使用一个案例展示了其结果。 <a href="https://camo.githubusercontent.com/aff46cf678b76c862a8583d594844742597cde65/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313234353436333732302e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/aff46cf678b76c862a8583d594844742597cde65/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30332f31353532313234353436333732302e6a7067" alt="img"></a>￼</p>
+<p><strong>总结</strong></p>
+<p>本文介绍了Java 8中的Stream 的用途，优点等。还接受了Stream的几种用法，分别是Stream创建、中间操作和最终操作。</p>
+<p>Stream的创建有两种方式，分别是通过集合类的stream方法、通过Stream的of方法。</p>
+<p>Stream的中间操作可以用来处理Stream，中间操作的输入和输出都是Stream，中间操作可以是过滤、转换、排序等。</p>
+<p>Stream的最终操作可以将Stream转成其他形式，如计算出流中元素的个数、将流装换成集合、以及元素的遍历等。</p>
+<p><strong>4.8 apache集合处理工具类的使用</strong></p>
+<p>平常我们在日常的开发中会一些通用的功能封装成一些工具类，以便之后复用。但是有些常用功能，业界已经存在，我们无需造轮子，只需直接使用或借用它们的 Api ，构建我们的自己项目中工具类。这篇首先介绍平常用到的 Apache 工具全家桶。</p>
+<ul>
+<li>commons-lang3</li>
+<li>commons-io</li>
+<li>commons-collections</li>
+</ul>
+<p><strong>commons-lang3</strong></p>
+<blockquote>
+<p><strong>The standard Java libraries fail to provide enough methods for manipulation of its core classes. Apache Commons Lang provides these extra methods.</strong></p>
+</blockquote>
+<p>正如 Apache 官方介绍，这个包主要扩展 java.lang 下核心类的方法，提供工具类方便我们平常 java.lang 下面的类，如 String , Date。以下介绍其常用的方法。</p>
+<p><strong>StringUtils</strong></p>
+<p>字符串相关操作，扩展 String 相关方法，可以使我们方便处理字符串，满足我们的日常使用。</p>
+<p>StringUtils.isBlank || StringUtils.isEmpty 判断字符串是否为空</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两者都可以用于判断字符串是为空 isBlank 主要用于判断空白字符串 空字符("") 以及Null 而 isEmpty 主要用于判断空字符("")以及Null</span></span><br><span class="line">StringUtils.isBlank(<span class="string">" "</span>)       = <span class="keyword">true</span> </span><br><span class="line">StringUtils.isEmpty(<span class="string">" "</span>)       = <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>StringUtils.countMatches 用于计数匹配上字符的数量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.countMatches(<span class="string">"abba"</span>, <span class="string">"a"</span>)   = <span class="number">2</span></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>StringUtils.defaultIfEmpty 用于当字符串为空时，设置默认字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.defaultIfEmpty(&quot;&quot;, &quot;NULL&quot;)    = &quot;NULL&quot;</span><br></pre></td></tr></table></figure>
+<p>StringUtils.equalsIgnoreCase  StringUtils.equals 用于判断字符串是否相等，前者忽略大小写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.equals(<span class="string">"abc"</span>, <span class="string">"abc"</span>) = <span class="keyword">true</span></span><br><span class="line">StringUtils.equalsIgnoreCase(<span class="string">"abc"</span>, <span class="string">"ABC"</span>) = <span class="keyword">true</span></span><br><span class="line"><span class="comment">// 推荐使用该方法比较字符串，如果使用 a.equals(b),必须确保 a!=null</span></span><br><span class="line">StringUtils.equals(<span class="keyword">null</span>, <span class="string">"abc"</span>)  = <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>StringUtils.join 字符串连接函数，可以将字符串数组或集合，按照指定字符连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 碰到这种需要固定分隔符拼接的情况，可以使用该函数，以免我们写一大串函数循环拼接</span></span><br><span class="line">StringUtils.join([<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>], <span class="string">';'</span>)  = <span class="string">"a;b;c"</span></span><br></pre></td></tr></table></figure>
+<p>StringUtils.split 说完拼接，必定会有按照固定分隔符拆分的情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// split 分隔后会忽略为空的字符 如果不能忽略的话 使用 splitPreserveAllTokens</span></span><br><span class="line">StringUtils.split(<span class="string">"ab::ef"</span>, <span class="string">":"</span>) = [<span class="string">"ab"</span>, <span class="string">"ef"</span>]</span><br><span class="line">StringUtils.splitPreserveAllTokens(<span class="string">"ab::ef"</span>,<span class="string">":"</span>)=[<span class="string">"ab"</span>, <span class="string">""</span>, <span class="string">"ef"</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>ArrayUtils</strong></p>
+<p>由于平常工作中习惯用集合代替数组对象，所以没有经常使用该类。</p>
+<p>ArrayUtils.isEmpty 判断数组是否为空</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">ArrayUtils.isEmpty(a)=<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p><strong>DateFormatUtils</strong></p>
+<p>将时间按照指定格式输出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateFormatUtils.format(<span class="keyword">new</span> Date(), <span class="string">"yyyy-MM-dd HH:mm:ss"</span></span><br><span class="line"><span class="comment">//2018-05-27 16:32:51</span></span><br></pre></td></tr></table></figure>
+<p><strong>DateUtils</strong></p>
+<p>该类可以将时间按照格式解析成 Date 类型，还可以用于时间计算</p>
+<p>DateUtils.parseDate 按照格式转化成 Date 类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DateUtils.parseDate(<span class="string">"2018-05-27 16:32:51"</span>,<span class="string">"yyyy-MM-dd HH:mm:ss"</span>) <span class="comment">// 将字符串转化成 Date 对象</span></span><br></pre></td></tr></table></figure>
+<p>DateUtils.addDays addHours addMinutes 用于在指定 Date 加上相应时间，如想获取当前时间20天后的日期，就就可以使用 DateUtils.addDays。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Date date=DateUtils.parseDate(<span class="string">"2018-05-27 16:32:51"</span>,<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">DateUtils.addDays(date,<span class="number">1</span>);<span class="comment">// date 为：2018-05-28 16:32:51</span></span><br><span class="line">DateUtils.addHours(date,<span class="number">1</span>)<span class="comment">// date 为：2018-05-28 17:32:51</span></span><br></pre></td></tr></table></figure>
+<p>DateUtils.truncate 按照指定时间类型截断时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Date date=DateUtils.parseDate(<span class="string">"2018-05-27 16:32:51"</span>,<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">DateUtils.truncate(date, Calendar.DATE);<span class="comment">// 2018-05-27 00:00:00</span></span><br><span class="line">DateUtils.truncate(date, Calendar.HOUR);<span class="comment">// 2018-05-27 16:00:00</span></span><br><span class="line"><span class="comment">// 如果按照 Date 截断时间，那么 Date 后面小时，分钟等全部置为0，相当于舍弃了 Date 之后的时间。</span></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p><strong>commons-io</strong></p>
+<blockquote>
+<p><strong>Commons IO is a library of utilities to assist with developing IO functionality.</strong></p>
+</blockquote>
+<p>主要包含一些 IO 相关的工具类,可以简化处理文件相关操作</p>
+<p><strong>FileUtils</strong></p>
+<p>文件操作相关工具类</p>
+<p>FileUtils.copyDirectory || FileUtils.copyFile 拷贝文件夹或文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拷贝文件</span></span><br><span class="line">File fileA = <span class="keyword">new</span> File(<span class="string">"E:\\test\\test.txt"</span>);</span><br><span class="line">File fileB = <span class="keyword">new</span> File(<span class="string">"E:\\test1\\test.txt"</span>);</span><br><span class="line">FileUtils.copyFile(fileA,fileB);</span><br></pre></td></tr></table></figure>
+<p>FileUtils.listFiles 获取指定文件夹上所有文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按照指定文件后缀如java,txt等去查找指定文件夹的文件</span></span><br><span class="line">File directory = <span class="keyword">new</span> File(<span class="string">"E:\\test"</span>);</span><br><span class="line">FileUtils.listFiles(directory, <span class="keyword">new</span> String[]&#123;<span class="string">"txt"</span>&#125;, <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+<p>FileUtils.readLines 读取文件所有行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取指定文件所有行 不需要使用 while 循环读取流了</span></span><br><span class="line">List&lt;String&gt; lines = FileUtils.readLines(fileA)</span><br></pre></td></tr></table></figure>
+<p>FileUtils.writeLines 有读就存在写，该方法可以一行行写入文本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以一行行写入文本</span></span><br><span class="line">List&lt;String&gt; lines = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">.....</span><br><span class="line">FileUtils.writeLines(lines)</span><br></pre></td></tr></table></figure>
+<p><strong>IOUtils</strong></p>
+<p>Io 操作相关，FileUtils 很多方法底层调用的是该类的方法</p>
+<p>IOUtils.toString 将输入流转化为指定编码格式的字符串，该方法非常使用与 http 异步回调的场景</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 http 异步回调的报文</span></span><br><span class="line">String resMsg = IOUtils.toString(request.getInputStream());</span><br></pre></td></tr></table></figure>
+<p>IOUtils.toByteArray 将输入流转化为 byte 数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 http 异步回调的报文</span></span><br><span class="line"><span class="keyword">byte</span>[] b = IOUtils.toByteArray(request.getInputStream());</span><br></pre></td></tr></table></figure>
+<p>IOUtils.closeQuietly 关闭流，不需要在关闭前写判断和try-catch语句，commons-io 2.6 该方法已被 <strong>Deprecated</strong> ， 官方推荐使用 JDK7 try-with-resources 关闭。<strong>注：</strong> <em>该方法如果在输入流等 close 时，若产生 Exception ，异常将会被该方法吞掉。</em></p>
+<p><strong>FilenameUtils</strong></p>
+<p>在处理一些文件路径问题时，如果我们代码开发在 Windows 平台，部署却是在 Linux 平台，这个时候我们必须考虑平台分隔符问题。FilenameUtils 解决了平台问题，不用担心平台系统问题，导致的bug。</p>
+<p>FilenameUtils.getBaseName 获取文件名字，去除前缀加扩展名 FilenameUtils.getExtension 获取文件扩展名，去除路径以及文件名 FilenameUtils.getName 获取文件全名，去除路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FilenameUtils.getBaseName(<span class="string">"E:\\test\\test.txt"</span>)<span class="comment">//test</span></span><br><span class="line">FilenameUtils.getExtension(<span class="string">"E:\\test\\test.txt"</span>)<span class="comment">//txt</span></span><br><span class="line">FilenameUtils.getName(<span class="string">"E:\\test\\test.txt"</span>)<span class="comment">// test.txt</span></span><br></pre></td></tr></table></figure>
+<p>FilenameUtils.concat 文件路径拼接，不用担心文件的分隔符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FilenameUtils.concat(<span class="string">"E:\\test"</span>, <span class="string">"test.txt"</span>);<span class="comment">//E:\test\test.txt</span></span><br></pre></td></tr></table></figure>
+<p><strong>commons-collections</strong></p>
+<blockquote>
+<p><strong>The Java Collections Framework was a major addition in JDK 1.2. It added many powerful data structures that accelerate development of most significant Java applications. Since that time it has become the recognised standard for collection handling in Java</strong></p>
+</blockquote>
+<p>commons-collections 主要增强 java Collections 功能</p>
+<p><strong>CollectionUtils</strong></p>
+<p>为 Collection 实例提供工具方法</p>
+<p>CollectionUtils.addAll 可以将数组，集合加入到指定集合，解决需要将数组加入到集合中情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; listA = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">listA.add(<span class="string">"1"</span>);</span><br><span class="line">listA.add(<span class="string">"2"</span>);</span><br><span class="line">listA.add(<span class="string">"3"</span>);</span><br><span class="line">String[] arrays = <span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;;</span><br><span class="line">CollectionUtils.addAll(listA, arrays);</span><br></pre></td></tr></table></figure>
+<p>CollectionUtils.isEmpty CollectionUtils.isNotEmpty 快捷判断集合是否为空</p>
+<h5 id="4-9-Collection和Collections区别"><a href="#4-9-Collection和Collections区别" class="headerlink" title="4.9 Collection和Collections区别"></a>4.9 Collection和Collections区别</h5><p>Collection 是一个集合接口。 它提供了对集合对象进行基本操作的通用接口方法。Collection接口在Java 类库中有很多具体的实现。是list，set等的父接口。</p>
+<p>Collections 是一个包装类。 它包含有各种有关集合操作的静态多态方法。此类不能实例化，就像一个工具类，服务于Java的Collection框架。</p>
+<p>日常开发中，不仅要了解Java中的Collection及其子类的用法，还要了解Collections用法。可以提升很多处理集合类的效率。</p>
+<h5 id="4-10-Arrays-asList获得的List使用时需要注意什么"><a href="#4-10-Arrays-asList获得的List使用时需要注意什么" class="headerlink" title="4.10 Arrays.asList获得的List使用时需要注意什么"></a>4.10 Arrays.asList获得的List使用时需要注意什么</h5><ol>
+<li>asList 得到的只是一个 Arrays 的内部类，一个原来数组的视图 List，因此如果对它进行增删操作会报错</li>
+<li>用 ArrayList 的构造器可以将其转变成真正的 ArrayList</li>
+</ol>
+<h5 id="4-11-Enumeration和Iterator区别"><a href="#4-11-Enumeration和Iterator区别" class="headerlink" title="4.11 Enumeration和Iterator区别"></a>4.11 Enumeration和Iterator区别</h5><p>函数接口不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enumeration只有<span class="number">2</span>个函数接口。通过Enumeration，我们只能读取集合的数据，而不能对数据进行修改。</span><br><span class="line">Iterator只有<span class="number">3</span>个函数接口。Iterator除了能读取集合的数据之外，也能数据进行删除操作。</span><br></pre></td></tr></table></figure>
+<p>Iterator支持fail-fast机制，而Enumeration不支持。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enumeration 是JDK <span class="number">1.0</span>添加的接口。使用到它的函数包括Vector、Hashtable等类，这些类都是JDK <span class="number">1.0</span>中加入的，Enumeration存在的目的就是为它们提供遍历接口。Enumeration本身并没有支持同步，而在Vector、Hashtable实现Enumeration时，添加了同步。</span><br><span class="line">而Iterator 是JDK <span class="number">1.2</span>才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。Iterator是支持fail-fast机制的：当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。</span><br></pre></td></tr></table></figure>
+<p>注意：Enumeration迭代器只能遍历Vector、Hashtable这种古老的集合，因此通常不要使用它，除非在某些极端情况下，不得不使用Enumeration，否则都应该选择Iterator迭代器。</p>
+<h5 id="4-12-CopyOnWriteArrayList"><a href="#4-12-CopyOnWriteArrayList" class="headerlink" title="4.12 CopyOnWriteArrayList"></a>4.12 CopyOnWriteArrayList</h5><p>Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。CopyOnWrite容器非常有用，可以在非常多的并发场景中使用到。</p>
+<p>CopyOnWriteArrayList相当于线程安全的ArrayList，CopyOnWriteArrayList使用了一种叫写时复制的方法，当有新元素add到CopyOnWriteArrayList时，先从原有的数组中拷贝一份出来，然后在新的数组做写操作，写完之后，再将原来的数组引用指向到新数组。</p>
+<p>这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。</p>
+<p>注意：CopyOnWriteArrayList的整个add操作都是在锁的保护下进行的。也就是说add方法是线程安全的。</p>
+<p>CopyOnWrite并发容器用于读多写少的并发场景。比如白名单，黑名单，商品类目的访问和更新场景。</p>
+<p>和ArrayList不同的是，它具有以下特性：</p>
+<p>支持高效率并发且是线程安全的 因为通常需要复制整个基础数组，所以可变操作（add()、set() 和 remove() 等等）的开销很大 迭代器支持hasNext(), next()等不可变操作，但不支持可变 remove()等操作 使用迭代器进行遍历的速度很快，并且不会与其他线程发生冲突。在构造迭代器时，迭代器依赖于不变的数组快照</p>
+<h5 id="4-13-ConcurrentSkipListMap"><a href="#4-13-ConcurrentSkipListMap" class="headerlink" title="4.13 ConcurrentSkipListMap"></a>4.13 ConcurrentSkipListMap</h5><p>ConcurrentSkipListMap是一个内部使用跳表，并且支持排序和并发的一个Map，是线程安全的。一般很少会被用到，也是一个比较偏门的数据结构。</p>
+<p>简单介绍下跳表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">跳表是一种允许在一个有顺序的序列中进行快速查询的数据结构。</span><br><span class="line"></span><br><span class="line">在普通的顺序链表中查询一个元素，需要从链表头部开始一个一个节点进行遍历，然后找到节点。如图<span class="number">1</span>。</span><br><span class="line"></span><br><span class="line">跳表可以解决这种查询时间过长，其元素遍历的图示如图<span class="number">2</span>，跳表是一种使用”空间换时间”的概念用来提高查询效率的链表。</span><br></pre></td></tr></table></figure>
+<p>ConcurrentSkipListMap 和 ConcurrentHashMap 的主要区别： a.底层实现方式不同。ConcurrentSkipListMap底层基于跳表。ConcurrentHashMap底层基于Hash桶和红黑树。 b.ConcurrentHashMap不支持排序。ConcurrentSkipListMap支持排序。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/10/16/JAVA基础篇（二）————基础知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/16/JAVA基础篇（二）————基础知识/" itemprop="url">JAVA基础篇（二）————基础知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-16T16:41:29+08:00">
+                2019-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="二、JAVA基础知识"><a href="#二、JAVA基础知识" class="headerlink" title="二、JAVA基础知识"></a>二、JAVA基础知识</h3><h4 id="1、基础数据类型"><a href="#1、基础数据类型" class="headerlink" title="1、基础数据类型"></a>1、基础数据类型</h4><p>Java中有8种基本数据类型 分为三大类。</p>
+<p>字符型：char</p>
+<p>布尔型：boolean</p>
+<p>数值型： 1.整型：byte、short、int、long 2.浮点型：float、double</p>
+<p>String不是基本数据类型，是引用类型。</p>
+<hr>
+<p>Java中的整型主要包含byte、short、int和long这四种，表示的数字范围也是从小到大的，之所以表示范围不同主要和他们存储数据时所占的字节数有关。</p>
+<p>先来个简答的科普，1字节=8位（bit）。java中的整型属于有符号数。</p>
+<p>先来看计算中8bit可以表示的数字： 最小值：10000000 （-128）(-2^7) 最大值：01111111（127）(2^7-1) 具体计算方式参考：Java中，为什么byte类型的取值范围为-128~127? - CSDN博客</p>
+<p>整型的这几个类型中，</p>
+<p>　　byte：byte用1个字节来存储，范围为-128(-2^7)到127(2^7-1)，在变量初始化的时候，byte类型的默认值为0。</p>
+<p>　　short：short用2个字节存储，范围为-32,768 (-2^15)到32,767 (2^15-1)，在变量初始化的时候，short类型的默认值为0，一般情况下，因为Java本身转型的原因，可以直接写为0。</p>
+<p>　　int：int用4个字节存储，范围为-2,147,483,648 (-2^31)到2,147,483,647 (2^31-1)，在变量初始化的时候，int类型的默认值为0。</p>
+<p>　　long：long用8个字节存储，范围为-9,223,372,036,854,775,808 (-2^63)到9,223,372,036, 854,775,807 (2^63-1)，在变量初始化的时候，long类型的默认值为0L或0l，也可直接写为0。</p>
+<p>上面说过了，整型中，每个类型都有一定的表示范围，但是，在程序中有些计算会导致超出表示范围，即溢出。如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = Integer.MAX_VALUE;</span><br><span class="line"><span class="keyword">int</span> j = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> k = i + j;</span><br><span class="line">System.out.println(<span class="string">"i ("</span> + i + <span class="string">") + j ("</span> + j + <span class="string">") = k ("</span> + k + <span class="string">")"</span>);</span><br></pre></td></tr></table></figure>
+<p>输出结果：i (2147483647) + j (2147483647) = k (-2)</p>
+<p>这就是发生了溢出，溢出的时候并不会抛异常，也没有任何提示。所以，在程序中，使用同类型的数据进行运算的时候，一定要注意数据溢出的问题。</p>
+<p><strong>浮点型</strong></p>
+<p>在计算机科学中，浮点是一种对于实数的近似值数值表现法，由一个有效数字（即尾数）加上幂数来表示，通常是乘以某个基数的整数次指数得到。以这种表示法表示的数值，称为浮点数（floating-point number）。</p>
+<p>计算机使用浮点数运算的主因，在于电脑使用二进位制的运算。例如：4÷2=2，4的二进制表示为100、2的二进制表示为010，在二进制中，相当于退一位数(100 -&gt; 010)。</p>
+<p>1的二进制是01，1.0/2=0.5，那么，0.5的二进制表示应该为(0.1)，以此类推，0.25的二进制表示为0.01，所以，并不是说所有的十进制小数都能准确的用二进制表示出来，如0.1，因此只能使用近似值的方式表达。</p>
+<p>也就是说，，十进制的小数在计算机中是由一个整数或定点数（即尾数）乘以某个基数（计算机中通常是2）的整数次幂得到的，这种表示方法类似于基数为10的科学计数法。</p>
+<p>一个浮点数a由两个数m和e来表示：a = m × be。在任意一个这样的系统中，我们选择一个基数b（记数系统的基）和精度p（即使用多少位来存储）。m（即尾数）是形如±d.ddd…ddd的p位数（每一位是一个介于0到b-1之间的整数，包括0和b-1）。如果m的第一位是非0整数，m称作正规化的。有一些描述使用一个单独的符号位（s 代表+或者-）来表示正负，这样m必须是正的。e是指数。</p>
+<p>位（bit）是衡量浮点数所需存储空间的单位，通常为32位或64位，分别被叫作单精度和双精度。</p>
+<p><strong>单精度和双精度</strong></p>
+<p>单精度浮点数在计算机存储器中占用4个字节（32 bits），利用“浮点”（浮动小数点）的方法，可以表示一个范围很大的数值。</p>
+<p>比起单精度浮点数，双精度浮点数(double)使用 64 位（8字节） 来存储一个浮点数。</p>
+<p><strong>为什么不能用浮点数表示金额</strong></p>
+<p>由于计算机中保存的小数其实是十进制的小数的近似值，并不是准确值，所以，千万不要在代码中使用浮点数来表示金额等重要的指标。</p>
+<p>建议使用BigDecimal或者Long（单位为分）来表示金额。</p>
+<h4 id="2、自动拆装箱"><a href="#2、自动拆装箱" class="headerlink" title="2、自动拆装箱"></a>2、自动拆装箱</h4><h5 id="2-1-什么是包装类型、什么是基本类型、什么是自动拆装箱"><a href="#2-1-什么是包装类型、什么是基本类型、什么是自动拆装箱" class="headerlink" title="2.1 什么是包装类型、什么是基本类型、什么是自动拆装箱"></a>2.1 什么是包装类型、什么是基本类型、什么是自动拆装箱</h5><p>基本类型，或者叫做内置类型，是Java中不同于类(Class)的特殊类型。它们是我们编程中使用最频繁的类型。</p>
+<p>Java是一种强类型语言，第一次申明变量必须说明数据类型，第一次变量赋值称为变量的初始化。</p>
+<p>Java基本类型共有八种，基本类型可以分为三类：</p>
+<blockquote>
+<p><strong>字符类型<code>char</code></strong></p>
+<p><strong>布尔类型<code>boolean</code></strong></p>
+<p><strong>数值类型<code>byte</code>、<code>short</code>、<code>int</code>、<code>long</code>、<code>float</code>、<code>double</code>。</strong></p>
+</blockquote>
+<p>数值类型又可以分为整数类型<code>byte</code>、<code>short</code>、<code>int</code>、<code>long</code>和浮点数类型<code>float</code>、<code>double</code>。</p>
+<p>Java中的数值类型不存在无符号的，它们的取值范围是固定的，不会随着机器硬件环境或者操作系统的改变而改变。</p>
+<p>实际上，Java中还存在另外一种基本类型<code>void</code>，它也有对应的包装类 <code>java.lang.Void</code>，不过我们无法直接对它们进行操作。</p>
+<p><strong>基本数据类型有什么好处</strong></p>
+<p>我们都知道在Java语言中，<code>new</code>一个对象是存储在堆里的，我们通过栈中的引用来使用这些对象；所以，对象本身来说是比较消耗资源的。</p>
+<p>对于经常用到的类型，如int等，如果我们每次使用这种变量的时候都需要new一个Java对象的话，就会比较笨重。所以，和C++一样，Java提供了基本数据类型，这种数据的变量不需要使用new创建，他们不会在堆上创建，而是直接在栈内存中存储，因此会更加高效。</p>
+<p><strong>整型的取值范围</strong></p>
+<p>Java中的整型主要包含<code>byte</code>、<code>short</code>、<code>int</code>和<code>long</code>这四种，表示的数字范围也是从小到大的，之所以表示范围不同主要和他们存储数据时所占的字节数有关。</p>
+<p>先来个简答的科普，1字节=8位（bit）。java中的整型属于有符号数。</p>
+<p>先来看计算中8bit可以表示的数字：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最小值：<span class="number">10000000</span> （-<span class="number">128</span>）(-<span class="number">2</span>^<span class="number">7</span>)</span><br><span class="line">最大值：<span class="number">01111111</span>（<span class="number">127</span>）(<span class="number">2</span>^<span class="number">7</span>-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>整型的这几个类型中，</p>
+<ul>
+<li>byte：byte用1个字节来存储，范围为-128(-2^7)到127(2^7-1)，在变量初始化的时候，byte类型的默认值为0。</li>
+<li>short：short用2个字节存储，范围为-32,768 (-2^15)到32,767 (2^15-1)，在变量初始化的时候，short类型的默认值为0，一般情况下，因为Java本身转型的原因，可以直接写为0。</li>
+<li>int：int用4个字节存储，范围为-2,147,483,648 (-2^31)到2,147,483,647 (2^31-1)，在变量初始化的时候，int类型的默认值为0。</li>
+<li>long：long用8个字节存储，范围为-9,223,372,036,854,775,808 (-2^63)到9,223,372,036, 854,775,807 (2^63-1)，在变量初始化的时候，long类型的默认值为0L或0l，也可直接写为0。</li>
+</ul>
+<p><strong>超出范围怎么办</strong></p>
+<p>上面说过了，整型中，每个类型都有一定的表示范围，但是，在程序中有些计算会导致超出表示范围，即溢出。如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = Integer.MAX_VALUE;</span><br><span class="line"><span class="keyword">int</span> j = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> k = i + j;</span><br><span class="line">System.out.println(<span class="string">"i ("</span> + i + <span class="string">") + j ("</span> + j + <span class="string">") = k ("</span> + k + <span class="string">")"</span>);</span><br></pre></td></tr></table></figure>
+<p>输出结果：i (2147483647) + j (2147483647) = k (-2)</p>
+<p><strong>这就是发生了溢出，溢出的时候并不会抛异常，也没有任何提示。</strong>所以，在程序中，使用同类型的数据进行运算的时候，<strong>一定要注意数据溢出的问题。</strong></p>
+<p><strong>包装类型</strong></p>
+<p>Java语言是一个面向对象的语言，但是Java中的基本数据类型却是不面向对象的，这在实际使用时存在很多的不便，为了解决这个不足，在设计类时为每个基本数据类型设计了一个对应的类进行代表，这样八个和基本数据类型对应的类统称为包装类(Wrapper Class)。</p>
+<p>包装类均位于java.lang包，包装类和基本数据类型的对应关系如下表所示</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在这八个类名中，除了Integer和Character类以后，其它六个类的类名和基本数据类型一致，只是类名的第一个字母大写即可。</p>
+<p><strong>为什么需要包装类</strong></p>
+<p>很多人会有疑问，既然Java中为了提高效率，提供了八种基本数据类型，为什么还要提供包装类呢？</p>
+<p>这个问题，其实前面已经有了答案，因为Java是一种面向对象语言，很多地方都需要使用对象而不是基本数据类型。比如，在集合类中，我们是无法将int 、double等类型放进去的。因为集合的容器要求元素是Object类型。</p>
+<p>为了让基本类型也具有对象的特征，就出现了包装类型，它相当于将基本类型“包装起来”，使得它具有了对象的性质，并且为其添加了属性和方法，丰富了基本类型的操作。</p>
+<p><strong>拆箱与装箱</strong></p>
+<p>那么，有了基本数据类型和包装类，肯定有些时候要在他们之间进行转换。比如把一个基本数据类型的int转换成一个包装类型的Integer对象。</p>
+<p>我们认为包装类是对基本类型的包装，所以，把基本数据类型转换成包装类的过程就是打包装，英文对应于boxing，中文翻译为装箱。</p>
+<p>反之，把包装类转换成基本数据类型的过程就是拆包装，英文对应于unboxing，中文翻译为拆箱。</p>
+<p>在Java SE5之前，要进行装箱，可以通过以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>自动拆箱与自动装箱</strong></p>
+<p>在Java SE5中，为了减少开发人员的工作，Java提供了自动拆箱与自动装箱功能。</p>
+<p>自动装箱: 就是将基本数据类型自动转换成对应的包装类。</p>
+<p>自动拆箱：就是将包装类自动转换成对应的基本数据类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i =<span class="number">10</span>;  <span class="comment">//自动装箱</span></span><br><span class="line"><span class="keyword">int</span> b= i;     <span class="comment">//自动拆箱</span></span><br></pre></td></tr></table></figure>
+<p><code>Integer i=10</code> 可以替代 <code>Integer i = new Integer(10);</code>，这就是因为Java帮我们提供了自动装箱的功能，不需要开发者手动去new一个Integer对象。</p>
+<p><strong>自动装箱与自动拆箱的实现原理</strong></p>
+<p>既然Java提供了自动拆装箱的能力，那么，我们就来看一下，到底是什么原理，Java是如何实现的自动拆装箱功能。</p>
+<p>我们有以下自动拆装箱的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span></span>&#123;</span><br><span class="line">    Integer integer=<span class="number">1</span>; <span class="comment">//装箱</span></span><br><span class="line">    <span class="keyword">int</span> i=integer; <span class="comment">//拆箱</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对以上代码进行反编译后可以得到以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span></span>&#123;</span><br><span class="line">    Integer integer=Integer.valueOf(<span class="number">1</span>); </span><br><span class="line">    <span class="keyword">int</span> i=integer.intValue(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面反编译后的代码可以看出，int的自动装箱都是通过<code>Integer.valueOf()</code>方法来实现的，Integer的自动拆箱都是通过<code>integer.intValue</code>来实现的。如果读者感兴趣，可以试着将八种类型都反编译一遍 ，你会发现以下规律：</p>
+<blockquote>
+<p><strong>自动装箱都是通过包装类的<code>valueOf()</code>方法来实现的.自动拆箱都是通过包装类对象的<code>xxxValue()</code>来实现的。</strong></p>
+</blockquote>
+<p><strong>哪些地方会自动拆装箱</strong></p>
+<p>我们了解过原理之后，在来看一下，什么情况下，Java会帮我们进行自动拆装箱。前面提到的变量的初始化和赋值的场景就不介绍了，那是最简单的也最容易理解的。</p>
+<p>我们主要来看一下，那些可能被忽略的场景。</p>
+<p><strong>场景一、将基本数据类型放入集合类</strong></p>
+<p>我们知道，Java中的集合类只能接收对象类型，那么以下代码为什么会不报错呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; li = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">50</span>; i ++)&#123;</span><br><span class="line">    li.add(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将上面代码进行反编译，可以得到以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; li = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">50</span>; i += <span class="number">2</span>)&#123;</span><br><span class="line">    li.add(Integer.valueOf(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上，我们可以得出结论，当我们把基本数据类型放入集合类中的时候，会进行自动装箱。</p>
+<p><strong>场景二、包装类型和基本类型的大小比较</strong></p>
+<p>有没有人想过，当我们对Integer对象与基本类型进行大小比较的时候，实际上比较的是什么内容呢？看以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer a=<span class="number">1</span>;</span><br><span class="line">System.out.println(a==<span class="number">1</span>?<span class="string">"等于"</span>:<span class="string">"不等于"</span>);</span><br><span class="line">Boolean bool=<span class="keyword">false</span>;</span><br><span class="line">System.out.println(bool?<span class="string">"真"</span>:<span class="string">"假"</span>);</span><br></pre></td></tr></table></figure>
+<p>对以上代码进行反编译，得到以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer a=<span class="number">1</span>;</span><br><span class="line">System.out.println(a.intValue()==<span class="number">1</span>?<span class="string">"等于"</span>:<span class="string">"不等于"</span>);</span><br><span class="line">Boolean bool=<span class="keyword">false</span>;</span><br><span class="line">System.out.println(bool.booleanValue?<span class="string">"真"</span>:<span class="string">"假"</span>);</span><br></pre></td></tr></table></figure>
+<p>可以看到，包装类与基本数据类型进行比较运算，是先将包装类进行拆箱成基本数据类型，然后进行比较的。</p>
+<p><strong>场景三、包装类型的运算</strong></p>
+<p>有没有人想过，当我们对Integer对象进行四则运算的时候，是如何进行的呢？看以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">10</span>;</span><br><span class="line">Integer j = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(i+j);</span><br></pre></td></tr></table></figure>
+<p>反编译后代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = Integer.valueOf(<span class="number">10</span>);</span><br><span class="line">Integer j = Integer.valueOf(<span class="number">20</span>);</span><br><span class="line">System.out.println(i.intValue() + j.intValue());</span><br></pre></td></tr></table></figure>
+<p>我们发现，两个包装类型之间的运算，会被自动拆箱成基本类型进行。</p>
+<p><strong>场景四、三目运算符的使用</strong></p>
+<p>这是很多人不知道的一个场景，作者也是一次线上的血淋淋的Bug发生后才了解到的一种案例。看一个简单的三目运算符的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">Integer i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> k = flag ? i : j;</span><br></pre></td></tr></table></figure>
+<p>很多人不知道，其实在<code>int k = flag ? i : j;</code>这一行，会发生自动拆箱。反编译后代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">Integer i = Integer.valueOf(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> k = flag ? i.intValue() : j;</span><br><span class="line">System.out.println(k);</span><br></pre></td></tr></table></figure>
+<p>这其实是三目运算符的语法规范。当第二，第三位操作数分别为基本类型和对象时，其中的对象就会拆箱为基本类型进行操作。</p>
+<p>因为例子中，<code>flag ? i : j;</code>片段中，第二段的i是一个包装类型的对象，而第三段的j是一个基本类型，所以会对包装类进行自动拆箱。如果这个时候i的值为<code>null</code>，那么就会发生NPE。（<a href="http://www.hollischuang.com/archives/435" target="_blank" rel="noopener">自动拆箱导致空指针异常</a>）</p>
+<p><strong>场景五、函数参数与返回值</strong></p>
+<p>这个比较容易理解，直接上代码了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动拆箱</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNum1</span><span class="params">(Integer num)</span> </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//自动装箱</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">getNum2</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>自动拆装箱与缓存</strong></p>
+<p>Java SE的自动拆装箱还提供了一个和缓存有关的功能，我们先来看以下代码，猜测一下输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... strings)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Integer integer1 = <span class="number">3</span>;</span><br><span class="line">    Integer integer2 = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (integer1 == integer2)</span><br><span class="line">        System.out.println(<span class="string">"integer1 == integer2"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        System.out.println(<span class="string">"integer1 != integer2"</span>);</span><br><span class="line"></span><br><span class="line">    Integer integer3 = <span class="number">300</span>;</span><br><span class="line">    Integer integer4 = <span class="number">300</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (integer3 == integer4)</span><br><span class="line">        System.out.println(<span class="string">"integer3 == integer4"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        System.out.println(<span class="string">"integer3 != integer4"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们普遍认为上面的两个判断的结果都是false。虽然比较的值是相等的，但是由于比较的是对象，而对象的引用不一样，所以会认为两个if判断都是false的。在Java中，==比较的是对象应用，而equals比较的是值。所以，在这个例子中，不同的对象有不同的引用，所以在进行比较的时候都将返回false。奇怪的是，这里两个类似的if条件判断返回不同的布尔值。</p>
+<p>上面这段代码真正的输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">integer1 == integer2</span><br><span class="line">integer3 != integer4</span><br></pre></td></tr></table></figure>
+<p>原因就和Integer中的缓存机制有关。在Java 5中，在Integer的操作上引入了一个新功能来节省内存和提高性能。整型对象通过使用相同的对象引用实现了缓存和重用。</p>
+<blockquote>
+<p><strong>适用于整数值区间-128 至 +127。</strong></p>
+<p><strong>只适用于自动装箱。使用构造函数创建对象不适用。</strong></p>
+</blockquote>
+<p>具体的代码实现可以阅读<a href="http://www.hollischuang.com/archives/1174" target="_blank" rel="noopener">Java中整型的缓存机制</a>一文，这里不再阐述。</p>
+<p>我们只需要知道，当需要进行自动装箱时，如果数字在-128至127之间时，会直接使用缓存中的对象，而不是重新创建一个对象。</p>
+<p>其中的javadoc详细的说明了缓存支持-128到127之间的自动装箱过程。最大值127可以通过<code>-XX:AutoBoxCacheMax=size</code>修改。</p>
+<p>实际上这个功能在Java 5中引入的时候,范围是固定的-128 至 +127。后来在Java 6中，可以通过<code>java.lang.Integer.IntegerCache.high</code>设置最大值。</p>
+<p>这使我们可以根据应用程序的实际情况灵活地调整来提高性能。到底是什么原因选择这个-128到127范围呢？因为这个范围的数字是最被广泛使用的。 在程序中，第一次使用Integer的时候也需要一定的额外时间来初始化这个缓存。</p>
+<p>在Boxing Conversion部分的Java语言规范(JLS)规定如下：</p>
+<p>如果一个变量p的值是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>至<span class="number">127</span>之间的整数(§<span class="number">3.10</span>.1)</span><br><span class="line"></span><br><span class="line"><span class="keyword">true</span> 和 <span class="keyword">false</span>的布尔值 (§<span class="number">3.10</span>.3)</span><br><span class="line"></span><br><span class="line">‘\u0000’至 ‘\u007f’之间的字符(§<span class="number">3.10</span>.4)</span><br></pre></td></tr></table></figure>
+<p>范围内的时，将p包装成a和b两个对象时，可以直接使用a==b判断a和b的值是否相等。</p>
+<p><strong>自动拆装箱带来的问题</strong></p>
+<p>当然，自动拆装箱是一个很好的功能，大大节省了开发人员的精力，不再需要关心到底什么时候需要拆装箱。但是，他也会引入一些问题。</p>
+<blockquote>
+<p><strong>包装对象的数值比较，不能简单的使用<code>==</code>，虽然-128到127之间的数字可以，但是这个范围之外还是需要使用<code>equals</code>比较。</strong></p>
+<p><strong>前面提到，有些场景会进行自动拆装箱，同时也说过，由于自动拆箱，如果包装类对象为null，那么自动拆箱时就有可能抛出NPE。</strong></p>
+<p><strong>如果一个for循环中有大量拆装箱操作，会浪费很多资源。</strong></p>
+</blockquote>
+<h5 id="2-2-Integer的缓存机制"><a href="#2-2-Integer的缓存机制" class="headerlink" title="2.2 Integer的缓存机制"></a>2.2 Integer的缓存机制</h5><p>本文将介绍Java中Integer的缓存相关知识。这是在Java 5中引入的一个有助于节省内存、提高性能的功能。首先看一个使用Integer的示例代码，从中学习其缓存行为。接着我们将为什么这么实现以及他到底是如何实现的。你能猜出下面的Java程序的输出结果吗。如果你的结果和真正结果不一样，那么你就要好好看看本文了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.javapapers.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaIntegerCache</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... strings)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Integer integer1 = <span class="number">3</span>;</span><br><span class="line">        Integer integer2 = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (integer1 == integer2)</span><br><span class="line">            System.out.println(<span class="string">"integer1 == integer2"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"integer1 != integer2"</span>);</span><br><span class="line"></span><br><span class="line">        Integer integer3 = <span class="number">300</span>;</span><br><span class="line">        Integer integer4 = <span class="number">300</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (integer3 == integer4)</span><br><span class="line">            System.out.println(<span class="string">"integer3 == integer4"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"integer3 != integer4"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们普遍认为上面的两个判断的结果都是false。虽然比较的值是相等的，但是由于比较的是对象，而对象的引用不一样，所以会认为两个if判断都是false的。在Java中，<code>==</code>比较的是对象应用，而<code>equals</code>比较的是值。所以，在这个例子中，不同的对象有不同的引用，所以在进行比较的时候都将返回false。奇怪的是，这里两个类似的if条件判断返回不同的布尔值。</p>
+<p>上面这段代码真正的输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">integer1 == integer2</span><br><span class="line">integer3 != integer4</span><br></pre></td></tr></table></figure>
+<p><strong>Java中Integer的缓存实现</strong></p>
+<p>在Java 5中，在Integer的操作上引入了一个新功能来节省内存和提高性能。整型对象通过使用相同的对象引用实现了缓存和重用。</p>
+<blockquote>
+<p>适用于整数值区间-128 至 +127。</p>
+<p>只适用于自动装箱。使用构造函数创建对象不适用。</p>
+</blockquote>
+<p>Java的编译器把基本数据类型自动转换成封装类对象的过程叫做<code>自动装箱</code>，相当于使用<code>valueOf</code>方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer a = <span class="number">10</span>; <span class="comment">//this is autoboxing</span></span><br><span class="line">Integer b = Integer.valueOf(<span class="number">10</span>); <span class="comment">//under the hood</span></span><br></pre></td></tr></table></figure>
+<p>现在我们知道了这种机制在源码中哪里使用了，那么接下来我们就看看JDK中的<code>valueOf</code>方法。下面是<code>JDK 1.8.0 build 25</code>的实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns an &#123;<span class="doctag">@code</span> Integer&#125; instance representing the specified</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@code</span> int&#125; value.  If a new &#123;<span class="doctag">@code</span> Integer&#125; instance is not</span></span><br><span class="line"><span class="comment">     * required, this method should generally be used in preference to</span></span><br><span class="line"><span class="comment">     * the constructor &#123;<span class="doctag">@link</span> #Integer(int)&#125;, as this method is likely</span></span><br><span class="line"><span class="comment">     * to yield significantly better space and time performance by</span></span><br><span class="line"><span class="comment">     * caching frequently requested values.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * This method will always cache values in the range -128 to 127,</span></span><br><span class="line"><span class="comment">     * inclusive, and may cache other values outside of this range.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  i an &#123;<span class="doctag">@code</span> int&#125; value.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Integer&#125; instance representing &#123;<span class="doctag">@code</span> i&#125;.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span>  1.5</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">            <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>在创建对象之前先从IntegerCache.cache中寻找。如果没找到才使用new新建对象。</p>
+<p><strong>IntegerCache Class</strong></p>
+<p>IntegerCache是Integer类中定义的一个<code>private static</code>的内部类。接下来看看他的定义。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Cache to support the object identity semantics of autoboxing for values between</span></span><br><span class="line"><span class="comment">   * -128 and 127 (inclusive) as required by JLS.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * The cache is initialized on first usage.  The size of the cache</span></span><br><span class="line"><span class="comment">   * may be controlled by the &#123;<span class="doctag">@code</span> -XX:AutoBoxCacheMax=&#125; option.</span></span><br><span class="line"><span class="comment">   * During VM initialization, java.lang.Integer.IntegerCache.high property</span></span><br><span class="line"><span class="comment">   * may be set and saved in the private system properties in the</span></span><br><span class="line"><span class="comment">   * sun.misc.VM class.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</span><br><span class="line">      <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span><br><span class="line">      <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span><br><span class="line">      <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">static</span> &#123;</span><br><span class="line">          <span class="comment">// high value may be configured by property</span></span><br><span class="line">          <span class="keyword">int</span> h = <span class="number">127</span>;</span><br><span class="line">          String integerCacheHighPropValue =</span><br><span class="line">              sun.misc.VM.getSavedProperty(<span class="string">"java.lang.Integer.IntegerCache.high"</span>);</span><br><span class="line">          <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) &#123;</span><br><span class="line">              <span class="keyword">try</span> &#123;</span><br><span class="line">                  <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span><br><span class="line">                  i = Math.max(i, <span class="number">127</span>);</span><br><span class="line">                  <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></span><br><span class="line">                  h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span><br><span class="line">              &#125; <span class="keyword">catch</span>( NumberFormatException nfe) &#123;</span><br><span class="line">                  <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          high = h;</span><br><span class="line"></span><br><span class="line">          cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span><br><span class="line">          <span class="keyword">int</span> j = low;</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">              cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line"></span><br><span class="line">          <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></span><br><span class="line">          <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>其中的javadoc详细的说明了缓存支持-128到127之间的自动装箱过程。最大值127可以通过<code>-XX:AutoBoxCacheMax=size</code>修改。 缓存通过一个for循环实现。从低到高并创建尽可能多的整数并存储在一个整数数组中。这个缓存会在Integer类第一次被使用的时候被初始化出来。以后，就可以使用缓存中包含的实例对象，而不是创建一个新的实例(在自动装箱的情况下)。</p>
+<p>实际上这个功能在Java 5中引入的时候,范围是固定的-128 至 +127。后来在Java 6中，可以通过<code>java.lang.Integer.IntegerCache.high</code>设置最大值。这使我们可以根据应用程序的实际情况灵活地调整来提高性能。到底是什么原因选择这个-128到127范围呢？因为这个范围的数字是最被广泛使用的。 在程序中，第一次使用Integer的时候也需要一定的额外时间来初始化这个缓存。</p>
+<p><strong>Java语言规范中的缓存行为</strong></p>
+<p>在<a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.1.7" target="_blank" rel="noopener">Boxing Conversion</a>部分的Java语言规范(JLS)规定如下：</p>
+<blockquote>
+<p><strong>如果一个变量p的值是：</strong></p>
+<p><strong>-128至127之间的整数(§3.10.1)</strong></p>
+<p><strong>true 和 false的布尔值 (§3.10.3)</strong></p>
+<p><strong>‘\u0000’至 ‘\u007f’之间的字符(§3.10.4)</strong></p>
+<p><strong>中时，将p包装成a和b两个对象时，可以直接使用a==b判断a和b的值是否相等。</strong></p>
+</blockquote>
+<p><strong>其他缓存的对象</strong></p>
+<p>这种缓存行为不仅适用于Integer对象。我们针对所有的整数类型的类都有类似的缓存机制。</p>
+<blockquote>
+<p><strong>有ByteCache用于缓存Byte对象</strong></p>
+<p><strong>有ShortCache用于缓存Short对象</strong></p>
+<p><strong>有LongCache用于缓存Long对象</strong></p>
+<p><strong>有CharacterCache用于缓存Character对象</strong></p>
+</blockquote>
+<p><code>Byte</code>, <code>Short</code>, <code>Long</code>有固定范围: -128 到 127。对于<code>Character</code>, 范围是 0 到 127。除了<code>Integer</code>以外，这个范围都不能改变。</p>
+<h4 id="3、String"><a href="#3、String" class="headerlink" title="3、String"></a>3、String</h4><p><strong>创建字符串</strong></p>
+<p>创建字符串最简单的方式如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String greeting = <span class="string">"菜鸟教程"</span>;</span><br></pre></td></tr></table></figure>
+<p>String方法</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SN(序号)</th>
+<th style="text-align:left">方法描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-charat.html" target="_blank" rel="noopener">char charAt(int index)</a> 返回指定索引处的 char 值。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-compareto.html" target="_blank" rel="noopener">int compareTo(Object o)</a> 把这个字符串和另一个对象比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-compareto.html" target="_blank" rel="noopener">int compareTo(String anotherString)</a> 按字典顺序比较两个字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-comparetoignorecase.html" target="_blank" rel="noopener">int compareToIgnoreCase(String str)</a> 按字典顺序比较两个字符串，不考虑大小写。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-concat.html" target="_blank" rel="noopener">String concat(String str)</a> 将指定字符串连接到此字符串的结尾。</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-contentequals.html" target="_blank" rel="noopener">boolean contentEquals(StringBuffer sb)</a> 当且仅当字符串与指定的StringBuffer有相同顺序的字符时候返回真。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-copyvalueof.html" target="_blank" rel="noopener">static String copyValueOf(char[] data)</a> 返回指定数组中表示该字符序列的 String。</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-copyvalueof.html" target="_blank" rel="noopener">static String copyValueOf(char[] data, int offset, int count)</a> 返回指定数组中表示该字符序列的 String。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-endswith.html" target="_blank" rel="noopener">boolean endsWith(String suffix)</a> 测试此字符串是否以指定的后缀结束。</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-equals.html" target="_blank" rel="noopener">boolean equals(Object anObject)</a> 将此字符串与指定的对象比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-equalsignorecase.html" target="_blank" rel="noopener">boolean equalsIgnoreCase(String anotherString)</a> 将此 String 与另一个 String 比较，不考虑大小写。</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-getbytes.html" target="_blank" rel="noopener">byte[] getBytes()</a>  使用平台的默认字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-getbytes.html" target="_blank" rel="noopener">byte[] getBytes(String charsetName)</a> 使用指定的字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-getchars.html" target="_blank" rel="noopener">void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)</a> 将字符从此字符串复制到目标字符数组。</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-hashcode.html" target="_blank" rel="noopener">int hashCode()</a> 返回此字符串的哈希码。</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-indexof.html" target="_blank" rel="noopener">int indexOf(int ch)</a> 返回指定字符在此字符串中第一次出现处的索引。</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-indexof.html" target="_blank" rel="noopener">int indexOf(int ch, int fromIndex)</a> 返回在此字符串中第一次出现指定字符处的索引，从指定的索引开始搜索。</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-indexof.html" target="_blank" rel="noopener">int indexOf(String str)</a>  返回指定子字符串在此字符串中第一次出现处的索引。</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-indexof.html" target="_blank" rel="noopener">int indexOf(String str, int fromIndex)</a> 返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始。</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-intern.html" target="_blank" rel="noopener">String intern()</a>  返回字符串对象的规范化表示形式。</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-lastindexof.html" target="_blank" rel="noopener">int lastIndexOf(int ch)</a>  返回指定字符在此字符串中最后一次出现处的索引。</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-lastindexof.html" target="_blank" rel="noopener">int lastIndexOf(int ch, int fromIndex)</a> 返回指定字符在此字符串中最后一次出现处的索引，从指定的索引处开始进行反向搜索。</td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-lastindexof.html" target="_blank" rel="noopener">int lastIndexOf(String str)</a> 返回指定子字符串在此字符串中最右边出现处的索引。</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-lastindexof.html" target="_blank" rel="noopener">int lastIndexOf(String str, int fromIndex)</a>  返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索。</td>
+</tr>
+<tr>
+<td style="text-align:left">25</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-length.html" target="_blank" rel="noopener">int length()</a> 返回此字符串的长度。</td>
+</tr>
+<tr>
+<td style="text-align:left">26</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-matches.html" target="_blank" rel="noopener">boolean matches(String regex)</a> 告知此字符串是否匹配给定的正则表达式。</td>
+</tr>
+<tr>
+<td style="text-align:left">27</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-regionmatches.html" target="_blank" rel="noopener">boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)</a> 测试两个字符串区域是否相等。</td>
+</tr>
+<tr>
+<td style="text-align:left">28</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-regionmatches.html" target="_blank" rel="noopener">boolean regionMatches(int toffset, String other, int ooffset, int len)</a> 测试两个字符串区域是否相等。</td>
+</tr>
+<tr>
+<td style="text-align:left">29</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-replace.html" target="_blank" rel="noopener">String replace(char oldChar, char newChar)</a> 返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。</td>
+</tr>
+<tr>
+<td style="text-align:left">30</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-replaceall.html" target="_blank" rel="noopener">String replaceAll(String regex, String replacement)</a> 使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">31</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-replacefirst.html" target="_blank" rel="noopener">String replaceFirst(String regex, String replacement)</a>  使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">32</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-split.html" target="_blank" rel="noopener">String[] split(String regex)</a> 根据给定正则表达式的匹配拆分此字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">33</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-split.html" target="_blank" rel="noopener">String[] split(String regex, int limit)</a> 根据匹配给定的正则表达式来拆分此字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">34</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-startswith.html" target="_blank" rel="noopener">boolean startsWith(String prefix)</a> 测试此字符串是否以指定的前缀开始。</td>
+</tr>
+<tr>
+<td style="text-align:left">35</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-startswith.html" target="_blank" rel="noopener">boolean startsWith(String prefix, int toffset)</a> 测试此字符串从指定索引开始的子字符串是否以指定前缀开始。</td>
+</tr>
+<tr>
+<td style="text-align:left">36</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-subsequence.html" target="_blank" rel="noopener">CharSequence subSequence(int beginIndex, int endIndex)</a>  返回一个新的字符序列，它是此序列的一个子序列。</td>
+</tr>
+<tr>
+<td style="text-align:left">37</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-substring.html" target="_blank" rel="noopener">String substring(int beginIndex)</a> 返回一个新的字符串，它是此字符串的一个子字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">38</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-substring.html" target="_blank" rel="noopener">String substring(int beginIndex, int endIndex)</a> 返回一个新字符串，它是此字符串的一个子字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">39</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-tochararray.html" target="_blank" rel="noopener">char[] toCharArray()</a> 将此字符串转换为一个新的字符数组。</td>
+</tr>
+<tr>
+<td style="text-align:left">40</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-tolowercase.html" target="_blank" rel="noopener">String toLowerCase()</a> 使用默认语言环境的规则将此 String 中的所有字符都转换为小写。</td>
+</tr>
+<tr>
+<td style="text-align:left">41</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-tolowercase.html" target="_blank" rel="noopener">String toLowerCase(Locale locale)</a>  使用给定 Locale 的规则将此 String 中的所有字符都转换为小写。</td>
+</tr>
+<tr>
+<td style="text-align:left">42</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-tostring.html" target="_blank" rel="noopener">String toString()</a>  返回此对象本身（它已经是一个字符串！）。</td>
+</tr>
+<tr>
+<td style="text-align:left">43</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-touppercase.html" target="_blank" rel="noopener">String toUpperCase()</a> 使用默认语言环境的规则将此 String 中的所有字符都转换为大写。</td>
+</tr>
+<tr>
+<td style="text-align:left">44</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-touppercase.html" target="_blank" rel="noopener">String toUpperCase(Locale locale)</a> 使用给定 Locale 的规则将此 String 中的所有字符都转换为大写。</td>
+</tr>
+<tr>
+<td style="text-align:left">45</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-trim.html" target="_blank" rel="noopener">String trim()</a> 返回字符串的副本，忽略前导空白和尾部空白。</td>
+</tr>
+<tr>
+<td style="text-align:left">46</td>
+<td style="text-align:left"><a href="https://www.runoob.com/java/java-string-valueof.html" target="_blank" rel="noopener">static String valueOf(primitive data type x)</a> 返回给定data type类型x参数的字符串表示形式。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="3-1-字符串的不可变性"><a href="#3-1-字符串的不可变性" class="headerlink" title="3.1 字符串的不可变性"></a>3.1 字符串的不可变性</h5><p><strong>定义一个字符串</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"abcd"</span>;</span><br></pre></td></tr></table></figure>
+<p><a href="https://camo.githubusercontent.com/5fcf9d95e387567edb42c53a7414c079fb2073b6/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323030392f30322f537472696e672d496d6d75746162696c6974792d312e6a706567" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/5fcf9d95e387567edb42c53a7414c079fb2073b6/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323030392f30322f537472696e672d496d6d75746162696c6974792d312e6a706567" alt="String-Immutability-1"></a></p>
+<p><code>s</code>中保存了string对象的引用。下面的箭头可以理解为“存储他的引用”。</p>
+<p><strong>使用变量来赋值变量</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s2 = s;</span><br></pre></td></tr></table></figure>
+<p><a href="https://camo.githubusercontent.com/475b2edd460884ff20b6f86c982848a69639fefc/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323030392f30322f537472696e672d496d6d75746162696c6974792d322e6a706567" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/475b2edd460884ff20b6f86c982848a69639fefc/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323030392f30322f537472696e672d496d6d75746162696c6974792d322e6a706567" alt="String-Immutability-2"></a></p>
+<p>s2保存了相同的引用值，因为他们代表同一个对象。</p>
+<p><strong>字符串连接</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = s.concat(<span class="string">"ef"</span>);</span><br></pre></td></tr></table></figure>
+<p><a href="https://camo.githubusercontent.com/ad36300358475cfeb8563424adecb1760e9ddc84/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323030392f30322f737472696e672d696d6d75746162696c6974792d363530783237392e6a706567" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/ad36300358475cfeb8563424adecb1760e9ddc84/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323030392f30322f737472696e672d696d6d75746162696c6974792d363530783237392e6a706567" alt="string-immutability"></a></p>
+<p><code>s</code>中保存的是一个重新创建出来的string对象的引用。</p>
+<p><strong>总结</strong></p>
+<p>一旦一个string对象在内存(堆)中被创建出来，他就无法被修改。特别要注意的是，String类的所有方法都没有改变字符串本身的值，都是返回了一个新的对象。</p>
+<p>如果你需要一个可修改的字符串，应该使用StringBuffer 或者 StringBuilder。否则会有大量时间浪费在垃圾回收上，因为每次试图修改都有新的string对象被创建出来。</p>
+<p><strong>3.2 JDK 6和JDK 7中的substring的原理及区别</strong></p>
+<p>String是Java中一个比较基础的类，每一个开发人员都会经常接触到。而且，String也是面试中经常会考的知识点。String有很多方法，有些方法比较常用，有些方法不太常用。今天要介绍的subString就是一个比较常用的方法，而且围绕subString也有很多面试题。</p>
+<p><code>substring(int beginIndex, int endIndex)</code>方法在不同版本的JDK中的实现是不同的。了解他们的区别可以帮助你更好的使用他。为简单起见，后文中用<code>substring()</code>代表<code>substring(int beginIndex, int endIndex)</code>方法。</p>
+<p><strong>substring() 的作用</strong></p>
+<p><code>substring(int beginIndex, int endIndex)</code>方法截取字符串并返回其[beginIndex,endIndex-1]范围内的内容。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String x = <span class="string">"abcdef"</span>;</span><br><span class="line">x = x.substring(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line">System.out.println(x);</span><br></pre></td></tr></table></figure>
+<p>输出内容：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bc</span><br></pre></td></tr></table></figure>
+<p><strong>调用substring()时发生了什么？</strong></p>
+<p>你可能知道，因为x是不可变的，当使用<code>x.substring(1,3)</code>对x赋值的时候，它会指向一个全新的字符串：</p>
+<p><a href="https://camo.githubusercontent.com/1147adecbaf28174f0fba78bd1a8e14a8ea8ab56/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f30392f737472696e672d696d6d75746162696c697479312d363530783330332e6a706567" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/1147adecbaf28174f0fba78bd1a8e14a8ea8ab56/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f30392f737472696e672d696d6d75746162696c697479312d363530783330332e6a706567" alt="string-immutability1"></a></p>
+<p>然而，这个图不是完全正确的表示堆中发生的事情。因为在jdk6 和 jdk7中调用substring时发生的事情并不一样。</p>
+<p><strong>JDK 6中的substring</strong></p>
+<p>String是通过字符数组实现的。在jdk 6 中，String类包含三个成员变量：<code>char value[]</code>， <code>int offset</code>，<code>int count</code>。他们分别用来存储真正的字符数组，数组的第一个位置索引以及字符串中包含的字符个数。</p>
+<p>当调用substring方法的时候，会创建一个新的string对象，但是这个string的值仍然指向堆中的同一个字符数组。这两个对象中只有count和offset 的值是不同的。</p>
+<p><a href="https://camo.githubusercontent.com/23eaeaa9e84d9fe6170350bf935dc5cf27f74e18/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f30392f737472696e672d737562737472696e672d6a646b362d363530783338392e6a706567" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/23eaeaa9e84d9fe6170350bf935dc5cf27f74e18/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f30392f737472696e672d737562737472696e672d6a646b362d363530783338392e6a706567" alt="string-substring-jdk6"></a></p>
+<p>下面是证明上说观点的Java源码中的关键代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JDK 6</span></span><br><span class="line">String(<span class="keyword">int</span> offset, <span class="keyword">int</span> count, <span class="keyword">char</span> value[]) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="keyword">this</span>.offset = offset;</span><br><span class="line">    <span class="keyword">this</span>.count = count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//check boundary</span></span><br><span class="line">    <span class="keyword">return</span>  <span class="keyword">new</span> String(offset + beginIndex, endIndex - beginIndex, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>JDK 6中的substring导致的问题</strong></p>
+<p>如果你有一个很长很长的字符串，但是当你使用substring进行切割的时候你只需要很短的一段。这可能导致性能问题，因为你需要的只是一小段字符序列，但是你却引用了整个字符串（因为这个非常长的字符数组一直在被引用，所以无法被回收，就可能导致内存泄露）。在JDK 6中，一般用以下方式来解决该问题，原理其实就是生成一个新的字符串并引用他。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x.substring(x, y) + <span class="string">""</span></span><br></pre></td></tr></table></figure>
+<p>关于JDK 6中subString的使用不当会导致内存系列已经被官方记录在Java Bug Database中：</p>
+<p><a href="https://camo.githubusercontent.com/3e917e690c48247e94bbe8af029df1b2a7ade4b8/687474703a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031362f30332f6c65616b2e706e67" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/3e917e690c48247e94bbe8af029df1b2a7ade4b8/687474703a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031362f30332f6c65616b2e706e67" alt="leak"></a></p>
+<blockquote>
+<p>内存泄露：在计算机科学中，内存泄漏指由于疏忽或错误造成程序未能释放已经不再使用的内存。 内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，从而造成了内存的浪费。</p>
+</blockquote>
+<p><strong>JDK 7 中的substring</strong></p>
+<p>上面提到的问题，在jdk 7中得到解决。在jdk 7 中，substring方法会在堆内存中创建一个新的数组。</p>
+<p><a href="https://camo.githubusercontent.com/2c632253df0b4d5f7034898c618d47d1605f3722/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f30392f737472696e672d737562737472696e672d6a646b37312d363530783338392e6a706567" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/2c632253df0b4d5f7034898c618d47d1605f3722/687474703a2f2f7777772e70726f6772616d637265656b2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f30392f737472696e672d737562737472696e672d6a646b37312d363530783338392e6a706567" alt="string-substring-jdk7"></a></p>
+<p>Java源码中关于这部分的主要代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JDK 7</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span> value[], <span class="keyword">int</span> offset, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//check boundary</span></span><br><span class="line">    <span class="keyword">this</span>.value = Arrays.copyOfRange(value, offset, offset + count);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//check boundary</span></span><br><span class="line">    <span class="keyword">int</span> subLen = endIndex - beginIndex;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> String(value, beginIndex, subLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上是JDK 7中的subString方法，其使用<code>new String</code>创建了一个新字符串，避免对老字符串的引用。从而解决了内存泄露问题。</p>
+<p>所以，如果你的生产环境中使用的JDK版本小于1.7，当你使用String的subString方法时一定要注意，避免内存泄露。</p>
+<h5 id="3-3-java中replace、replaceFirst和replaceAll区别"><a href="#3-3-java中replace、replaceFirst和replaceAll区别" class="headerlink" title="3.3 java中replace、replaceFirst和replaceAll区别"></a>3.3 java中replace、replaceFirst和replaceAll区别</h5><p>replace和replaceAll是JAVA中常用的替换字符的方法,它们的区别是:<br>　　1)replace的参数是char和CharSequence,即可以支持字符的替换,也支持字符串的替换(CharSequence即字符串序列的意思,说白了也就是字符串);<br>　　2)replaceAll的参数是regex,即基于规则表达式的替换,比如,可以通过replaceAll(“\\d”, “*”)把一个字符串所有的数字字符都换成星号;<br>　　相同点是都是全部替换,即把源字符串中的某一字符或字符串全部换成指定的字符或字符串,如果只想替换第一次出现的,可以使用 replaceFirst(),这个方法也是基于规则表达式的替换,但与replaceAll()不同的是,只替换第一次出现的字符串;<br>　　另外,如果replaceAll()和replaceFirst()所用的参数据不是基于规则表达式的,则与replace()替换字符串的效果是一样的,即这两者也支持字符串的操作;<br>　　还有一点注意:执行了替换操作后,源字符串的内容是没有发生改变的.<br>　　举例如下:
+　　</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String src = <span class="keyword">new</span> String(<span class="string">"ab43a2c43d"</span>);</span><br><span class="line">　　System.out.println(src.replace(<span class="string">"3"</span>,<span class="string">"f"</span>));=&gt;ab4f2c4fd.</span><br><span class="line">　　System.out.println(src.replace(<span class="string">'3'</span>,<span class="string">'f'</span>));=&gt;ab4f2c4fd.</span><br><span class="line">　　System.out.println(src.replaceAll(<span class="string">"\\d"</span>,<span class="string">"f"</span>));=&gt;abffafcffd</span><br><span class="line">　　System.out.println(src.replaceAll(<span class="string">"a"</span>,<span class="string">"f"</span>));=&gt;fb43fc23d.</span><br><span class="line">　　System.out.println(src.replaceFirst(<span class="string">"\\d,"</span>f<span class="string">"));=&gt;abf32c43d</span></span><br><span class="line"><span class="string">　　System.out.println(src.replaceFirst("</span><span class="number">4</span><span class="string">","</span>h<span class="string">"));=&gt;abh32c43d.</span></span><br></pre></td></tr></table></figure>
+<p>如何将字符串中的”\”替换成”\\”：
+　　</p>
+<p>String msgIn;
+　　</p>
+<p>String msgOut;
+　　</p>
+<p>msgOut=msgIn.replaceAll(“\\\\”,”\\\\\\\\”);
+　　</p>
+<p>原因：
+　　</p>
+<p>‘\’在java中是一个转义字符，所以需要用两个代表一个。例如System.out.println( “\\” ) ;只打印出一个”\”。但是’\’也是正则表达式中的转义字符（replaceAll 的参数就是正则表达式），需要用两个代表一个。所以：\\\\被java转换成\\,\\又被正则表达式转换成\。<br>　　同样<br>　　CODE: \\\\\\\\<br>　　Java: \\\\<br>　　Regex: \\<br>　　将字符串中的’/‘替换成’\’的几种方式:
+　　</p>
+<p>msgOut= msgIn.replaceAll(“/“, “\\\\”);
+　　</p>
+<p>msgOut= msgIn.replace(“/“, “\\”);
+　　</p>
+<p>msgOut= msgIn.replace(‘/‘, ‘\\’);</p>
+<h5 id="3-4-String对”-”的重载"><a href="#3-4-String对”-”的重载" class="headerlink" title="3.4 String对”+”的重载"></a>3.4 String对”+”的重载</h5><ol>
+<li>String s = “a” + “b”，编译器会进行常量折叠(因为两个都是编译期常量，编译期可知)，即变成 String s = “ab”</li>
+<li>对于能够进行优化的(String s = “a” + 变量 等)用 StringBuilder 的 append() 方法替代，最后调用 toString() 方法 (底层就是一个 new String())</li>
+</ol>
+<h5 id="3-5-字符串拼接的几种方式和区别"><a href="#3-5-字符串拼接的几种方式和区别" class="headerlink" title="3.5 字符串拼接的几种方式和区别"></a>3.5 字符串拼接的几种方式和区别</h5><p>字符串，是Java中最常用的一个数据类型了。</p>
+<p>本文，也是对于Java中字符串相关知识的一个补充，主要来介绍一下字符串拼接相关的知识。本文基于jdk1.8.0_181。</p>
+<p><strong>字符串拼接</strong></p>
+<p>字符串拼接是我们在Java代码中比较经常要做的事情，就是把多个字符串拼接到一起。</p>
+<p>我们都知道，<strong>String是Java中一个不可变的类</strong>，所以他一旦被实例化就无法被修改。</p>
+<blockquote>
+<p><strong>不可变类的实例一旦创建，其成员变量的值就不能被修改。这样设计有很多好处，比如可以缓存hashcode、使用更加便利以及更加安全等。</strong></p>
+</blockquote>
+<p>但是，既然字符串是不可变的，那么字符串拼接又是怎么回事呢？</p>
+<p><strong>字符串不变性与字符串拼接</strong></p>
+<p>其实，所有的所谓字符串拼接，都是重新生成了一个新的字符串。下面一段字符串拼接代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"abcd"</span>;</span><br><span class="line">s = s.concat(<span class="string">"ef"</span>);</span><br></pre></td></tr></table></figure>
+<p>其实最后我们得到的s已经是一个新的字符串了。如下图</p>
+<p><a href="https://camo.githubusercontent.com/60e15b7596ac3c8b80770f189fd003707da47c0b/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30312f31353437323839373930383339312e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/60e15b7596ac3c8b80770f189fd003707da47c0b/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30312f31353437323839373930383339312e6a7067" alt="img"></a>￼</p>
+<p>s中保存的是一个重新创建出来的String对象的引用。</p>
+<p>那么，在Java中，到底如何进行字符串拼接呢？字符串拼接有很多种方式，这里简单介绍几种比较常用的。</p>
+<p><strong>使用+拼接字符串</strong></p>
+<p>在Java中，拼接字符串最简单的方式就是直接使用符号<code>+</code>来拼接。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">"Hollis"</span>;</span><br><span class="line">String introduce = <span class="string">"每日更新Java相关技术文章"</span>;</span><br><span class="line">String hollis = wechat + <span class="string">","</span> + introduce;</span><br></pre></td></tr></table></figure>
+<p>这里要特别说明一点，有人把Java中使用<code>+</code>拼接字符串的功能理解为<strong>运算符重载</strong>。其实并不是，<strong>Java是不支持运算符重载的</strong>。这其实只是Java提供的一个<strong>语法糖</strong>。后面再详细介绍。</p>
+<blockquote>
+<p><strong>运算符重载：在计算机程序设计中，运算符重载（英语：operator overloading）是多态的一种。运算符重载，就是对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型。</strong></p>
+<p><strong>语法糖：语法糖（Syntactic sugar），也译为糖衣语法，是由英国计算机科学家彼得·兰丁发明的一个术语，指计算机语言中添加的某种语法，这种语法对语言的功能没有影响，但是更方便程序员使用。语法糖让程序更加简洁，有更高的可读性。</strong></p>
+</blockquote>
+<p><strong>concat</strong><br>除了使用<code>+</code>拼接字符串之外，还可以使用String类中的方法concat方法来拼接字符串。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">"Hollis"</span>;</span><br><span class="line">String introduce = <span class="string">"每日更新Java相关技术文章"</span>;</span><br><span class="line">String hollis = wechat.concat(<span class="string">","</span>).concat(introduce);</span><br></pre></td></tr></table></figure>
+<p><strong>StringBuffer</strong></p>
+<p>关于字符串，Java中除了定义了一个可以用来定义<strong>字符串常量</strong>的<code>String</code>类以外，还提供了可以用来定义<strong>字符串变量</strong>的<code>StringBuffer</code>类，它的对象是可以扩充和修改的。</p>
+<p>使用<code>StringBuffer</code>可以方便的对字符串进行拼接。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer wechat = <span class="keyword">new</span> StringBuffer(<span class="string">"Hollis"</span>);</span><br><span class="line">String introduce = <span class="string">"每日更新Java相关技术文章"</span>;</span><br><span class="line">StringBuffer hollis = wechat.append(<span class="string">","</span>).append(introduce);</span><br></pre></td></tr></table></figure>
+<p><strong>StringBuilder</strong><br>除了<code>StringBuffer</code>以外，还有一个类<code>StringBuilder</code>也可以使用，其用法和<code>StringBuffer</code>类似。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder wechat = <span class="keyword">new</span> StringBuilder(<span class="string">"Hollis"</span>);</span><br><span class="line">String introduce = <span class="string">"每日更新Java相关技术文章"</span>;</span><br><span class="line">StringBuilder hollis = wechat.append(<span class="string">","</span>).append(introduce);</span><br></pre></td></tr></table></figure>
+<p><strong>StringUtils.join</strong><br>除了JDK中内置的字符串拼接方法，还可以使用一些开源类库中提供的字符串拼接方法名，如<code>apache.commons中</code>提供的<code>StringUtils</code>类，其中的<code>join</code>方法可以拼接字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">"Hollis"</span>;</span><br><span class="line">String introduce = <span class="string">"每日更新Java相关技术文章"</span>;</span><br><span class="line">System.out.println(StringUtils.join(wechat, <span class="string">","</span>, introduce));</span><br></pre></td></tr></table></figure>
+<p>这里简单说一下，StringUtils中提供的join方法，最主要的功能是：将数组或集合以某拼接符拼接到一起形成新的字符串，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String []list  =&#123;<span class="string">"Hollis"</span>,<span class="string">"每日更新Java相关技术文章"</span>&#125;;</span><br><span class="line">String result= StringUtils.join(list,<span class="string">","</span>);</span><br><span class="line">System.out.println(result);</span><br><span class="line"><span class="comment">//结果：Hollis,每日更新Java相关技术文章</span></span><br></pre></td></tr></table></figure>
+<p>并且，Java8中的String类中也提供了一个静态的join方法，用法和StringUtils.join类似。</p>
+<p>以上就是比较常用的五种在Java种拼接字符串的方式，那么到底哪种更好用呢？为什么阿里巴巴Java开发手册中不建议在循环体中使用<code>+</code>进行字符串拼接呢？</p>
+<p><a href="https://camo.githubusercontent.com/425258370f5e0a09ee0661f7f807b1bc200ee532/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30312f31353437323835303137303233302e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/425258370f5e0a09ee0661f7f807b1bc200ee532/68747470733a2f2f7777772e686f6c6c6973636875616e672e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f30312f31353437323835303137303233302e6a7067" alt="img"></a>￼</p>
+<p>(阿里巴巴Java开发手册中关于字符串拼接的规约)</p>
+<p><strong>使用<code>+</code>拼接字符串的实现原理</strong></p>
+<p>前面提到过，使用<code>+</code>拼接字符串，其实只是Java提供的一个语法糖， 那么，我们就来解一解这个语法糖，看看他的内部原理到底是如何实现的。</p>
+<p>还是这样一段代码。我们把他生成的字节码进行反编译，看看结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">"Hollis"</span>;</span><br><span class="line">String introduce = <span class="string">"每日更新Java相关技术文章"</span>;</span><br><span class="line">String hollis = wechat + <span class="string">","</span> + introduce;</span><br></pre></td></tr></table></figure>
+<p>反编译后的内容如下，反编译工具为jad。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">"Hollis"</span>;</span><br><span class="line">String introduce = <span class="string">"\u6BCF\u65E5\u66F4\u65B0Java\u76F8\u5173\u6280\u672F\u6587\u7AE0"</span>;<span class="comment">//每日更新Java相关技术文章</span></span><br><span class="line">String hollis = (<span class="keyword">new</span> StringBuilder()).append(wechat).append(<span class="string">","</span>).append(introduce).toString();</span><br></pre></td></tr></table></figure>
+<p>通过查看反编译以后的代码，我们可以发现，原来字符串常量在拼接过程中，是将String转成了StringBuilder后，使用其append方法进行处理的。</p>
+<p>那么也就是说，Java中的<code>+</code>对字符串的拼接，其实现原理是使用<code>StringBuilder.append</code>。</p>
+<p><strong>concat是如何实现的</strong></p>
+<p>我们再来看一下concat方法的源代码，看一下这个方法又是如何实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">concat</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> otherLen = str.length();</span><br><span class="line">    <span class="keyword">if</span> (otherLen == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> len = value.length;</span><br><span class="line">    <span class="keyword">char</span> buf[] = Arrays.copyOf(value, len + otherLen);</span><br><span class="line">    str.getChars(buf, len);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> String(buf, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码首先创建了一个字符数组，长度是已有字符串和待拼接字符串的长度之和，再把两个字符串的值复制到新的字符数组中，并使用这个字符数组创建一个新的String对象并返回。</p>
+<p>通过源码我们也可以看到，经过concat方法，其实是new了一个新的String，这也就呼应到前面我们说的字符串的不变性问题上了。</p>
+<p><strong>StringBuffer和StringBuilder</strong></p>
+<p>接下来我们看看<code>StringBuffer</code>和<code>StringBuilder</code>的实现原理。</p>
+<p>和<code>String</code>类类似，<code>StringBuilder</code>类也封装了一个字符数组，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[] value;</span><br></pre></td></tr></table></figure>
+<p>与<code>String</code>不同的是，它并不是<code>final</code>的，所以他是可以修改的。另外，与<code>String</code>不同，字符数组中不一定所有位置都已经被使用，它有一个实例变量，表示数组中已经使用的字符个数，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count;</span><br></pre></td></tr></table></figure>
+<p>其append源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> StringBuilder <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.append(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该类继承了<code>AbstractStringBuilder</code>类，看下其<code>append</code>方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> AbstractStringBuilder <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> appendNull();</span><br><span class="line">    <span class="keyword">int</span> len = str.length();</span><br><span class="line">    ensureCapacityInternal(count + len);</span><br><span class="line">    str.getChars(<span class="number">0</span>, len, value, count);</span><br><span class="line">    count += len;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>append会直接拷贝字符到内部的字符数组中，如果字符数组长度不够，会进行扩展。</p>
+<p><code>StringBuffer</code>和<code>StringBuilder</code>类似，最大的区别就是<code>StringBuffer</code>是线程安全的，看一下<code>StringBuffer</code>的<code>append</code>方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    toStringCache = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">super</span>.append(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该方法使用<code>synchronized</code>进行声明，说明是一个线程安全的方法。而<code>StringBuilder</code>则不是线程安全的。</p>
+<p><strong>StringUtils.join是如何实现的</strong></p>
+<p>通过查看<code>StringUtils.join</code>的源代码，我们可以发现，其实他也是通过<code>StringBuilder</code>来实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">join</span><span class="params">(<span class="keyword">final</span> Object[] array, String separator, <span class="keyword">final</span> <span class="keyword">int</span> startIndex, <span class="keyword">final</span> <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (array == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (separator == <span class="keyword">null</span>) &#123;</span><br><span class="line">        separator = EMPTY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// endIndex - startIndex &gt; 0:   Len = NofStrings *(len(firstString) + len(separator))</span></span><br><span class="line">    <span class="comment">//           (Assuming that all Strings are roughly equally long)</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> noOfItems = endIndex - startIndex;</span><br><span class="line">    <span class="keyword">if</span> (noOfItems &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> EMPTY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> StringBuilder buf = <span class="keyword">new</span> StringBuilder(noOfItems * <span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = startIndex; i &lt; endIndex; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; startIndex) &#123;</span><br><span class="line">            buf.append(separator);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (array[i] != <span class="keyword">null</span>) &#123;</span><br><span class="line">            buf.append(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> buf.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>效率比较</strong></p>
+<p>既然有这么多种字符串拼接的方法，那么到底哪一种效率最高呢？我们来简单对比一下。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> t1 = System.currentTimeMillis();</span><br><span class="line"><span class="comment">//这里是初始字符串定义</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50000</span>; i++) &#123;</span><br><span class="line">    <span class="comment">//这里是字符串拼接代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">long</span> t2 = System.currentTimeMillis();</span><br><span class="line">System.out.println(<span class="string">"cost:"</span> + (t2 - t1));</span><br></pre></td></tr></table></figure>
+<p>我们使用形如以上形式的代码，分别测试下五种字符串拼接代码的运行时间。得到结果如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ cost:<span class="number">5119</span></span><br><span class="line">StringBuilder cost:<span class="number">3</span></span><br><span class="line">StringBuffer cost:<span class="number">4</span></span><br><span class="line">concat cost:<span class="number">3623</span></span><br><span class="line">StringUtils.join cost:<span class="number">25726</span></span><br></pre></td></tr></table></figure>
+<p>从结果可以看出，用时从短到长的对比是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder`&lt;`StringBuffer`&lt;`concat`&lt;`+`&lt;`StringUtils.join</span><br></pre></td></tr></table></figure>
+<p><code>StringBuffer</code>在<code>StringBuilder</code>的基础上，做了同步处理，所以在耗时上会相对多一些。</p>
+<p>StringUtils.join也是使用了StringBuilder，并且其中还是有很多其他操作，所以耗时较长，这个也容易理解。其实StringUtils.join更擅长处理字符串数组或者列表的拼接。</p>
+<p>那么问题来了，前面我们分析过，其实使用<code>+</code>拼接字符串的实现原理也是使用的<code>StringBuilder</code>，那为什么结果相差这么多，高达1000多倍呢？</p>
+<p>我们再把以下代码反编译下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> t1 = System.currentTimeMillis();</span><br><span class="line">String str = <span class="string">"hollis"</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50000</span>; i++) &#123;</span><br><span class="line">    String s = String.valueOf(i);</span><br><span class="line">    str += s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">long</span> t2 = System.currentTimeMillis();</span><br><span class="line">System.out.println(<span class="string">"+ cost:"</span> + (t2 - t1));</span><br></pre></td></tr></table></figure>
+<p>反编译后代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> t1 = System.currentTimeMillis();</span><br><span class="line">String str = <span class="string">"hollis"</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    String s = String.valueOf(i);</span><br><span class="line">    str = (<span class="keyword">new</span> StringBuilder()).append(str).append(s).toString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> t2 = System.currentTimeMillis();</span><br><span class="line">System.out.println((<span class="keyword">new</span> StringBuilder()).append(<span class="string">"+ cost:"</span>).append(t2 - t1).toString());</span><br></pre></td></tr></table></figure>
+<p>我们可以看到，反编译后的代码，在<code>for</code>循环中，每次都是<code>new</code>了一个<code>StringBuilder</code>，然后再把<code>String</code>转成<code>StringBuilder</code>，再进行<code>append</code>。</p>
+<p>而频繁的新建对象当然要耗费很多时间了，不仅仅会耗费时间，频繁的创建对象，还会造成内存资源的浪费。</p>
+<p>所以，阿里巴巴Java开发手册建议：循环体内，字符串的连接方式，使用 <code>StringBuilder</code> 的 <code>append</code> 方法进行扩展。而不要使用<code>+</code>。</p>
+<p><strong>总结</strong></p>
+<p>本文介绍了什么是字符串拼接，虽然字符串是不可变的，但是还是可以通过新建字符串的方式来进行字符串的拼接。</p>
+<p>常用的字符串拼接方式有五种，分别是使用<code>+</code>、使用<code>concat</code>、使用<code>StringBuilder</code>、使用<code>StringBuffer</code>以及使用<code>StringUtils.join</code>。</p>
+<p>由于字符串拼接过程中会创建新的对象，所以如果要在一个循环体中进行字符串拼接，就要考虑内存问题和效率问题。</p>
+<p>因此，经过对比，我们发现，直接使用<code>StringBuilder</code>的方式是效率最高的。因为<code>StringBuilder</code>天生就是设计来定义可变字符串和字符串的变化操作的。</p>
+<p>但是，还要强调的是：</p>
+<p>1、如果不是在循环体中进行字符串拼接的话，直接使用<code>+</code>就好了。</p>
+<p>2、如果在并发场景中进行字符串拼接的话，要使用<code>StringBuffer</code>来代替<code>StringBuilder</code>。</p>
+<h5 id="3-6-String-valueOf和Integer-toString的区别"><a href="#3-6-String-valueOf和Integer-toString的区别" class="headerlink" title="3.6 String.valueOf和Integer.toString的区别"></a>3.6 String.valueOf和Integer.toString的区别</h5><p>我们有三种方式将一个int类型的变量变成呢过String类型，那么他们有什么区别？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.<span class="keyword">int</span> i = <span class="number">5</span>;</span><br><span class="line"><span class="number">2</span>.String i1 = <span class="string">""</span> + i;</span><br><span class="line"><span class="number">3</span>.String i2 = String.valueOf(i);</span><br><span class="line"><span class="number">4</span>.String i3 = Integer.toString(i);</span><br></pre></td></tr></table></figure>
+<p>第三行和第四行没有任何区别，因为String.valueOf(i)也是调用Integer.toString(i)来实现的。</p>
+<p>第二行代码其实是String i1 = (new StringBuilder()).append(i).toString();，首先创建一个StringBuilder对象，然后再调用append方法，再调用toString方法。</p>
+<h5 id="3-7-switch对String的支持"><a href="#3-7-switch对String的支持" class="headerlink" title="3.7 switch对String的支持"></a>3.7 switch对String的支持</h5><p>Java 7中，switch的参数可以是String类型了，这对我们来说是一个很方便的改进。到目前为止switch支持这样几种数据类型：<code>byte</code> <code>short</code> <code>int</code> <code>char</code> <code>String</code> 。但是，作为一个程序员我们不仅要知道他有多么好用，还要知道它是如何实现的，switch对整型的支持是怎么实现的呢？对字符型是怎么实现的呢？String类型呢？有一点Java开发经验的人这个时候都会猜测switch对String的支持是使用equals()方法和hashcode()方法。那么到底是不是这两个方法呢？接下来我们就看一下，switch到底是如何实现的。</p>
+<p><strong>switch对整型支持的实现</strong></p>
+<p>下面是一段很简单的Java代码，定义一个int型变量a，然后使用switch语句进行判断。执行这段代码输出内容为5，那么我们将下面这段代码反编译，看看他到底是怎么实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchDemoInt</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">switch</span> (a) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            System.out.println(<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">            System.out.println(<span class="number">5</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//output 5</span></span><br></pre></td></tr></table></figure>
+<p>反编译后的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchDemoInt</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">switchDemoInt</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">switch</span>(a)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: <span class="comment">// '\001'</span></span><br><span class="line">            System.out.println(<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>: <span class="comment">// '\005'</span></span><br><span class="line">            System.out.println(<span class="number">5</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们发现，反编译后的代码和之前的代码比较除了多了两行注释以外没有任何区别，那么我们就知道，<strong>switch对int的判断是直接比较整数的值</strong>。</p>
+<p><strong>switch对字符型支持的实现</strong></p>
+<p>直接上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchDemoInt</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> a = <span class="string">'b'</span>;</span><br><span class="line">        <span class="keyword">switch</span> (a) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'a'</span>:</span><br><span class="line">            System.out.println(<span class="string">'a'</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'b'</span>:</span><br><span class="line">            System.out.println(<span class="string">'b'</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后的代码如下： `public class switchDemoChar</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchDemoChar</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">switchDemoChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> a = <span class="string">'b'</span>;</span><br><span class="line">        <span class="keyword">switch</span>(a)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">97</span>: <span class="comment">// 'a'</span></span><br><span class="line">            System.out.println(<span class="string">'a'</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">98</span>: <span class="comment">// 'b'</span></span><br><span class="line">            System.out.println(<span class="string">'b'</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过以上的代码作比较我们发现：对char类型进行比较的时候，实际上比较的是ascii码，编译器会把char型变量转换成对应的int型变量</p>
+<p><strong>switch对字符串支持的实现</strong></p>
+<p>还是先上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchDemoString</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"world"</span>;</span><br><span class="line">        <span class="keyword">switch</span> (str) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"hello"</span>:</span><br><span class="line">            System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"world"</span>:</span><br><span class="line">            System.out.println(<span class="string">"world"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对代码进行反编译：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">switchDemoString</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">switchDemoString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String str = <span class="string">"world"</span>;</span><br><span class="line">        String s;</span><br><span class="line">        <span class="keyword">switch</span>((s = str).hashCode())</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">99162322</span>:</span><br><span class="line">            <span class="keyword">if</span>(s.equals(<span class="string">"hello"</span>))</span><br><span class="line">                System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">113318802</span>:</span><br><span class="line">            <span class="keyword">if</span>(s.equals(<span class="string">"world"</span>))</span><br><span class="line">                System.out.println(<span class="string">"world"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看到这个代码，你知道原来字符串的switch是通过<code>equals()</code>和<code>hashCode()</code>方法来实现的。<strong>记住，switch中只能使用整型</strong>，比如<code>byte</code>。<code>short</code>，<code>char</code>(ackii码是整型)以及<code>int</code>。还好<code>hashCode()</code>方法返回的是<code>int</code>，而不是<code>long</code>。通过这个很容易记住<code>hashCode</code>返回的是<code>int</code>这个事实。仔细看下可以发现，进行<code>switch</code>的实际是哈希值，然后通过使用equals方法比较进行安全检查，这个检查是必要的，因为哈希可能会发生碰撞。因此它的性能是不如使用枚举进行switch或者使用纯整数常量，但这也不是很差。因为Java编译器只增加了一个<code>equals</code>方法，如果你比较的是字符串字面量的话会非常快，比如”abc” ==”abc”。如果你把<code>hashCode()</code>方法的调用也考虑进来了，那么还会再多一次的调用开销，因为字符串一旦创建了，它就会把哈希值缓存起来。因此如果这个<code>switch</code>语句是用在一个循环里的，比如逐项处理某个值，或者游戏引擎循环地渲染屏幕，这里<code>hashCode()</code>方法的调用开销其实不会很大。</p>
+<p>好，以上就是关于switch对整型、字符型、和字符串型的支持的实现方式，总结一下我们可以发现，<strong>其实switch只支持一种数据类型，那就是整型，其他数据类型都是转换成整型之后在使用switch的。</strong></p>
+<h5 id="3-8-字符串常量池、运行时常量池"><a href="#3-8-字符串常量池、运行时常量池" class="headerlink" title="3.8 字符串常量池、运行时常量池"></a><strong>3.8 字符串常量池、运行时常量池</strong></h5><p>众所周知，在JVM中栈存放对象的引用和基本类型，堆存放具体的对象和每个对象包含一个与之对应的class信息，方法区存储了每个类的信息（包括类的名称、方法信息、字段信息）、静态变量、常量以及编译器编译后的代码等。</p>
+<p>关于String常量池、常量池等又让人头大。</p>
+<p>String str = “abc”; 如此生成的字符串存放在常量池中</p>
+<p>String str = new String(“abc”); 如此生成的字符串存放在堆中</p>
+<p>现在分析一下常量池的相关知识：</p>
+<h5 id="1-字符串常量池在Java内存区域的哪个位置？"><a href="#1-字符串常量池在Java内存区域的哪个位置？" class="headerlink" title="1.字符串常量池在Java内存区域的哪个位置？"></a><strong>1.字符串常量池在Java内存区域的哪个位置？</strong></h5><ul>
+<li>在JDK6.0及之前版本，字符串常量池是放在Perm Gen区(也就是方法区)中；</li>
+<li>在JDK7.0版本，字符串常量池被移到了堆中了。</li>
+</ul>
+<p><strong>2.字符串常量池里放的是什么？</strong></p>
+<ul>
+<li>在JDK6.0及之前版本中，String Pool里放的都是字符串常量；</li>
+<li>JDK7.0中，String Pool中也可以存放放于堆内的字符串对象的引用。</li>
+</ul>
+<h5 id="3-运行时常量池-Runtime-Constant-Pool-："><a href="#3-运行时常量池-Runtime-Constant-Pool-：" class="headerlink" title="3.运行时常量池(Runtime Constant Pool)："></a><strong>3.运行时常量池(Runtime Constant Pool)：</strong></h5><ul>
+<li>运行时常量池存在于内存中，也就是class常量池被加载到内存之后的版本，不同之处是：它的字面量可以动态的添加，符号引用可以被解析为直接引用</li>
+<li>JVM在执行某个类的时候，必须经过加载、连接、初始化，而连接又包括验证、准备、解析三个阶段。而当类加载到内存中后，jvm就会将class常量池中的内容存放到运行时常量池中，由此可知，运行时常量池也是每个类都有一个。在解析阶段，会把符号引用替换为直接引用，解析的过程会去查询字符串常量池，也就是我们上面所说的StringTable，以保证运行时常量池所引用的字符串与字符串常量池中是一致的。</li>
+</ul>
+<h5 id="3-9-JAVA关键字"><a href="#3-9-JAVA关键字" class="headerlink" title="3.9 JAVA关键字"></a><strong>3.9 JAVA关键字</strong></h5><p>1、static：</p>
+<p>   static可以用来修饰class、field、method等，被static修饰的关键字都存在于堆内存中，也即其生命周期一般是整个应用生命周期，static修饰的field又叫做全局变量，可以在整个类包括其子类中被使用，static修饰的class一般用于静态内部类，是一个类的静态成员，外部可以直接通过类名.静态内部类名来访问，可用new关键字，保证该类所有实例共享一个内存空间；static修饰method，可以不用该方法所属类的实例，直接通过该方法名调用该方法，该方法作为一个对象存放在堆内存中的静态方法区。</p>
+<p>2、final：</p>
+<p>可以用来修饰class、field、method，final关键字的作用表明该field或class是一个常量，只能进行一次初始化。</p>
+<p>3、volatile：</p>
+<p>   一般用于修饰field，保证改数据的内存可见性以及防止jvm对指令进行重排，其原理是：线程A中，cpu执行修改改field时，会先将各种数据加入计算机的缓存中，执行完了后，在写回缓存里面，最后在某个时间，对应线程再读回到主存中，但这样会导致内存可见性安全问题。使用volatile关键字，保证了每个线程都会从主存中去读取该field的值，执行完成后再写回主存中，而不经过缓存，以此来保证线程安全。</p>
+<p>4、synchronized：</p>
+<p>  该关键字一般用于保证线程安全，可以直接修饰class的某个实例、class、method、field等，修饰class的某个实例表示，获取这个实例的对应monitor，只有该monitor没有被其他线程占用时，才可以进入该代码段，修饰class或static时，表示这一类的所有实例都只能同时有一个线程进行访问。修饰field和method和修饰实例差不多。</p>
+<p>5、transient：</p>
+<p>  此关键字修饰的field表示该field被序列化时，此对象的值不可见，只存在于当前内存中。</p>
+<p>6、strictfp</p>
+<p>浮点精度统一，用来修饰类、接口或方法，以此来限制该类的所有float和double都遵循统一的IEEE 754 标准，在不同的操作系统平台环境下都产生同样的值。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/10/16/JAVA基础篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1855,291 +3008,11 @@ public class OverridingTest{
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leselier">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/abc.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leselier's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/" itemprop="url">差分隐私(专利)|一种基于生成式对抗网络的深度差分隐私保护方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-19T15:01:54+08:00">
-                2019-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一、基本信息</p>
-<p>该专利提供一种基于生成式对抗网络反馈的深度差分隐私保护方法，用于解决深度学习模型应用中攻击者利用自编码等方法还原出训练集数据的问题，应用深度差分隐私保护方法实现训练数据集中用户隐私保护目的。</p>
-<p>二、研究背景</p>
-<p>近年来深度学习在很多领域成效卓然，受到越来越多研究者的关注。深度学习通过神经网络的分层处理，将低 层特征组合形成更加抽象的高层表示属性类别或特征，以发现数据的分布式特征表示，其模型性能与训练数据集的规模和质量密切相关，而训练数据集中通常包含较多的敏感信息，训练数据集在很多领域有广泛应用，包括安防领域的人脸识别、色情图片检测以及金融企业数据分析等，该领域将训练好的模型公布供大家使用，但是数据集中涉及敏感信息而不希望被推断出来。目前攻击者通过一定的攻击手段可以还原出训练数据集，从而使得用户隐私信息泄露。如公安机关发布犯罪嫌疑人识别模型，其训练数据集包含全国人口图像信息，当攻击者使用某一攻击手段还原出训练数据集中的图像时使得个人敏感信息得到泄露，因此如何在不泄露个人敏感信息的前提下提升数据可用性，是当前深度学习应用面临的主要问题，将极大影响深度学习未来的发展与应用。</p>
-<p>差分隐私是2006年微软研究院提出的一种基于数据失真的隐私保护方法，该方法建立在坚实的数学基础之上，其基本思想是对原始数据、对原始数据的转换或者是对统计结果添加噪音来达到隐私保护效果。该保护方法可以确保在某一数据集中插入或者删除一条记录的操作不会影响任何计算的输出结果。另外，该保护模型不关心攻击者所具有的背景知识，即使攻击者已经掌握除某一条记录之外的所有记录的信息。所有有利于保护训练数据集，与敏感信息保护的根本宗旨高度契合。</p>
-<p>三、创新点</p>
-<p>该发明在无需考虑攻击者所拥有的任何可能的背景知识的情况下，首先依据训练数据集的潜在数据集规模，查询敏感度、攻击者最大攻击概率计算隐私预算的上界;然后在深度网络参数优化计算中融合差分隐私思想添加噪声数据，基于差分隐私与高斯分布可组合特点，计算深度网络每一层的隐私预算，在随机梯度下降计算中添加 高斯噪音使之总体隐私预算最小;最后利用生成式对抗网络生成攻击者可能得到的最优结果，通过对比攻击结果和原始数据间差别反馈调节深度差分隐私模型参数，实现训练数据集可用性与隐私保护度的平衡。但根据现有的了解，还没有任何机构或组织将深度差分隐私模型与生成式对抗网络进行结合。</p>
-<p>四、系统结构</p>
-<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/1.png" alt></p>
-<p>四、详解</p>
-<p>具体步骤：</p>
-<p>（1）依据输入训练数据集的潜在数据集规模，查询敏感度、攻击者最大攻击概率计算隐私预算的上界；</p>
-<p>计算隐私预算的上界的方式：</p>
-<script type="math/tex; mode=display">
-\epsilon \le \frac{\triangle q}{\triangle v}ln[\frac{(n-1)p}{1-p}]</script><p>其中，$\epsilon$ 为隐私预算，$n$ 为数据集的潜在数据集规模（假设输入数据集为 $D$ ，该数据集的近邻数据集 $D^\prime$ 可能的取值方法为 $n$），$\triangle q$ 为针对数据集 $D$ 和 $D^\prime$ 的查询函数的敏感度，$\triangle v$ 为查询函数在相邻数据集上的最大差异值，$p$ 为攻击者得出攻击对象在或者不在结果集中的概率。</p>
-<p>（2）本步骤主要是依据深度差分隐私模型训练输入数据集，其具体过程为:在深度网络参数优化计算中融合差分隐私思想添加噪声数据，根据步骤(1)设置隐私预算上界，在此条件下随机选取隐私预算，然后基于差分隐私与高斯分布组合特点，在随机梯度下降中计算深度网络每一层的实际隐私预算，并据此添加高斯噪声使总体隐私预算最小；</p>
-<p>计算深度网络每一层的隐私预算，在随机梯度下降计算中添加高斯噪音使深度差分隐私模型中总体隐私预算最小，根据差分隐私与高斯分布组合特点，总体 隐私预算值由深度网络每层预算值累加而成，深度网络每层噪声添加方式如下：</p>
-<script type="math/tex; mode=display">
-\tilde{g_t}\gets \frac{1}{S}\sum \bar{g_t}(x_i)+N(0,\sigma^2C^2)</script><p>其中，$x_i$ 为输入值，$\sigma$ 为噪声规模，$C$ 为梯度阈值，$\bar{g_t}(x_i) $ 为根据梯度阈值剪枝后的梯度值，$S$ 为训练batch的大小。</p>
-<p>（3）利用步骤(2)中深度差分隐私模型进行深度网络模型训练，并提取训练过程中隐私保护后生成数据的数据特征信息；将随机噪声数据输入到生成式对抗网络中，以隐私保护后生成数据特征信息为参考，调节输入的随机噪声数据使生成器生成的模拟数据尽可能近似隐私保护后生成数据特征分布，并对生成的模拟数据进行分类得到分类准确率；</p>
-<p>（4）将原始数据集输入到生成式对抗网络中，生成近似隐私保护前数据特征分布的模拟数据，与步骤(3)中得到的隐私保护后生成数据进行分类准确率对比，设置准确率误 差阈值，确保步骤(3)分类准确率对与步骤(4)的分类准确率的差值在预先设定阈值范围 内，否则重复步骤(2)调整隐私预算参数，重新训练深度差分隐私模型直至满足预先设定阈值条件为止。</p>
-<p>在步骤(3)和步骤(4)中，所述生成式对抗网络由生成器G和判别器D构成，在整个 训练过程中G和D为“博弈”双方，生成器G捕捉样本数据的分布，判别器D是一个二分类器，用 于判断输入的结果是来自于训练数据的概率；G和D均为非线性映射函数，是多层感知机或 卷积神经网络;在训练过程中，生成器G的目标是尽量生成与原始数据接近的结果去欺骗判 别器D;而D的目标是尽量把G生成的结果和真实数据区分开来，G和D形成了一个动态的“博 弈过程”，G和D之间的关系定义为：</p>
-<script type="math/tex; mode=display">
-\min\limits_{G}\max\limits_{D}V(D,G)</script><p>在步骤(4)中，利用生成式对抗网络中生成器生成攻击者可能得到的最优结果，并 从中选出最接近真实数据集的攻击结果，通过比较隐私保护后生成数据分类准确率和隐私 保护前生成数据分类准确率，若相似度超过设定阈值，则重新对深度差分隐私模型进行参 数调优，直到满足条件为止。</p>
-<p>该发明的优点：</p>
-<p>（1）相比现有技术，本发明给出了差分隐私中隐私预算的上界的计算式，缩减了该参数随机选取时的选择范围，加快了深度差分隐私保护模型训练速度，进而优化了模型隐 私保护度选择的准确性。</p>
-<p>（2）相比现有技术，本发明利用生成式对抗网络对深度差分隐私模型进行反馈以及评价，提前评估了攻击者反推原始数据集的可能性，同时对隐私保护效果进行了定量评价，实现训练数据集可用性与隐私保护度的平衡，避免用户敏感信息的泄露，提高了安全性和可靠性。</p>
-<p>深度差分隐私保护模型：</p>
-<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/2.png" alt></p>
-<p>生成对抗网络过程示意图：</p>
-<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/3.png" alt></p>
-<p>下载地址：<a href="https://patents.google.com/patent/CN107368752A/zh" target="_blank" rel="noopener">https://patents.google.com/patent/CN107368752A/zh</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/18/读书-统计学原理（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leselier">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/abc.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leselier's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/18/读书-统计学原理（一）/" itemprop="url">读书|统计学原理（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T16:02:52+08:00">
-                2019-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、集中趋势的量度"><a href="#一、集中趋势的量度" class="headerlink" title="一、集中趋势的量度"></a>一、集中趋势的量度</h3><h5 id="均值：平均数的一般量度"><a href="#均值：平均数的一般量度" class="headerlink" title="均值：平均数的一般量度"></a>均值：平均数的一般量度</h5><script type="math/tex; mode=display">
-\bar{x}=\frac{x_1+x_2+…+x_n}{n}=\frac{\sum_x}{n}</script><p>异常值：与其他数据格格不入的极高或极低的数值</p>
-<p>偏斜数据：当异常值将数据向左向右“拉”时即产生偏斜数据</p>
-<p><img src="/2019/08/18/读书-统计学原理（一）/1.png" alt></p>
-<h5 id="中位数：中间值"><a href="#中位数：中间值" class="headerlink" title="中位数：中间值"></a>中位数：中间值</h5><p>如果数值对称，平均值=中位数</p>
-<h5 id="众数：频数最大的数值"><a href="#众数：频数最大的数值" class="headerlink" title="众数：频数最大的数值"></a>众数：频数最大的数值</h5><p>总数是唯一能用于类别数据的平均数</p>
-<h3 id="二、分散性与变异性的量度"><a href="#二、分散性与变异性的量度" class="headerlink" title="二、分散性与变异性的量度"></a>二、分散性与变异性的量度</h3><h5 id="全距：也叫极差，可以指出数据的扩展范围"><a href="#全距：也叫极差，可以指出数据的扩展范围" class="headerlink" title="全距：也叫极差，可以指出数据的扩展范围"></a>全距：也叫极差，可以指出数据的扩展范围</h5><p>全距仅仅描述了数据的宽度，并没有描述数据在上、下界之间的分布形态</p>
-<p><img src="/2019/08/18/读书-统计学原理（一）/2.png" alt></p>
-<h5 id="迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分"><a href="#迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分" class="headerlink" title="迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分"></a>迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分</h5><p><img src="/2019/08/18/读书-统计学原理（一）/3.png" alt></p>
-<h5 id="四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数"><a href="#四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数" class="headerlink" title="四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数"></a>四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数</h5><p>四分位距=上四分位数-下四分位数  ：一个不易受异常值影响的“迷你距”</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2187,7 +3060,7 @@ public class OverridingTest{
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2200,7 +3073,7 @@ public class OverridingTest{
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -255,6 +255,286 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/" itemprop="url">差分隐私(专利)|一种基于生成式对抗网络的深度差分隐私保护方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-19T15:01:54+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、基本信息</p>
+<p>该专利提供一种基于生成式对抗网络反馈的深度差分隐私保护方法，用于解决深度学习模型应用中攻击者利用自编码等方法还原出训练集数据的问题，应用深度差分隐私保护方法实现训练数据集中用户隐私保护目的。</p>
+<p>二、研究背景</p>
+<p>近年来深度学习在很多领域成效卓然，受到越来越多研究者的关注。深度学习通过神经网络的分层处理，将低 层特征组合形成更加抽象的高层表示属性类别或特征，以发现数据的分布式特征表示，其模型性能与训练数据集的规模和质量密切相关，而训练数据集中通常包含较多的敏感信息，训练数据集在很多领域有广泛应用，包括安防领域的人脸识别、色情图片检测以及金融企业数据分析等，该领域将训练好的模型公布供大家使用，但是数据集中涉及敏感信息而不希望被推断出来。目前攻击者通过一定的攻击手段可以还原出训练数据集，从而使得用户隐私信息泄露。如公安机关发布犯罪嫌疑人识别模型，其训练数据集包含全国人口图像信息，当攻击者使用某一攻击手段还原出训练数据集中的图像时使得个人敏感信息得到泄露，因此如何在不泄露个人敏感信息的前提下提升数据可用性，是当前深度学习应用面临的主要问题，将极大影响深度学习未来的发展与应用。</p>
+<p>差分隐私是2006年微软研究院提出的一种基于数据失真的隐私保护方法，该方法建立在坚实的数学基础之上，其基本思想是对原始数据、对原始数据的转换或者是对统计结果添加噪音来达到隐私保护效果。该保护方法可以确保在某一数据集中插入或者删除一条记录的操作不会影响任何计算的输出结果。另外，该保护模型不关心攻击者所具有的背景知识，即使攻击者已经掌握除某一条记录之外的所有记录的信息。所有有利于保护训练数据集，与敏感信息保护的根本宗旨高度契合。</p>
+<p>三、创新点</p>
+<p>该发明在无需考虑攻击者所拥有的任何可能的背景知识的情况下，首先依据训练数据集的潜在数据集规模，查询敏感度、攻击者最大攻击概率计算隐私预算的上界;然后在深度网络参数优化计算中融合差分隐私思想添加噪声数据，基于差分隐私与高斯分布可组合特点，计算深度网络每一层的隐私预算，在随机梯度下降计算中添加 高斯噪音使之总体隐私预算最小;最后利用生成式对抗网络生成攻击者可能得到的最优结果，通过对比攻击结果和原始数据间差别反馈调节深度差分隐私模型参数，实现训练数据集可用性与隐私保护度的平衡。但根据现有的了解，还没有任何机构或组织将深度差分隐私模型与生成式对抗网络进行结合。</p>
+<p>四、系统结构</p>
+<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/1.png" alt></p>
+<p>四、详解</p>
+<p>具体步骤：</p>
+<p>（1）依据输入训练数据集的潜在数据集规模，查询敏感度、攻击者最大攻击概率计算隐私预算的上界；</p>
+<p>计算隐私预算的上界的方式：</p>
+<script type="math/tex; mode=display">
+\epsilon \le \frac{\triangle q}{\triangle v}ln[\frac{(n-1)p}{1-p}]</script><p>其中，$\epsilon$ 为隐私预算，$n$ 为数据集的潜在数据集规模（假设输入数据集为 $D$ ，该数据集的近邻数据集 $D^\prime$ 可能的取值方法为 $n$），$\triangle q$ 为针对数据集 $D$ 和 $D^\prime$ 的查询函数的敏感度，$\triangle v$ 为查询函数在相邻数据集上的最大差异值，$p$ 为攻击者得出攻击对象在或者不在结果集中的概率。</p>
+<p>（2）本步骤主要是依据深度差分隐私模型训练输入数据集，其具体过程为:在深度网络参数优化计算中融合差分隐私思想添加噪声数据，根据步骤(1)设置隐私预算上界，在此条件下随机选取隐私预算，然后基于差分隐私与高斯分布组合特点，在随机梯度下降中计算深度网络每一层的实际隐私预算，并据此添加高斯噪声使总体隐私预算最小；</p>
+<p>计算深度网络每一层的隐私预算，在随机梯度下降计算中添加高斯噪音使深度差分隐私模型中总体隐私预算最小，根据差分隐私与高斯分布组合特点，总体 隐私预算值由深度网络每层预算值累加而成，深度网络每层噪声添加方式如下：</p>
+<script type="math/tex; mode=display">
+\tilde{g_t}\gets \frac{1}{S}\sum \bar{g_t}(x_i)+N(0,\sigma^2C^2)</script><p>其中，$x_i$ 为输入值，$\sigma$ 为噪声规模，$C$ 为梯度阈值，$\bar{g_t}(x_i) $ 为根据梯度阈值剪枝后的梯度值，$S$ 为训练batch的大小。</p>
+<p>（3）利用步骤(2)中深度差分隐私模型进行深度网络模型训练，并提取训练过程中隐私保护后生成数据的数据特征信息；将随机噪声数据输入到生成式对抗网络中，以隐私保护后生成数据特征信息为参考，调节输入的随机噪声数据使生成器生成的模拟数据尽可能近似隐私保护后生成数据特征分布，并对生成的模拟数据进行分类得到分类准确率；</p>
+<p>（4）将原始数据集输入到生成式对抗网络中，生成近似隐私保护前数据特征分布的模拟数据，与步骤(3)中得到的隐私保护后生成数据进行分类准确率对比，设置准确率误 差阈值，确保步骤(3)分类准确率对与步骤(4)的分类准确率的差值在预先设定阈值范围 内，否则重复步骤(2)调整隐私预算参数，重新训练深度差分隐私模型直至满足预先设定阈值条件为止。</p>
+<p>在步骤(3)和步骤(4)中，所述生成式对抗网络由生成器G和判别器D构成，在整个 训练过程中G和D为“博弈”双方，生成器G捕捉样本数据的分布，判别器D是一个二分类器，用 于判断输入的结果是来自于训练数据的概率；G和D均为非线性映射函数，是多层感知机或 卷积神经网络;在训练过程中，生成器G的目标是尽量生成与原始数据接近的结果去欺骗判 别器D;而D的目标是尽量把G生成的结果和真实数据区分开来，G和D形成了一个动态的“博 弈过程”，G和D之间的关系定义为：</p>
+<script type="math/tex; mode=display">
+\min\limits_{G}\max\limits_{D}V(D,G)</script><p>在步骤(4)中，利用生成式对抗网络中生成器生成攻击者可能得到的最优结果，并 从中选出最接近真实数据集的攻击结果，通过比较隐私保护后生成数据分类准确率和隐私 保护前生成数据分类准确率，若相似度超过设定阈值，则重新对深度差分隐私模型进行参 数调优，直到满足条件为止。</p>
+<p>该发明的优点：</p>
+<p>（1）相比现有技术，本发明给出了差分隐私中隐私预算的上界的计算式，缩减了该参数随机选取时的选择范围，加快了深度差分隐私保护模型训练速度，进而优化了模型隐 私保护度选择的准确性。</p>
+<p>（2）相比现有技术，本发明利用生成式对抗网络对深度差分隐私模型进行反馈以及评价，提前评估了攻击者反推原始数据集的可能性，同时对隐私保护效果进行了定量评价，实现训练数据集可用性与隐私保护度的平衡，避免用户敏感信息的泄露，提高了安全性和可靠性。</p>
+<p>深度差分隐私保护模型：</p>
+<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/2.png" alt></p>
+<p>生成对抗网络过程示意图：</p>
+<p><img src="/2019/08/19/差分隐私-专利-一种基于生成式对抗网络的深度差分隐私保护方法/3.png" alt></p>
+<p>下载地址：<a href="https://patents.google.com/patent/CN107368752A/zh" target="_blank" rel="noopener">https://patents.google.com/patent/CN107368752A/zh</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/18/读书-统计学原理（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/18/读书-统计学原理（一）/" itemprop="url">读书|统计学原理（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T16:02:52+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、集中趋势的量度"><a href="#一、集中趋势的量度" class="headerlink" title="一、集中趋势的量度"></a>一、集中趋势的量度</h3><h5 id="均值：平均数的一般量度"><a href="#均值：平均数的一般量度" class="headerlink" title="均值：平均数的一般量度"></a>均值：平均数的一般量度</h5><script type="math/tex; mode=display">
+\bar{x}=\frac{x_1+x_2+…+x_n}{n}=\frac{\sum_x}{n}</script><p>异常值：与其他数据格格不入的极高或极低的数值</p>
+<p>偏斜数据：当异常值将数据向左向右“拉”时即产生偏斜数据</p>
+<p><img src="/2019/08/18/读书-统计学原理（一）/1.png" alt></p>
+<h5 id="中位数：中间值"><a href="#中位数：中间值" class="headerlink" title="中位数：中间值"></a>中位数：中间值</h5><p>如果数值对称，平均值=中位数</p>
+<h5 id="众数：频数最大的数值"><a href="#众数：频数最大的数值" class="headerlink" title="众数：频数最大的数值"></a>众数：频数最大的数值</h5><p>总数是唯一能用于类别数据的平均数</p>
+<h3 id="二、分散性与变异性的量度"><a href="#二、分散性与变异性的量度" class="headerlink" title="二、分散性与变异性的量度"></a>二、分散性与变异性的量度</h3><h5 id="全距：也叫极差，可以指出数据的扩展范围"><a href="#全距：也叫极差，可以指出数据的扩展范围" class="headerlink" title="全距：也叫极差，可以指出数据的扩展范围"></a>全距：也叫极差，可以指出数据的扩展范围</h5><p>全距仅仅描述了数据的宽度，并没有描述数据在上、下界之间的分布形态</p>
+<p><img src="/2019/08/18/读书-统计学原理（一）/2.png" alt></p>
+<h5 id="迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分"><a href="#迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分" class="headerlink" title="迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分"></a>迷你距：不再量度整个数据集的全距，而是找出这个全距的一个部分——不包含异常值的部分</h5><p><img src="/2019/08/18/读书-统计学原理（一）/3.png" alt></p>
+<h5 id="四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数"><a href="#四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数" class="headerlink" title="四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数"></a>四位分数：将数据一分为四，最小的四分位数称为下四分位数，最大的四分位数称为上四分位数</h5><p>四分位距=上四分位数-下四分位数  ：一个不易受异常值影响的“迷你距”</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/18/深度学习论文解读-Deep-Residual-Learning-for-Image-Recognition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1528,139 +1808,11 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/08/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leselier">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/abc.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leselier's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/11/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-11T14:27:07+08:00">
-                2019-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1708,7 +1860,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1721,7 +1873,7 @@ L=E_{x\sim P_r}[f_w(x)]-E_{x\sim P_g}[f_w(x)]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
