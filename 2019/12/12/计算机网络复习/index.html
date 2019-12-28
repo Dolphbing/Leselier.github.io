@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="复习,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="二、物理层2.1 数据通信的理论基础2.1.1 傅里叶分析任何一个行为合理周期 T 的函数 g(t)，都可以表示成用正弦函数和余弦函数组成的无穷级数。 2.1.2 带宽有限的信号带宽——在传输过程中振幅不会明显减弱的频率的宽度 2.1.3 信道的最大数据速率尼奎斯特定理：最大数据速率=$2B\ log_2V$（比特/秒） 信噪比：$S/N$ ，$S$—信号功率，$N$—噪声功率。 ​">
+<meta name="keywords" content="复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络复习">
+<meta property="og:url" content="https://Leselier.github.io/2019/12/12/计算机网络复习/index.html">
+<meta property="og:site_name" content="Leselier&#39;s Blog">
+<meta property="og:description" content="二、物理层2.1 数据通信的理论基础2.1.1 傅里叶分析任何一个行为合理周期 T 的函数 g(t)，都可以表示成用正弦函数和余弦函数组成的无穷级数。 2.1.2 带宽有限的信号带宽——在传输过程中振幅不会明显减弱的频率的宽度 2.1.3 信道的最大数据速率尼奎斯特定理：最大数据速率=$2B\ log_2V$（比特/秒） 信噪比：$S/N$ ，$S$—信号功率，$N$—噪声功率。 ​">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576120275186.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576155114827.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576155249377.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576200325313.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576309587517.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576310654371.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576310723136.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576381709295.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576381821519.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576382168447.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576390475624.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576390680887.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576391205243.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576391280942.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576391385753.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576391694027.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576392104488.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576392593839.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576400060824.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576401519776.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576401909164.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576402231604.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576402266165.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576405262378.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576406406040.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576406841374.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576488380025.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576493975501.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576494150199.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576495233019.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576495334442.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576497749753.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576498196882.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576498267061.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576498633582.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576498721037.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576407842954.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576409863251.png">
+<meta property="og:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576410107347.png">
+<meta property="og:updated_time" content="2019-12-17T02:51:24.150Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络复习">
+<meta name="twitter:description" content="二、物理层2.1 数据通信的理论基础2.1.1 傅里叶分析任何一个行为合理周期 T 的函数 g(t)，都可以表示成用正弦函数和余弦函数组成的无穷级数。 2.1.2 带宽有限的信号带宽——在传输过程中振幅不会明显减弱的频率的宽度 2.1.3 信道的最大数据速率尼奎斯特定理：最大数据速率=$2B\ log_2V$（比特/秒） 信噪比：$S/N$ ，$S$—信号功率，$N$—噪声功率。 ​">
+<meta name="twitter:image" content="https://leselier.github.io/2019/12/12/计算机网络复习/Users/dufub/AppData/Roaming/Typora/typora-user-images/1576120275186.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://Leselier.github.io/2019/12/12/计算机网络复习/">
+
+
+
+
+
+  <title>计算机网络复习 | Leselier's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Leselier" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leselier's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Leselier.github.io/2019/12/12/计算机网络复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leselier">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/abc.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leselier's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络复习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-12T08:04:44+08:00">
+                2019-12-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="二、物理层"><a href="#二、物理层" class="headerlink" title="二、物理层"></a>二、物理层</h2><h3 id="2-1-数据通信的理论基础"><a href="#2-1-数据通信的理论基础" class="headerlink" title="2.1 数据通信的理论基础"></a>2.1 数据通信的理论基础</h3><h4 id="2-1-1-傅里叶分析"><a href="#2-1-1-傅里叶分析" class="headerlink" title="2.1.1 傅里叶分析"></a>2.1.1 傅里叶分析</h4><p>任何一个行为合理周期 T 的函数 g(t)，都可以表示成用正弦函数和余弦函数组成的无穷级数。</p>
+<h4 id="2-1-2-带宽有限的信号"><a href="#2-1-2-带宽有限的信号" class="headerlink" title="2.1.2 带宽有限的信号"></a>2.1.2 带宽有限的信号</h4><p>带宽——在传输过程中振幅不会明显减弱的频率的宽度</p>
+<h4 id="2-1-3-信道的最大数据速率"><a href="#2-1-3-信道的最大数据速率" class="headerlink" title="2.1.3 信道的最大数据速率"></a>2.1.3 信道的最大数据速率</h4><p>尼奎斯特定理：最大数据速率=$2B\ log_2V$（比特/秒）</p>
+<p>信噪比：$S/N$ ，$S$—信号功率，$N$—噪声功率。</p>
+<p>​                （通常表示为对数形式 $10\ log_{10}S/N$，单位：分贝）</p>
+<p>香农结论：对于一条带宽为 B Hz、噪声比是 S/N 的有噪声信道，其最大数据速率是</p>
+<p>​                               最大比特率=$B\ log_2(1+S/N)$</p>
+<h3 id="2-2-引导性传输介质"><a href="#2-2-引导性传输介质" class="headerlink" title="2.2 引导性传输介质"></a>2.2 引导性传输介质</h3><ul>
+<li>引导性介质（铜线、光纤等）</li>
+<li>非引导性介质（地面无线电、卫星、激光等）</li>
+</ul>
+<h4 id="2-2-1-磁介质"><a href="#2-2-1-磁介质" class="headerlink" title="2.2.1 磁介质"></a>2.2.1 磁介质</h4><p>将数据写到磁带或其他可擦写介质上，然后用物理的方法将磁带或者磁盘运送到目标机器，再将数据从磁带或磁盘里读出来。</p>
+<h4 id="2-2-2-双绞线"><a href="#2-2-2-双绞线" class="headerlink" title="2.2.2 双绞线"></a>2.2.2 双绞线</h4><h4 id="2-2-3-同轴电缆"><a href="#2-2-3-同轴电缆" class="headerlink" title="2.2.3 同轴电缆"></a>2.2.3 同轴电缆</h4><h4 id="2-2-4-电力线"><a href="#2-2-4-电力线" class="headerlink" title="2.2.4 电力线"></a>2.2.4 电力线</h4><h4 id="2-2-5-光纤"><a href="#2-2-5-光纤" class="headerlink" title="2.2.5 光纤"></a>2.2.5 光纤</h4><h3 id="2-3-无线传输"><a href="#2-3-无线传输" class="headerlink" title="2.3 无线传输"></a>2.3 无线传输</h3><h4 id="2-3-1-电磁频谱"><a href="#2-3-1-电磁频谱" class="headerlink" title="2.3.1 电磁频谱"></a>2.3.1 电磁频谱</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576120275186.png" alt="1576120275186"></p>
+<h4 id="2-3-2-无线电传输"><a href="#2-3-2-无线电传输" class="headerlink" title="2.3.2 无线电传输"></a>2.3.2 无线电传输</h4><h4 id="2-3-3-微波传输"><a href="#2-3-3-微波传输" class="headerlink" title="2.3.3 微波传输"></a>2.3.3 微波传输</h4><h4 id="2-3-4-红外传输"><a href="#2-3-4-红外传输" class="headerlink" title="2.3.4 红外传输"></a>2.3.4 红外传输</h4><h4 id="2-3-5-光通信"><a href="#2-3-5-光通信" class="headerlink" title="2.3.5 光通信"></a>2.3.5 光通信</h4><h3 id="2-4-通信卫星"><a href="#2-4-通信卫星" class="headerlink" title="2.4 通信卫星"></a>2.4 通信卫星</h3><h4 id="2-4-1-地球同步卫星"><a href="#2-4-1-地球同步卫星" class="headerlink" title="2.4.1 地球同步卫星"></a>2.4.1 地球同步卫星</h4><h4 id="2-4-2-中地球轨道卫星"><a href="#2-4-2-中地球轨道卫星" class="headerlink" title="2.4.2 中地球轨道卫星"></a>2.4.2 中地球轨道卫星</h4><h4 id="2-4-3-低地球轨道卫星"><a href="#2-4-3-低地球轨道卫星" class="headerlink" title="2.4.3 低地球轨道卫星"></a>2.4.3 低地球轨道卫星</h4><h4 id="2-4-4-卫星和光纤"><a href="#2-4-4-卫星和光纤" class="headerlink" title="2.4.4 卫星和光纤"></a>2.4.4 卫星和光纤</h4><h3 id="2-5-数字调制与多路复用"><a href="#2-5-数字调制与多路复用" class="headerlink" title="2.5 数字调制与多路复用"></a>2.5 数字调制与多路复用</h3><p>数字调制——比特与代表它们的信号之间的转换过程。</p>
+<h4 id="2-5-1-基带传输"><a href="#2-5-1-基带传输" class="headerlink" title="2.5.1 基带传输"></a>2.5.1 基带传输</h4><h4 id="2-5-2-通带传输"><a href="#2-5-2-通带传输" class="headerlink" title="2.5.2 通带传输"></a>2.5.2 通带传输</h4><h4 id="2-5-3-频分复用"><a href="#2-5-3-频分复用" class="headerlink" title="2.5.3 频分复用"></a>2.5.3 频分复用</h4><p>将频谱分为几个频段，每个用户完全拥有其中的一个频段来发送自己的信号。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576155114827.png" alt="1576155114827"></p>
+<h4 id="2-5-4-时分复用"><a href="#2-5-4-时分复用" class="headerlink" title="2.5.4 时分复用"></a>2.5.4 时分复用</h4><p>用户以循环的方式轮流工作，每个用户周期性地获得整个带宽非常短的一个时间。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576155249377.png" alt="1576155249377"></p>
+<h4 id="2-5-5-码分复用"><a href="#2-5-5-码分复用" class="headerlink" title="2.5.5 码分复用"></a>2.5.5 码分复用</h4><p>用一组包含相互正交码字的码组携带多路信号。</p>
+<h3 id="2-6-公共电话交换网络"><a href="#2-6-公共电话交换网络" class="headerlink" title="2.6 公共电话交换网络"></a>2.6 公共电话交换网络</h3><h4 id="2-6-1-电话系统结构"><a href="#2-6-1-电话系统结构" class="headerlink" title="2.6.1 电话系统结构"></a>2.6.1 电话系统结构</h4><p>（1）本地回路（进入家庭和公司的模拟双绞线）</p>
+<p>（2）中继线（连接交换局的数字光纤）</p>
+<p>（3）交换局（电话呼叫在这里从一条中继线被接入到另一条中继线）</p>
+<h4 id="2-6-2-电话政治化"><a href="#2-6-2-电话政治化" class="headerlink" title="2.6.2 电话政治化"></a>2.6.2 电话政治化</h4><h4 id="2-6-3-本地回路：调制解调器、ADSL和光纤"><a href="#2-6-3-本地回路：调制解调器、ADSL和光纤" class="headerlink" title="2.6.3 本地回路：调制解调器、ADSL和光纤"></a>2.6.3 本地回路：调制解调器、ADSL和光纤</h4><p>调制解调器：执行数字比特流和模拟信号流之间转换的设备。</p>
+<h4 id="2-6-4-中继线和多路复用"><a href="#2-6-4-中继线和多路复用" class="headerlink" title="2.6.4 中继线和多路复用"></a>2.6.4 中继线和多路复用</h4><p>时分多路复用</p>
+<p>波分多路复用</p>
+<h4 id="2-6-5-交换"><a href="#2-6-5-交换" class="headerlink" title="2.6.5 交换"></a>2.6.5 交换</h4><p>（1）电路交换：电路入境线路与出境线路之间建立起一个物理连接。在发送数据之前需要建立一条端到端的路径。</p>
+<p>（2）包交换：存储转发传输技术</p>
+<h3 id="2-7-移动电话系统"><a href="#2-7-移动电话系统" class="headerlink" title="2.7 移动电话系统"></a>2.7 移动电话系统</h3><h4 id="2-7-1-第一代移动电话（1G）：模拟语音"><a href="#2-7-1-第一代移动电话（1G）：模拟语音" class="headerlink" title="2.7.1 第一代移动电话（1G）：模拟语音"></a>2.7.1 第一代移动电话（1G）：模拟语音</h4><h4 id="2-7-2-第二代移动电话（2G）：数字语音"><a href="#2-7-2-第二代移动电话（2G）：数字语音" class="headerlink" title="2.7.2 第二代移动电话（2G）：数字语音"></a>2.7.2 第二代移动电话（2G）：数字语音</h4><h4 id="2-7-3-第三代移动电话（3G）：数字语音和数据"><a href="#2-7-3-第三代移动电话（3G）：数字语音和数据" class="headerlink" title="2.7.3 第三代移动电话（3G）：数字语音和数据"></a>2.7.3 第三代移动电话（3G）：数字语音和数据</h4><h3 id="2-8-有线电视"><a href="#2-8-有线电视" class="headerlink" title="2.8 有线电视"></a>2.8 有线电视</h3><h4 id="2-8-1-共用天线电视"><a href="#2-8-1-共用天线电视" class="headerlink" title="2.8.1 共用天线电视"></a>2.8.1 共用天线电视</h4><h4 id="2-8-2-线缆上的-Internet"><a href="#2-8-2-线缆上的-Internet" class="headerlink" title="2.8.2 线缆上的 Internet"></a>2.8.2 线缆上的 Internet</h4><h4 id="2-8-3-频谱分配"><a href="#2-8-3-频谱分配" class="headerlink" title="2.8.3 频谱分配"></a>2.8.3 频谱分配</h4><h4 id="2-8-4-线缆调制解调器"><a href="#2-8-4-线缆调制解调器" class="headerlink" title="2.8.4 线缆调制解调器"></a>2.8.4 线缆调制解调器</h4><h4 id="2-8-5-ADSL与有线电视电缆"><a href="#2-8-5-ADSL与有线电视电缆" class="headerlink" title="2.8.5 ADSL与有线电视电缆"></a>2.8.5 ADSL与有线电视电缆</h4><h2 id="三、数据链路层"><a href="#三、数据链路层" class="headerlink" title="三、数据链路层"></a>三、数据链路层</h2><h3 id="3-1-数据链路层的设计问题"><a href="#3-1-数据链路层的设计问题" class="headerlink" title="3.1 数据链路层的设计问题"></a>3.1 数据链路层的设计问题</h3><p>功能：</p>
+<ul>
+<li>向网络层提供一个定义良好的服务接口</li>
+<li>处理传输错误</li>
+<li>调节数据流，确保慢速的接收方不会被快速的发送方淹没。</li>
+</ul>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576200325313.png" alt="1576200325313"></p>
+<h4 id="3-1-1-提供给网络层的服务"><a href="#3-1-1-提供给网络层的服务" class="headerlink" title="3.1.1 提供给网络层的服务"></a>3.1.1 提供给网络层的服务</h4><p>数据链路层提供三种可能的服务：</p>
+<ul>
+<li>无确认的无连接服务</li>
+<li>有确认的无连接服务</li>
+<li>有确认的有连接服务</li>
+</ul>
+<h4 id="3-1-2-成帧"><a href="#3-1-2-成帧" class="headerlink" title="3.1.2 成帧"></a>3.1.2 成帧</h4><p>检测错误和纠正错误：将比特流拆分成多个离散的帧，为每个帧计算一个称为校验和的短令牌，并将该校验和放在帧中一起传输。  </p>
+<p>拆分比特流：</p>
+<p>①字节计数法 ②字节填充的标志字节法 ③比特填充的标志比特法 ④物理层编码违禁法</p>
+<h4 id="3-1-3-差错控制"><a href="#3-1-3-差错控制" class="headerlink" title="3.1.3 差错控制"></a>3.1.3 差错控制</h4><p>确保所有的帧最终都被传递给目标机器的网络层，并且保持正确的顺序。</p>
+<h4 id="3-1-4-流量控制"><a href="#3-1-4-流量控制" class="headerlink" title="3.1.4 流量控制"></a>3.1.4 流量控制</h4><p>①基于反馈的流量控制：接收方给发送方返回信息，允许它发送更多的数据，或者告诉发送方自己的情况怎么样。</p>
+<p>②基于速率的流量控制：限制发送方传输数据的速率，而无须利用接收方的反馈信息。</p>
+<h3 id="3-2-差错检测和纠正"><a href="#3-2-差错检测和纠正" class="headerlink" title="3.2 差错检测和纠正"></a>3.2 差错检测和纠正</h3><p>对于错误处理的两种基本策略：①在被发送的数据块中加入纠错码 ②在被发送的数据块中加入检错码</p>
+<h4 id="3-2-1-纠错码"><a href="#3-2-1-纠错码" class="headerlink" title="3.2.1 纠错码"></a>3.2.1 纠错码</h4><p><strong>（1）海明码</strong></p>
+<p>海明距离：两个码字中不相同的位的个数（计算：XOR 两个码字）如下：3位不同</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576309587517.png" alt="1576309587517"></p>
+<p><strong>（2）二进制卷积码</strong></p>
+<p><strong>（3）里德所罗门码</strong></p>
+<p><strong>（4）低密度奇偶校验码</strong></p>
+<h4 id="3-2-2-检错码"><a href="#3-2-2-检错码" class="headerlink" title="3.2.2 检错码"></a><strong>3.2.2 检错码</strong></h4><p><strong>（1）奇偶</strong></p>
+<p>把单个奇偶校验位附加到数据中。奇偶位的选择原则是使得码字中比特1的数目是偶数（或奇数）。比如偶校验发送 1011010 为 10110100，奇校验发送 1011010 为 10110101。</p>
+<p><strong>（2）校验和</strong></p>
+<p>对消息中的数据位进行求和计算，校验和通常放置在消息的末尾，通过对整个接收到的码字进行求和计算就能检测出错误。</p>
+<p><strong>（3）循环冗余校验</strong></p>
+<p>多项式的算术运算遵守代数域理论规则：加法和减法都等同于异或</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576310654371.png" alt="1576310654371"></p>
+<p>计算实例</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576310723136.png" alt="1576310723136"></p>
+<h3 id="3-3-基本数据链路层协议"><a href="#3-3-基本数据链路层协议" class="headerlink" title="3.3 基本数据链路层协议"></a>3.3 基本数据链路层协议</h3><h4 id="3-3-1-一个乌托邦式的单工协议"><a href="#3-3-1-一个乌托邦式的单工协议" class="headerlink" title="3.3.1 一个乌托邦式的单工协议"></a>3.3.1 一个乌托邦式的单工协议</h4><h4 id="3-3-2-无错信道上的单工停-等待协议"><a href="#3-3-2-无错信道上的单工停-等待协议" class="headerlink" title="3.3.2 无错信道上的单工停-等待协议"></a>3.3.2 无错信道上的单工停-等待协议</h4><h4 id="3-3-3-有错信道上的单工停-等待协议"><a href="#3-3-3-有错信道上的单工停-等待协议" class="headerlink" title="3.3.3 有错信道上的单工停-等待协议"></a>3.3.3 有错信道上的单工停-等待协议</h4><h3 id="3-4-滑动窗口协议"><a href="#3-4-滑动窗口协议" class="headerlink" title="3.4 滑动窗口协议"></a>3.4 滑动窗口协议</h3><p>数据链路层协议将数据包递交给网络层的次序必须与发送机器上数据包从网络层被传递给数据链路层的次序相同。</p>
+<p>发送窗口内的序号代表了那些可以被发送的帧，或者那些已经被发送但还没有被确认的帧。如果窗口在某个时候达到了它的最大尺寸，则发送方的数据链路层必须强行关闭网络层，直到有一个缓冲区空闲出来为止。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576381709295.png" alt="1576381709295"></p>
+<h4 id="3-4-1-1位滑动窗口协议"><a href="#3-4-1-1位滑动窗口协议" class="headerlink" title="3.4.1 1位滑动窗口协议"></a>3.4.1 1位滑动窗口协议</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576381821519.png" alt="1576381821519"></p>
+<h4 id="3-4-2-回退N协议"><a href="#3-4-2-回退N协议" class="headerlink" title="3.4.2 回退N协议"></a>3.4.2 回退N协议</h4><h4 id="3-4-3-选择重传协议"><a href="#3-4-3-选择重传协议" class="headerlink" title="3.4.3 选择重传协议"></a>3.4.3 选择重传协议</h4><h3 id="3-5-数据链路层协议实例"><a href="#3-5-数据链路层协议实例" class="headerlink" title="3.5 数据链路层协议实例"></a>3.5 数据链路层协议实例</h3><h4 id="3-5-1-SONET上的数据包"><a href="#3-5-1-SONET上的数据包" class="headerlink" title="3.5.1 SONET上的数据包"></a>3.5.1 SONET上的数据包</h4><p>PPP协议：</p>
+<ul>
+<li>一种成帧方法</li>
+<li>一个链路控制协议</li>
+<li>一种协商网络层选项的方式</li>
+</ul>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576382168447.png" alt="1576382168447"></p>
+<h4 id="3-5-2-对称数字用户线"><a href="#3-5-2-对称数字用户线" class="headerlink" title="3.5.2 对称数字用户线"></a>3.5.2 对称数字用户线</h4><p>ADSL</p>
+<h2 id="四、介质访问控制子层"><a href="#四、介质访问控制子层" class="headerlink" title="四、介质访问控制子层"></a>四、介质访问控制子层</h2><p>用来确定多路访问信道下一个使用者的协议属于数据链路层的一个子层，该层称为介质访问控制。</p>
+<h3 id="4-1-信道分配问题"><a href="#4-1-信道分配问题" class="headerlink" title="4.1 信道分配问题"></a>4.1 信道分配问题</h3><h4 id="4-1-1-静态信道分配"><a href="#4-1-1-静态信道分配" class="headerlink" title="4.1.1 静态信道分配"></a>4.1.1 静态信道分配</h4><h4 id="4-1-2-动态信道分配的假设"><a href="#4-1-2-动态信道分配的假设" class="headerlink" title="4.1.2 动态信道分配的假设"></a>4.1.2 动态信道分配的假设</h4><h3 id="4-2-多路访问协议"><a href="#4-2-多路访问协议" class="headerlink" title="4.2 多路访问协议"></a>4.2 多路访问协议</h3><h4 id="4-2-1-ALOHA"><a href="#4-2-1-ALOHA" class="headerlink" title="4.2.1 ALOHA"></a>4.2.1 ALOHA</h4><h4 id="4-2-2-载波侦听多路访问协议"><a href="#4-2-2-载波侦听多路访问协议" class="headerlink" title="4.2.2 载波侦听多路访问协议"></a>4.2.2 载波侦听多路访问协议</h4><h4 id="4-2-3-无冲突协议"><a href="#4-2-3-无冲突协议" class="headerlink" title="4.2.3 无冲突协议"></a>4.2.3 无冲突协议</h4><h4 id="4-2-4-有限竞争协议"><a href="#4-2-4-有限竞争协议" class="headerlink" title="4.2.4 有限竞争协议"></a>4.2.4 有限竞争协议</h4><h4 id="4-2-5-无线局域网协议"><a href="#4-2-5-无线局域网协议" class="headerlink" title="4.2.5 无线局域网协议"></a>4.2.5 无线局域网协议</h4><h3 id="4-3-以太网"><a href="#4-3-以太网" class="headerlink" title="4.3 以太网"></a>4.3 以太网</h3><p>802.3（以太网）</p>
+<ul>
+<li>经典以太网</li>
+<li>交换式以太网</li>
+</ul>
+<p>802.11（无线局域网）</p>
+<h4 id="4-3-1-经典以太网物理层"><a href="#4-3-1-经典以太网物理层" class="headerlink" title="4.3.1 经典以太网物理层"></a>4.3.1 经典以太网物理层</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576390475624.png" alt="1576390475624"></p>
+<h4 id="4-3-2-经典以太网-MAC-子层协议"><a href="#4-3-2-经典以太网-MAC-子层协议" class="headerlink" title="4.3.2 经典以太网 MAC 子层协议"></a>4.3.2 经典以太网 MAC 子层协议</h4><p>二进制指数后退的 CSMA/CA</p>
+<h4 id="4-3-3-以太网性能"><a href="#4-3-3-以太网性能" class="headerlink" title="4.3.3 以太网性能"></a>4.3.3 以太网性能</h4><h4 id="4-3-4-交换式以太网"><a href="#4-3-4-交换式以太网" class="headerlink" title="4.3.4 交换式以太网"></a>4.3.4 交换式以太网</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576390680887.png" alt="1576390680887"></p>
+<h4 id="4-3-5-快速以太网"><a href="#4-3-5-快速以太网" class="headerlink" title="4.3.5 快速以太网"></a>4.3.5 快速以太网</h4><h4 id="4-3-6-千兆以太网"><a href="#4-3-6-千兆以太网" class="headerlink" title="4.3.6 千兆以太网"></a>4.3.6 千兆以太网</h4><h4 id="4-3-7-万兆以太网"><a href="#4-3-7-万兆以太网" class="headerlink" title="4.3.7 万兆以太网"></a>4.3.7 万兆以太网</h4><h4 id="4-3-8-以太网回顾"><a href="#4-3-8-以太网回顾" class="headerlink" title="4.3.8 以太网回顾"></a>4.3.8 以太网回顾</h4><h3 id="4-4-无线局域网"><a href="#4-4-无线局域网" class="headerlink" title="4.4 无线局域网"></a>4.4 无线局域网</h3><p>无线局域网的主要标准：802.11</p>
+<h4 id="4-4-1-802-11体系结构和协议栈"><a href="#4-4-1-802-11体系结构和协议栈" class="headerlink" title="4.4.1 802.11体系结构和协议栈"></a>4.4.1 802.11体系结构和协议栈</h4><p>两种使用模式：有架构模式和自组织模式</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576391205243.png" alt="1576391205243"></p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576391280942.png" alt="1576391280942"></p>
+<h4 id="4-4-2-802-11物理层"><a href="#4-4-2-802-11物理层" class="headerlink" title="4.4.2 802.11物理层"></a>4.4.2 802.11物理层</h4><h4 id="4-4-3-802-11-MAC子层协议"><a href="#4-4-3-802-11-MAC子层协议" class="headerlink" title="4.4.3 802.11 MAC子层协议"></a>4.4.3 802.11 MAC子层协议</h4><h4 id="4-4-4-802-11帧结构"><a href="#4-4-4-802-11帧结构" class="headerlink" title="4.4.4 802.11帧结构"></a>4.4.4 802.11帧结构</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576391385753.png" alt="1576391385753"></p>
+<h4 id="4-4-5-服务"><a href="#4-4-5-服务" class="headerlink" title="4.4.5 服务"></a>4.4.5 服务</h4><h3 id="4-5-宽带无线"><a href="#4-5-宽带无线" class="headerlink" title="4.5 宽带无线"></a>4.5 宽带无线</h3><h4 id="4-5-1-802-16与802-11和3G的比较"><a href="#4-5-1-802-16与802-11和3G的比较" class="headerlink" title="4.5.1 802.16与802.11和3G的比较"></a>4.5.1 802.16与802.11和3G的比较</h4><h4 id="4-5-2-802-16体系结构与协议栈"><a href="#4-5-2-802-16体系结构与协议栈" class="headerlink" title="4.5.2 802.16体系结构与协议栈"></a>4.5.2 802.16体系结构与协议栈</h4><h4 id="4-5-3-802-16物理层"><a href="#4-5-3-802-16物理层" class="headerlink" title="4.5.3 802.16物理层"></a>4.5.3 802.16物理层</h4><h4 id="4-5-4-802-16的MAC子层协议"><a href="#4-5-4-802-16的MAC子层协议" class="headerlink" title="4.5.4 802.16的MAC子层协议"></a>4.5.4 802.16的MAC子层协议</h4><h4 id="4-5-5-802-16帧结构"><a href="#4-5-5-802-16帧结构" class="headerlink" title="4.5.5 802.16帧结构"></a>4.5.5 802.16帧结构</h4><h3 id="4-6-蓝牙"><a href="#4-6-蓝牙" class="headerlink" title="4.6 蓝牙"></a>4.6 蓝牙</h3><h4 id="4-6-1-蓝牙体系结构"><a href="#4-6-1-蓝牙体系结构" class="headerlink" title="4.6.1 蓝牙体系结构"></a>4.6.1 蓝牙体系结构</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576391694027.png" alt="1576391694027"></p>
+<h4 id="4-6-2-蓝牙应用"><a href="#4-6-2-蓝牙应用" class="headerlink" title="4.6.2 蓝牙应用"></a>4.6.2 蓝牙应用</h4><h4 id="4-6-3-蓝牙协议栈"><a href="#4-6-3-蓝牙协议栈" class="headerlink" title="4.6.3 蓝牙协议栈"></a>4.6.3 蓝牙协议栈</h4><h4 id="4-6-4-蓝牙无线电层"><a href="#4-6-4-蓝牙无线电层" class="headerlink" title="4.6.4 蓝牙无线电层"></a>4.6.4 蓝牙无线电层</h4><h4 id="4-6-5-蓝牙链路层"><a href="#4-6-5-蓝牙链路层" class="headerlink" title="4.6.5 蓝牙链路层"></a>4.6.5 蓝牙链路层</h4><h4 id="4-6-6-蓝牙帧结构"><a href="#4-6-6-蓝牙帧结构" class="headerlink" title="4.6.6 蓝牙帧结构"></a>4.6.6 蓝牙帧结构</h4><h3 id="4-7-RFID"><a href="#4-7-RFID" class="headerlink" title="4.7 RFID"></a>4.7 RFID</h3><p>无线射频识别</p>
+<h4 id="4-7-1-EPC-Gen-2体系结构"><a href="#4-7-1-EPC-Gen-2体系结构" class="headerlink" title="4.7.1 EPC Gen 2体系结构"></a>4.7.1 EPC Gen 2体系结构</h4><h4 id="4-7-2-EPC-Gen-2物理层"><a href="#4-7-2-EPC-Gen-2物理层" class="headerlink" title="4.7.2 EPC Gen 2物理层"></a>4.7.2 EPC Gen 2物理层</h4><h4 id="4-7-3-EPC-Gen-2标签识别层"><a href="#4-7-3-EPC-Gen-2标签识别层" class="headerlink" title="4.7.3 EPC Gen 2标签识别层"></a>4.7.3 EPC Gen 2标签识别层</h4><h4 id="4-7-4-标签标识消息格式"><a href="#4-7-4-标签标识消息格式" class="headerlink" title="4.7.4 标签标识消息格式"></a>4.7.4 标签标识消息格式</h4><h3 id="4-8-数据链路层交换"><a href="#4-8-数据链路层交换" class="headerlink" title="4.8 数据链路层交换"></a>4.8 数据链路层交换</h3><p>采用网桥将多个局域网组成更大的局域网。</p>
+<h4 id="4-8-1-网桥的使用"><a href="#4-8-1-网桥的使用" class="headerlink" title="4.8.1 网桥的使用"></a>4.8.1 网桥的使用</h4><h4 id="4-8-2-学习网桥"><a href="#4-8-2-学习网桥" class="headerlink" title="4.8.2 学习网桥"></a>4.8.2 学习网桥</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576392104488.png" alt="1576392104488"></p>
+<h4 id="4-8-3-生成树网桥"><a href="#4-8-3-生成树网桥" class="headerlink" title="4.8.3 生成树网桥"></a>4.8.3 生成树网桥</h4><p>去掉一些链路，整个图被简化为一棵生成树，利用这棵生成树，从每个站到每个其他站恰好只有一条路径。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576392593839.png" alt="1576392593839"></p>
+<h4 id="4-8-4-中继器-集线器-网桥-交换机-路由器和网关"><a href="#4-8-4-中继器-集线器-网桥-交换机-路由器和网关" class="headerlink" title="4.8.4 中继器/集线器/网桥/交换机/路由器和网关"></a>4.8.4 中继器/集线器/网桥/交换机/路由器和网关</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576400060824.png" alt="1576400060824"></p>
+<h4 id="4-8-5-虚拟局域网"><a href="#4-8-5-虚拟局域网" class="headerlink" title="4.8.5 虚拟局域网"></a>4.8.5 虚拟局域网</h4><h2 id="五、网络层"><a href="#五、网络层" class="headerlink" title="五、网络层"></a>五、网络层</h2><p>网络层关注的是如何将源端数据包一路送到接收方。为了将数据包送到接收方，可能沿途要经过许多跳中间路由器。</p>
+<p>网络层是处理端到端数据传输的最底层。</p>
+<h3 id="5-1-网络层的设计问题"><a href="#5-1-网络层的设计问题" class="headerlink" title="5.1 网络层的设计问题"></a>5.1 网络层的设计问题</h3><h4 id="5-1-1-存储转发数据包交换"><a href="#5-1-1-存储转发数据包交换" class="headerlink" title="5.1.1 存储转发数据包交换"></a>5.1.1 存储转发数据包交换</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576401519776.png" alt="1576401519776"></p>
+<h4 id="5-1-2-提供给传输层的服务"><a href="#5-1-2-提供给传输层的服务" class="headerlink" title="5.1.2 提供给传输层的服务"></a>5.1.2 提供给传输层的服务</h4><ul>
+<li>向上提供的服务应该独立于路由器技术。</li>
+<li>应该向传输层屏蔽路由器的数量、类型和拓扑关系</li>
+<li>传输层可用的网络地址应该有一个统一编址方案</li>
+</ul>
+<h4 id="5-1-3-无连接服务的实现"><a href="#5-1-3-无连接服务的实现" class="headerlink" title="5.1.3 无连接服务的实现"></a>5.1.3 无连接服务的实现</h4><p>数据报网络（不需要提前建立任何设置）——路由算法（根据网络拓扑结构和状态更新路由表）</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576401909164.png" alt="1576401909164"></p>
+<h4 id="5-1-4-面向连接服务的实现"><a href="#5-1-4-面向连接服务的实现" class="headerlink" title="5.1.4 面向连接服务的实现"></a>5.1.4 面向连接服务的实现</h4><p>虚电路网络——避免为每个要发送的数据包选择一条新路径。</p>
+<p>当建立一个连接时，从源机器到目标机器之间的一条路径会被当作这个连接的一部分确定了下来。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576402231604.png" alt="1576402231604"></p>
+<h4 id="5-1-5-虚电路与数据报网络的比较"><a href="#5-1-5-虚电路与数据报网络的比较" class="headerlink" title="5.1.5 虚电路与数据报网络的比较"></a>5.1.5 虚电路与数据报网络的比较</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576402266165.png" alt="1576402266165"></p>
+<h3 id="5-2-路由算法"><a href="#5-2-路由算法" class="headerlink" title="5.2 路由算法"></a>5.2 路由算法</h3><p>两大类：</p>
+<ul>
+<li>非自适应算法</li>
+<li>自适应算法</li>
+</ul>
+<h4 id="5-2-1-优化原则"><a href="#5-2-1-优化原则" class="headerlink" title="5.2.1 优化原则"></a>5.2.1 优化原则</h4><p>汇集树：所有的源到一个指定目标的最优路径的集合构成的一棵以目标节点为根的树。（不唯一）</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576405262378.png" alt="1576405262378"></p>
+<h4 id="5-2-2-最短路径算法"><a href="#5-2-2-最短路径算法" class="headerlink" title="5.2.2 最短路径算法"></a>5.2.2 最短路径算法</h4><p>Dijkstra算法</p>
+<h4 id="5-2-3-泛洪算法"><a href="#5-2-3-泛洪算法" class="headerlink" title="5.2.3 泛洪算法"></a>5.2.3 泛洪算法</h4><p>将每一个入境数据包发送到除了该数据包到达的那条线路以外的每条出境线路。</p>
+<h4 id="5-2-4-距离矢量算法"><a href="#5-2-4-距离矢量算法" class="headerlink" title="5.2.4 距离矢量算法"></a>5.2.4 距离矢量算法</h4><p>每个路由器维护一张路由表（即一个矢量），表中列出了当前已知的到每个目标的最佳距离，以及所使用的链路。这些表通过邻居之间相互交换信息而不断更新，最终每个路由器都了解到达每个目的地的最佳链路。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576406406040.png" alt="1576406406040"></p>
+<h4 id="5-2-5-链路状态路由"><a href="#5-2-5-链路状态路由" class="headerlink" title="5.2.5 链路状态路由"></a>5.2.5 链路状态路由</h4><h4 id="5-2-6-层次路由"><a href="#5-2-6-层次路由" class="headerlink" title="5.2.6 层次路由"></a>5.2.6 层次路由</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576406841374.png" alt="1576406841374"></p>
+<h4 id="5-2-7-广播路由"><a href="#5-2-7-广播路由" class="headerlink" title="5.2.7 广播路由"></a>5.2.7 广播路由</h4><p>同时给全部目标地址发送一个数据包。</p>
+<h4 id="5-2-8-组播路由"><a href="#5-2-8-组播路由" class="headerlink" title="5.2.8 组播路由"></a>5.2.8 组播路由</h4><p>给特定的一个组发送消息</p>
+<h4 id="5-2-9-选播路由"><a href="#5-2-9-选播路由" class="headerlink" title="5.2.9 选播路由"></a>5.2.9 选播路由</h4><h4 id="5-2-10-移动主机路由"><a href="#5-2-10-移动主机路由" class="headerlink" title="5.2.10 移动主机路由"></a>5.2.10 移动主机路由</h4><h4 id="5-2-11-自组织网络路由"><a href="#5-2-11-自组织网络路由" class="headerlink" title="5.2.11 自组织网络路由"></a>5.2.11 自组织网络路由</h4><h3 id="5-3-拥塞控制算法"><a href="#5-3-拥塞控制算法" class="headerlink" title="5.3 拥塞控制算法"></a>5.3 拥塞控制算法</h3><p>拥塞控制的任务：确保网络能够承载所有到达的流量。</p>
+<p>流量控制的任务：确保一个快速的发送方不会持续地以超过接收方接收能力的速率传输数据</p>
+<h4 id="5-3-1-拥塞控制的途径"><a href="#5-3-1-拥塞控制的途径" class="headerlink" title="5.3.1 拥塞控制的途径"></a>5.3.1 拥塞控制的途径</h4><p>最基本方法：建立一个与流量匹配良好的网络。</p>
+<p>准入控制：在一个虚电路网络中，如果新的连接将导致网络变得拥挤不堪，那么就应该拒绝这种新连接的建立。</p>
+<h4 id="5-3-2-流量感知路由"><a href="#5-3-2-流量感知路由" class="headerlink" title="5.3.2 流量感知路由"></a>5.3.2 流量感知路由</h4><p>流量工程：在路由协议外部通过慢慢改变它的输入来调整路由。</p>
+<h4 id="5-3-3-准入控制"><a href="#5-3-3-准入控制" class="headerlink" title="5.3.3 准入控制"></a>5.3.3 准入控制</h4><p>基本思想：除非网络可以携带额外的流量而不会变得拥塞，否则不再建立新的虚电路</p>
+<h4 id="5-3-4-流量调节"><a href="#5-3-4-流量调节" class="headerlink" title="5.3.4 流量调节"></a>5.3.4 流量调节</h4><p>利用抑制包告诉源主机按照要求减少发送给指定目标的流量。</p>
+<h4 id="5-3-5-负载脱落"><a href="#5-3-5-负载脱落" class="headerlink" title="5.3.5 负载脱落"></a>5.3.5 负载脱落</h4><p>指当路由器因为来不及处理数据包而面临被这些数据包淹没的危险时，将它们丢弃。</p>
+<h3 id="5-4-服务质量"><a href="#5-4-服务质量" class="headerlink" title="5.4 服务质量"></a>5.4 服务质量</h3><h4 id="5-4-1-应用需求"><a href="#5-4-1-应用需求" class="headerlink" title="5.4.1 应用需求"></a>5.4.1 应用需求</h4><p>从一个源端发到一个接收方的数据包称为一个流，每个流的需求用四个主要参数表示：带宽、延迟、抖动和丢失。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576488380025.png" alt="1576488380025"></p>
+<h4 id="5-4-2-流量整形"><a href="#5-4-2-流量整形" class="headerlink" title="5.4.2 流量整形"></a>5.4.2 流量整形</h4><p>是指调节进入网络的数据流的平均速率和突发性所采用的技术。</p>
+<h4 id="5-4-3-包调度"><a href="#5-4-3-包调度" class="headerlink" title="5.4.3 包调度"></a>5.4.3 包调度</h4><p>在同一个流的数据包之间以及在竞争流之间分配路由器资源的算法称为包调度算法。</p>
+<h4 id="5-4-4-准入控制"><a href="#5-4-4-准入控制" class="headerlink" title="5.4.4 准入控制"></a>5.4.4 准入控制</h4><h4 id="5-4-5-综合服务"><a href="#5-4-5-综合服务" class="headerlink" title="5.4.5 综合服务"></a>5.4.5 综合服务</h4><h4 id="5-4-6-区分服务"><a href="#5-4-6-区分服务" class="headerlink" title="5.4.6 区分服务"></a>5.4.6 区分服务</h4><h3 id="5-5-网络互联"><a href="#5-5-网络互联" class="headerlink" title="5.5 网络互联"></a>5.5 网络互联</h3><h4 id="5-5-1-网络如何不同"><a href="#5-5-1-网络如何不同" class="headerlink" title="5.5.1 网络如何不同"></a>5.5.1 网络如何不同</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576493975501.png" alt="1576493975501"></p>
+<h4 id="5-5-2-何以连接网络"><a href="#5-5-2-何以连接网络" class="headerlink" title="5.5.2 何以连接网络"></a>5.5.2 何以连接网络</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576494150199.png" alt="1576494150199"></p>
+<h4 id="5-5-3-隧道"><a href="#5-5-3-隧道" class="headerlink" title="5.5.3 隧道"></a>5.5.3 隧道</h4><p>VPN</p>
+<h4 id="5-5-4-互联网路由"><a href="#5-5-4-互联网路由" class="headerlink" title="5.5.4 互联网路由"></a>5.5.4 互联网路由</h4><p>内部网络可能使用不同的路由算法，所以需要内部网关协议和外部网关协议。（层次结构路由）</p>
+<h4 id="5-5-5-数据包分段"><a href="#5-5-5-数据包分段" class="headerlink" title="5.5.5 数据包分段"></a>5.5.5 数据包分段</h4><p>路径最大传输单元（MTU）</p>
+<ul>
+<li>透明分段</li>
+<li>非透明分段</li>
+</ul>
+<h3 id="5-6-Internet的网络层"><a href="#5-6-Internet的网络层" class="headerlink" title="5.6 Internet的网络层"></a>5.6 Internet的网络层</h3><p>10大原则：</p>
+<p>① 保证工作        ② 保持简单        ③ 明确选择        ④ 模块开发            ⑤ 期望异构性</p>
+<p>⑥ 避免静态选项和参数                 ⑦ 寻找好的而不是完美的设计         ⑧ 严格发送，宽容接收</p>
+<p>⑨ 考虑可扩展性                              ⑩ 考虑性能和成本</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576495233019.png" alt="1576495233019"></p>
+<h4 id="5-6-1-IPv4协议"><a href="#5-6-1-IPv4协议" class="headerlink" title="5.6.1 IPv4协议"></a>5.6.1 IPv4协议</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576495334442.png" alt="1576495334442"></p>
+<p>版本：记录数据报属于协议哪个版本</p>
+<p>IHL：指明头有多长</p>
+<p>区分服务：区分不同的服务种类</p>
+<h4 id="5-6-2-IP地址"><a href="#5-6-2-IP地址" class="headerlink" title="5.6.2 IP地址"></a>5.6.2 IP地址</h4><p>一个IP地址并不真正指向一台主机，而是指向一个网络接口，一台主机在几个网络上就有几个IP地址。</p>
+<p>子网：</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576497749753.png" alt="1576497749753"></p>
+<p>路由聚合：把多个小前缀的地址块合并成一个大前缀的地址块。</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576498196882.png" alt="1576498196882"></p>
+<p>IP地址分类</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576498267061.png" alt="1576498267061"></p>
+<p>NAT—网络地址转换</p>
+<p>基本思想：ISP为每个家庭成员或每个公司分配一个IP地址，用这个IP地址来传输 internet 流量。在客户网络内部，每台计算机有唯一的 IP 地址，该地址主要用来路由内部流量。当数据包需要离开客户网络，发向其他ISP时，它必须执行一个地址转换，把唯一的内部IP地址转换成那个共享的公共IP地址。（保留的IP地址）</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576498633582.png" alt="1576498633582"></p>
+<h4 id="5-6-3-IPv6协议"><a href="#5-6-3-IPv6协议" class="headerlink" title="5.6.3 IPv6协议"></a>5.6.3 IPv6协议</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576498721037.png" alt="1576498721037"></p>
+<h4 id="5-6-4-Internet控制协议"><a href="#5-6-4-Internet控制协议" class="headerlink" title="5.6.4 Internet控制协议"></a>5.6.4 Internet控制协议</h4><p>ICMP—Internet控制消息协议：当路由器在处理一个数据包的过程中发生了意外，可通过 ICMP 向数据包的源端报告有关事件。</p>
+<p>ARP—地址解析协议：由IP地址映射到以太网地址</p>
+<p>DHCP—动态主机配置协议：请求IP地址</p>
+<h4 id="5-6-5-标签交换和-MPLS"><a href="#5-6-5-标签交换和-MPLS" class="headerlink" title="5.6.5 标签交换和 MPLS"></a>5.6.5 标签交换和 MPLS</h4><p>ISP用来在它们的网络之间移动Internet流量</p>
+<h4 id="5-6-6-OSPF—内部网关路由协议"><a href="#5-6-6-OSPF—内部网关路由协议" class="headerlink" title="5.6.6 OSPF—内部网关路由协议"></a>5.6.6 OSPF—内部网关路由协议</h4><h4 id="5-6-7-BGP—外部网关路由协议"><a href="#5-6-7-BGP—外部网关路由协议" class="headerlink" title="5.6.7 BGP—外部网关路由协议"></a>5.6.7 BGP—外部网关路由协议</h4><h4 id="5-6-8-Internet组播"><a href="#5-6-8-Internet组播" class="headerlink" title="5.6.8 Internet组播"></a>5.6.8 Internet组播</h4><h4 id="5-6-9-移动IP"><a href="#5-6-9-移动IP" class="headerlink" title="5.6.9 移动IP"></a>5.6.9 移动IP</h4><h2 id="八、网络安全"><a href="#八、网络安全" class="headerlink" title="八、网络安全"></a>八、网络安全</h2><h3 id="8-1-密码学"><a href="#8-1-密码学" class="headerlink" title="8.1 密码学"></a>8.1 密码学</h3><h4 id="8-1-1-密码学概论"><a href="#8-1-1-密码学概论" class="headerlink" title="8.1.1 密码学概论"></a>8.1.1 密码学概论</h4><p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576407842954.png" alt="1576407842954"></p>
+<p>明文：待加密的消息。</p>
+<p>密文：加密后的消息、</p>
+<p>$C=E_K(P)$  ——加密，     $P=D_K(C)$——解密                    $D_K(E_K(P))=P$</p>
+<p>Kerckhoff原则：所有的算法必须是公开的而密钥是保密的。</p>
+<h4 id="8-1-2-置换密码"><a href="#8-1-2-置换密码" class="headerlink" title="8.1.2 置换密码"></a>8.1.2 置换密码</h4><p>每个字母或者每一组字母被另一个字母或另一组字母取代，从而将原来的字母掩盖起来。（比如凯撒密码，a变成D，b变成E…）</p>
+<h4 id="8-1-3-替代密码"><a href="#8-1-3-替代密码" class="headerlink" title="8.1.3 替代密码"></a>8.1.3 替代密码</h4><p>重新对字母进行排序，但是并不伪装明文。</p>
+<h4 id="8-1-4-一次性密钥"><a href="#8-1-4-一次性密钥" class="headerlink" title="8.1.4 一次性密钥"></a>8.1.4 一次性密钥</h4><p>利用一次性密钥进行加密</p>
+<p>8.1.5 两个基本的密码学原则</p>
+<p>① 冗余度：所有被加密的消息必须包含一定的冗余信息</p>
+<p>② 新鲜度：必须采取某些措施确保每条接收到的消息可被验证是新鲜的</p>
+<h3 id="8-2-对称密钥算法"><a href="#8-2-对称密钥算法" class="headerlink" title="8.2 对称密钥算法"></a>8.2 对称密钥算法</h3><p>利用同样的密钥来完成加密和解密操作</p>
+<h4 id="8-2-1-DES—数据加密标准"><a href="#8-2-1-DES—数据加密标准" class="headerlink" title="8.2.1 DES—数据加密标准"></a>8.2.1 DES—数据加密标准</h4><h4 id="8-2-2-AES—高级加密标准"><a href="#8-2-2-AES—高级加密标准" class="headerlink" title="8.2.2 AES—高级加密标准"></a>8.2.2 AES—高级加密标准</h4><h4 id="8-2-3-密码模式"><a href="#8-2-3-密码模式" class="headerlink" title="8.2.3 密码模式"></a>8.2.3 密码模式</h4><h4 id="8-2-4-其他密码模式"><a href="#8-2-4-其他密码模式" class="headerlink" title="8.2.4 其他密码模式"></a>8.2.4 其他密码模式</h4><h4 id="8-2-5-密码分析"><a href="#8-2-5-密码分析" class="headerlink" title="8.2.5 密码分析"></a>8.2.5 密码分析</h4><h3 id="8-3-公开密钥算法"><a href="#8-3-公开密钥算法" class="headerlink" title="8.3 公开密钥算法"></a>8.3 公开密钥算法</h3><h4 id="8-3-1-RSA"><a href="#8-3-1-RSA" class="headerlink" title="8.3.1 RSA"></a>8.3.1 RSA</h4><p>（1）选择两个大的素数 p 和 q（典型情况下为1024位）</p>
+<p>（2）计算 n=p $\times$ q 和 z=(p-1) $\times $ (q-1)</p>
+<p>（3）选择一个与 z 互素的数，将它称为 d</p>
+<p>（4）找到 e，使其满足 e $\times$ d=1 mod z</p>
+<p>$C=P^e(mod \ n)$，$P=C^d(mod\  n)$</p>
+<p>比如：p=3，q=11；n=3 $\times$ 11=33，  z=2 $\times $ 10=20，7与20没有公因子，可以选择 d=7。7e =1 mod 20，得 e=3。加密 $C=P^3(mod 33)$，解密 $P=C^7(mod 33)$</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576409863251.png" alt="1576409863251"></p>
+<h4 id="8-3-2-其他公开密钥算法"><a href="#8-3-2-其他公开密钥算法" class="headerlink" title="8.3.2 其他公开密钥算法"></a>8.3.2 其他公开密钥算法</h4><h3 id="8-4-数字签名"><a href="#8-4-数字签名" class="headerlink" title="8.4 数字签名"></a>8.4 数字签名</h3><h4 id="8-4-1-对称密钥签名"><a href="#8-4-1-对称密钥签名" class="headerlink" title="8.4.1 对称密钥签名"></a>8.4.1 对称密钥签名</h4><p>设立一个中心权威机构</p>
+<p><img src="/2019/12/12/计算机网络复习/Users\dufub\AppData\Roaming\Typora\typora-user-images\1576410107347.png" alt="1576410107347"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/复习/" rel="tag"># 复习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/07/蚁群算法物流优化/" rel="next" title="蚁群算法物流优化">
+                <i class="fa fa-chevron-left"></i> 蚁群算法物流优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/14/计算机科学中的逻辑/" rel="prev" title="计算机科学中的逻辑">
+                计算机科学中的逻辑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/abc.JPG" alt="Leselier">
+            
+              <p class="site-author-name" itemprop="name">Leselier</p>
+              <p class="site-description motion-element" itemprop="description">A master student of JUN</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Leselier" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5708446219/home" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、物理层"><span class="nav-number">1.</span> <span class="nav-text">二、物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数据通信的理论基础"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 数据通信的理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-傅里叶分析"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1.1 傅里叶分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-带宽有限的信号"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.1.2 带宽有限的信号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-信道的最大数据速率"><span class="nav-number">1.1.3.</span> <span class="nav-text">2.1.3 信道的最大数据速率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-引导性传输介质"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 引导性传输介质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-磁介质"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.2.1 磁介质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-双绞线"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2.2 双绞线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-同轴电缆"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.2.3 同轴电缆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-电力线"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.2.4 电力线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-光纤"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.2.5 光纤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-无线传输"><span class="nav-number">1.3.</span> <span class="nav-text">2.3 无线传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-电磁频谱"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.3.1 电磁频谱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-无线电传输"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.3.2 无线电传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-微波传输"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.3.3 微波传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4-红外传输"><span class="nav-number">1.3.4.</span> <span class="nav-text">2.3.4 红外传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-5-光通信"><span class="nav-number">1.3.5.</span> <span class="nav-text">2.3.5 光通信</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-通信卫星"><span class="nav-number">1.4.</span> <span class="nav-text">2.4 通信卫星</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-地球同步卫星"><span class="nav-number">1.4.1.</span> <span class="nav-text">2.4.1 地球同步卫星</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-中地球轨道卫星"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.4.2 中地球轨道卫星</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-3-低地球轨道卫星"><span class="nav-number">1.4.3.</span> <span class="nav-text">2.4.3 低地球轨道卫星</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-4-卫星和光纤"><span class="nav-number">1.4.4.</span> <span class="nav-text">2.4.4 卫星和光纤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-数字调制与多路复用"><span class="nav-number">1.5.</span> <span class="nav-text">2.5 数字调制与多路复用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-1-基带传输"><span class="nav-number">1.5.1.</span> <span class="nav-text">2.5.1 基带传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-2-通带传输"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.5.2 通带传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-3-频分复用"><span class="nav-number">1.5.3.</span> <span class="nav-text">2.5.3 频分复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-4-时分复用"><span class="nav-number">1.5.4.</span> <span class="nav-text">2.5.4 时分复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-5-码分复用"><span class="nav-number">1.5.5.</span> <span class="nav-text">2.5.5 码分复用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-公共电话交换网络"><span class="nav-number">1.6.</span> <span class="nav-text">2.6 公共电话交换网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-1-电话系统结构"><span class="nav-number">1.6.1.</span> <span class="nav-text">2.6.1 电话系统结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-2-电话政治化"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.6.2 电话政治化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-3-本地回路：调制解调器、ADSL和光纤"><span class="nav-number">1.6.3.</span> <span class="nav-text">2.6.3 本地回路：调制解调器、ADSL和光纤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-4-中继线和多路复用"><span class="nav-number">1.6.4.</span> <span class="nav-text">2.6.4 中继线和多路复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-5-交换"><span class="nav-number">1.6.5.</span> <span class="nav-text">2.6.5 交换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-移动电话系统"><span class="nav-number">1.7.</span> <span class="nav-text">2.7 移动电话系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-1-第一代移动电话（1G）：模拟语音"><span class="nav-number">1.7.1.</span> <span class="nav-text">2.7.1 第一代移动电话（1G）：模拟语音</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-2-第二代移动电话（2G）：数字语音"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.7.2 第二代移动电话（2G）：数字语音</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-3-第三代移动电话（3G）：数字语音和数据"><span class="nav-number">1.7.3.</span> <span class="nav-text">2.7.3 第三代移动电话（3G）：数字语音和数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-有线电视"><span class="nav-number">1.8.</span> <span class="nav-text">2.8 有线电视</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-1-共用天线电视"><span class="nav-number">1.8.1.</span> <span class="nav-text">2.8.1 共用天线电视</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-2-线缆上的-Internet"><span class="nav-number">1.8.2.</span> <span class="nav-text">2.8.2 线缆上的 Internet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-3-频谱分配"><span class="nav-number">1.8.3.</span> <span class="nav-text">2.8.3 频谱分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-4-线缆调制解调器"><span class="nav-number">1.8.4.</span> <span class="nav-text">2.8.4 线缆调制解调器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-5-ADSL与有线电视电缆"><span class="nav-number">1.8.5.</span> <span class="nav-text">2.8.5 ADSL与有线电视电缆</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、数据链路层"><span class="nav-number">2.</span> <span class="nav-text">三、数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-数据链路层的设计问题"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 数据链路层的设计问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-提供给网络层的服务"><span class="nav-number">2.1.1.</span> <span class="nav-text">3.1.1 提供给网络层的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-成帧"><span class="nav-number">2.1.2.</span> <span class="nav-text">3.1.2 成帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3-差错控制"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.1.3 差错控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4-流量控制"><span class="nav-number">2.1.4.</span> <span class="nav-text">3.1.4 流量控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-差错检测和纠正"><span class="nav-number">2.2.</span> <span class="nav-text">3.2 差错检测和纠正</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-纠错码"><span class="nav-number">2.2.1.</span> <span class="nav-text">3.2.1 纠错码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-检错码"><span class="nav-number">2.2.2.</span> <span class="nav-text">3.2.2 检错码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-基本数据链路层协议"><span class="nav-number">2.3.</span> <span class="nav-text">3.3 基本数据链路层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-一个乌托邦式的单工协议"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.3.1 一个乌托邦式的单工协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-无错信道上的单工停-等待协议"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.3.2 无错信道上的单工停-等待协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-有错信道上的单工停-等待协议"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3.3 有错信道上的单工停-等待协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-滑动窗口协议"><span class="nav-number">2.4.</span> <span class="nav-text">3.4 滑动窗口协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-1位滑动窗口协议"><span class="nav-number">2.4.1.</span> <span class="nav-text">3.4.1 1位滑动窗口协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-回退N协议"><span class="nav-number">2.4.2.</span> <span class="nav-text">3.4.2 回退N协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-3-选择重传协议"><span class="nav-number">2.4.3.</span> <span class="nav-text">3.4.3 选择重传协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-数据链路层协议实例"><span class="nav-number">2.5.</span> <span class="nav-text">3.5 数据链路层协议实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-1-SONET上的数据包"><span class="nav-number">2.5.1.</span> <span class="nav-text">3.5.1 SONET上的数据包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-2-对称数字用户线"><span class="nav-number">2.5.2.</span> <span class="nav-text">3.5.2 对称数字用户线</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、介质访问控制子层"><span class="nav-number">3.</span> <span class="nav-text">四、介质访问控制子层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-信道分配问题"><span class="nav-number">3.1.</span> <span class="nav-text">4.1 信道分配问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-静态信道分配"><span class="nav-number">3.1.1.</span> <span class="nav-text">4.1.1 静态信道分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-动态信道分配的假设"><span class="nav-number">3.1.2.</span> <span class="nav-text">4.1.2 动态信道分配的假设</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-多路访问协议"><span class="nav-number">3.2.</span> <span class="nav-text">4.2 多路访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-ALOHA"><span class="nav-number">3.2.1.</span> <span class="nav-text">4.2.1 ALOHA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-载波侦听多路访问协议"><span class="nav-number">3.2.2.</span> <span class="nav-text">4.2.2 载波侦听多路访问协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-无冲突协议"><span class="nav-number">3.2.3.</span> <span class="nav-text">4.2.3 无冲突协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-有限竞争协议"><span class="nav-number">3.2.4.</span> <span class="nav-text">4.2.4 有限竞争协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-5-无线局域网协议"><span class="nav-number">3.2.5.</span> <span class="nav-text">4.2.5 无线局域网协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-以太网"><span class="nav-number">3.3.</span> <span class="nav-text">4.3 以太网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1-经典以太网物理层"><span class="nav-number">3.3.1.</span> <span class="nav-text">4.3.1 经典以太网物理层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-2-经典以太网-MAC-子层协议"><span class="nav-number">3.3.2.</span> <span class="nav-text">4.3.2 经典以太网 MAC 子层协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-3-以太网性能"><span class="nav-number">3.3.3.</span> <span class="nav-text">4.3.3 以太网性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-4-交换式以太网"><span class="nav-number">3.3.4.</span> <span class="nav-text">4.3.4 交换式以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-5-快速以太网"><span class="nav-number">3.3.5.</span> <span class="nav-text">4.3.5 快速以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-6-千兆以太网"><span class="nav-number">3.3.6.</span> <span class="nav-text">4.3.6 千兆以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-7-万兆以太网"><span class="nav-number">3.3.7.</span> <span class="nav-text">4.3.7 万兆以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-8-以太网回顾"><span class="nav-number">3.3.8.</span> <span class="nav-text">4.3.8 以太网回顾</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-无线局域网"><span class="nav-number">3.4.</span> <span class="nav-text">4.4 无线局域网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-1-802-11体系结构和协议栈"><span class="nav-number">3.4.1.</span> <span class="nav-text">4.4.1 802.11体系结构和协议栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-2-802-11物理层"><span class="nav-number">3.4.2.</span> <span class="nav-text">4.4.2 802.11物理层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-3-802-11-MAC子层协议"><span class="nav-number">3.4.3.</span> <span class="nav-text">4.4.3 802.11 MAC子层协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-4-802-11帧结构"><span class="nav-number">3.4.4.</span> <span class="nav-text">4.4.4 802.11帧结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-5-服务"><span class="nav-number">3.4.5.</span> <span class="nav-text">4.4.5 服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-宽带无线"><span class="nav-number">3.5.</span> <span class="nav-text">4.5 宽带无线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-1-802-16与802-11和3G的比较"><span class="nav-number">3.5.1.</span> <span class="nav-text">4.5.1 802.16与802.11和3G的比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-2-802-16体系结构与协议栈"><span class="nav-number">3.5.2.</span> <span class="nav-text">4.5.2 802.16体系结构与协议栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-3-802-16物理层"><span class="nav-number">3.5.3.</span> <span class="nav-text">4.5.3 802.16物理层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-4-802-16的MAC子层协议"><span class="nav-number">3.5.4.</span> <span class="nav-text">4.5.4 802.16的MAC子层协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-5-802-16帧结构"><span class="nav-number">3.5.5.</span> <span class="nav-text">4.5.5 802.16帧结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-蓝牙"><span class="nav-number">3.6.</span> <span class="nav-text">4.6 蓝牙</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-1-蓝牙体系结构"><span class="nav-number">3.6.1.</span> <span class="nav-text">4.6.1 蓝牙体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-2-蓝牙应用"><span class="nav-number">3.6.2.</span> <span class="nav-text">4.6.2 蓝牙应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-3-蓝牙协议栈"><span class="nav-number">3.6.3.</span> <span class="nav-text">4.6.3 蓝牙协议栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-4-蓝牙无线电层"><span class="nav-number">3.6.4.</span> <span class="nav-text">4.6.4 蓝牙无线电层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-5-蓝牙链路层"><span class="nav-number">3.6.5.</span> <span class="nav-text">4.6.5 蓝牙链路层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-6-蓝牙帧结构"><span class="nav-number">3.6.6.</span> <span class="nav-text">4.6.6 蓝牙帧结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-RFID"><span class="nav-number">3.7.</span> <span class="nav-text">4.7 RFID</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-1-EPC-Gen-2体系结构"><span class="nav-number">3.7.1.</span> <span class="nav-text">4.7.1 EPC Gen 2体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-2-EPC-Gen-2物理层"><span class="nav-number">3.7.2.</span> <span class="nav-text">4.7.2 EPC Gen 2物理层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-3-EPC-Gen-2标签识别层"><span class="nav-number">3.7.3.</span> <span class="nav-text">4.7.3 EPC Gen 2标签识别层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-4-标签标识消息格式"><span class="nav-number">3.7.4.</span> <span class="nav-text">4.7.4 标签标识消息格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-数据链路层交换"><span class="nav-number">3.8.</span> <span class="nav-text">4.8 数据链路层交换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-1-网桥的使用"><span class="nav-number">3.8.1.</span> <span class="nav-text">4.8.1 网桥的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-2-学习网桥"><span class="nav-number">3.8.2.</span> <span class="nav-text">4.8.2 学习网桥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-3-生成树网桥"><span class="nav-number">3.8.3.</span> <span class="nav-text">4.8.3 生成树网桥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-4-中继器-集线器-网桥-交换机-路由器和网关"><span class="nav-number">3.8.4.</span> <span class="nav-text">4.8.4 中继器/集线器/网桥/交换机/路由器和网关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-5-虚拟局域网"><span class="nav-number">3.8.5.</span> <span class="nav-text">4.8.5 虚拟局域网</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、网络层"><span class="nav-number">4.</span> <span class="nav-text">五、网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-网络层的设计问题"><span class="nav-number">4.1.</span> <span class="nav-text">5.1 网络层的设计问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-存储转发数据包交换"><span class="nav-number">4.1.1.</span> <span class="nav-text">5.1.1 存储转发数据包交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-提供给传输层的服务"><span class="nav-number">4.1.2.</span> <span class="nav-text">5.1.2 提供给传输层的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-无连接服务的实现"><span class="nav-number">4.1.3.</span> <span class="nav-text">5.1.3 无连接服务的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-面向连接服务的实现"><span class="nav-number">4.1.4.</span> <span class="nav-text">5.1.4 面向连接服务的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-虚电路与数据报网络的比较"><span class="nav-number">4.1.5.</span> <span class="nav-text">5.1.5 虚电路与数据报网络的比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-路由算法"><span class="nav-number">4.2.</span> <span class="nav-text">5.2 路由算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-优化原则"><span class="nav-number">4.2.1.</span> <span class="nav-text">5.2.1 优化原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-最短路径算法"><span class="nav-number">4.2.2.</span> <span class="nav-text">5.2.2 最短路径算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-泛洪算法"><span class="nav-number">4.2.3.</span> <span class="nav-text">5.2.3 泛洪算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-4-距离矢量算法"><span class="nav-number">4.2.4.</span> <span class="nav-text">5.2.4 距离矢量算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-5-链路状态路由"><span class="nav-number">4.2.5.</span> <span class="nav-text">5.2.5 链路状态路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-6-层次路由"><span class="nav-number">4.2.6.</span> <span class="nav-text">5.2.6 层次路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-7-广播路由"><span class="nav-number">4.2.7.</span> <span class="nav-text">5.2.7 广播路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-8-组播路由"><span class="nav-number">4.2.8.</span> <span class="nav-text">5.2.8 组播路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-9-选播路由"><span class="nav-number">4.2.9.</span> <span class="nav-text">5.2.9 选播路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-10-移动主机路由"><span class="nav-number">4.2.10.</span> <span class="nav-text">5.2.10 移动主机路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-11-自组织网络路由"><span class="nav-number">4.2.11.</span> <span class="nav-text">5.2.11 自组织网络路由</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-拥塞控制算法"><span class="nav-number">4.3.</span> <span class="nav-text">5.3 拥塞控制算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-拥塞控制的途径"><span class="nav-number">4.3.1.</span> <span class="nav-text">5.3.1 拥塞控制的途径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-流量感知路由"><span class="nav-number">4.3.2.</span> <span class="nav-text">5.3.2 流量感知路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-准入控制"><span class="nav-number">4.3.3.</span> <span class="nav-text">5.3.3 准入控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-4-流量调节"><span class="nav-number">4.3.4.</span> <span class="nav-text">5.3.4 流量调节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-5-负载脱落"><span class="nav-number">4.3.5.</span> <span class="nav-text">5.3.5 负载脱落</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-服务质量"><span class="nav-number">4.4.</span> <span class="nav-text">5.4 服务质量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-1-应用需求"><span class="nav-number">4.4.1.</span> <span class="nav-text">5.4.1 应用需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-2-流量整形"><span class="nav-number">4.4.2.</span> <span class="nav-text">5.4.2 流量整形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-3-包调度"><span class="nav-number">4.4.3.</span> <span class="nav-text">5.4.3 包调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-4-准入控制"><span class="nav-number">4.4.4.</span> <span class="nav-text">5.4.4 准入控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-5-综合服务"><span class="nav-number">4.4.5.</span> <span class="nav-text">5.4.5 综合服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-6-区分服务"><span class="nav-number">4.4.6.</span> <span class="nav-text">5.4.6 区分服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-网络互联"><span class="nav-number">4.5.</span> <span class="nav-text">5.5 网络互联</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-1-网络如何不同"><span class="nav-number">4.5.1.</span> <span class="nav-text">5.5.1 网络如何不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-2-何以连接网络"><span class="nav-number">4.5.2.</span> <span class="nav-text">5.5.2 何以连接网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-3-隧道"><span class="nav-number">4.5.3.</span> <span class="nav-text">5.5.3 隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-4-互联网路由"><span class="nav-number">4.5.4.</span> <span class="nav-text">5.5.4 互联网路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-5-数据包分段"><span class="nav-number">4.5.5.</span> <span class="nav-text">5.5.5 数据包分段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-Internet的网络层"><span class="nav-number">4.6.</span> <span class="nav-text">5.6 Internet的网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-1-IPv4协议"><span class="nav-number">4.6.1.</span> <span class="nav-text">5.6.1 IPv4协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-2-IP地址"><span class="nav-number">4.6.2.</span> <span class="nav-text">5.6.2 IP地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-3-IPv6协议"><span class="nav-number">4.6.3.</span> <span class="nav-text">5.6.3 IPv6协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-4-Internet控制协议"><span class="nav-number">4.6.4.</span> <span class="nav-text">5.6.4 Internet控制协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-5-标签交换和-MPLS"><span class="nav-number">4.6.5.</span> <span class="nav-text">5.6.5 标签交换和 MPLS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-6-OSPF—内部网关路由协议"><span class="nav-number">4.6.6.</span> <span class="nav-text">5.6.6 OSPF—内部网关路由协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-7-BGP—外部网关路由协议"><span class="nav-number">4.6.7.</span> <span class="nav-text">5.6.7 BGP—外部网关路由协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-8-Internet组播"><span class="nav-number">4.6.8.</span> <span class="nav-text">5.6.8 Internet组播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-9-移动IP"><span class="nav-number">4.6.9.</span> <span class="nav-text">5.6.9 移动IP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、网络安全"><span class="nav-number">5.</span> <span class="nav-text">八、网络安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-密码学"><span class="nav-number">5.1.</span> <span class="nav-text">8.1 密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-1-密码学概论"><span class="nav-number">5.1.1.</span> <span class="nav-text">8.1.1 密码学概论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-2-置换密码"><span class="nav-number">5.1.2.</span> <span class="nav-text">8.1.2 置换密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-3-替代密码"><span class="nav-number">5.1.3.</span> <span class="nav-text">8.1.3 替代密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-一次性密钥"><span class="nav-number">5.1.4.</span> <span class="nav-text">8.1.4 一次性密钥</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-对称密钥算法"><span class="nav-number">5.2.</span> <span class="nav-text">8.2 对称密钥算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-DES—数据加密标准"><span class="nav-number">5.2.1.</span> <span class="nav-text">8.2.1 DES—数据加密标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-AES—高级加密标准"><span class="nav-number">5.2.2.</span> <span class="nav-text">8.2.2 AES—高级加密标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-3-密码模式"><span class="nav-number">5.2.3.</span> <span class="nav-text">8.2.3 密码模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-4-其他密码模式"><span class="nav-number">5.2.4.</span> <span class="nav-text">8.2.4 其他密码模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-5-密码分析"><span class="nav-number">5.2.5.</span> <span class="nav-text">8.2.5 密码分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-公开密钥算法"><span class="nav-number">5.3.</span> <span class="nav-text">8.3 公开密钥算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-1-RSA"><span class="nav-number">5.3.1.</span> <span class="nav-text">8.3.1 RSA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-2-其他公开密钥算法"><span class="nav-number">5.3.2.</span> <span class="nav-text">8.3.2 其他公开密钥算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-数字签名"><span class="nav-number">5.4.</span> <span class="nav-text">8.4 数字签名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-4-1-对称密钥签名"><span class="nav-number">5.4.1.</span> <span class="nav-text">8.4.1 对称密钥签名</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leselier</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
